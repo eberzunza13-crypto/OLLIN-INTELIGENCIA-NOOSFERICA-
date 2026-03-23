@@ -1,0 +1,310 @@
+Arquitectura Simétrica Orbital Dual
+
+Inventor: Luis Ernesto Berzunza Díaz
+Fecha de divulgación pública: 24 de marzo de 2026 (timestamp verificable de este commit)
+Domicilio: Chihuahua, Chihuahua, México
+Registro Safe Creative: #2603205036980
+Repositorio GitHub: [enlace]
+Código de referencia: ollin_nuclear_v7.py (publicado en este repositorio)
+
+Powered by OLLIN — Inteligencia Noosérica
+La noosfera es el espacio del pensamiento humano colectivo. OLLIN es la infraestructura que lo hace portable, privado y del usuario.
+1. Campo Técnico
+
+La presente invención se refiere a sistemas de gestión de contexto cognitivo para modelos de inteligencia artificial, aplicaciones y plataformas digitales, así como a arquitecturas de procesamiento simétrico para conocimiento. En particular, comprende:
+
+    Una Memoria Episódica Contextual Portable (MECP) que reside en el dispositivo del usuario, es independiente del modelo de IA utilizado, persiste entre sesiones y es portable entre distintos modelos, aplicaciones y proveedores mediante un protocolo estandarizado.
+
+    Una Arquitectura Simétrica Orbital Dual que desdobla cada entrada de conocimiento en dos flujos simultáneos (consolidación y análisis) que recorren sus respectivos repositorios en direcciones opuestas, garantizando simetría, acumulación sin jerarquías y un agente observador transversal.
+
+Ambas invenciones operan bajo un conjunto de principios arquitectónicos inmutables que constituyen su esencia y restricciones técnicas.
+2. Cláusula de Variaciones Contempladas
+
+La presente publicación defensiva cubre expresamente todas las variaciones, adaptaciones e implementaciones que preserven la esencia de la invención, incluyendo sin limitarse a:
+
+    Implementaciones en cualquier lenguaje de programación (Python, Kotlin, Java, C++, Rust, etc.).
+
+    Implementaciones en cualquier plataforma (Android, iOS, Linux, Windows, web, embebidos, etc.).
+
+    Implementaciones que utilicen cualquier arquitectura de hardware (móvil, escritorio, servidor, etc.).
+
+    Implementaciones que integren la MECP con cualquier modelo de IA (local o remoto).
+
+    Implementaciones que adapten los nombres de los componentes (Sueño, Mitote, Ometeotl, etc.) a otras denominaciones.
+
+    Implementaciones que amplíen los modos de la MECP (N modos).
+
+    Implementaciones que modifiquen la dirección de las órbitas siempre que se mantenga la dualidad opuesta y la simetría de consolidación y análisis.
+
+    Modificaciones en cascada: cualquier derivación que preserve la dualidad opuesta, la simetría y los principios fundacionales, ya sea mediante cambios en la secuencia de procesamiento, en la granularidad de los nodos, en la forma de fragmentación o en la interfaz con modelos externos, queda cubierta por esta publicación.
+
+    Implementaciones sectoriales (salud, educación, bienestar, productividad, etc.).
+
+Ninguna variación que preserve la portabilidad del contexto y la arquitectura simétrica orbital dual puede considerarse invención independiente respecto a la presente publicación.
+3. Estado de la técnica comparado
+Característica	RAG	LangChain	ChatGPT / Claude (memoria)	Esta invención
+Reside en dispositivo usuario	✗	✗	✗	✓
+Portable entre modelos de IA	✗	✗	✗	✓
+N modos configurables	✗	Parcial	✗	✓ (≥4 modos)
+Sellado temporal / carga bajo demanda	✗	✗	✗	✓
+Agente observador transversal	✗	✗	✗	✓
+Fragmentación protectora (técnica)	✗	✗	✗	✓
+Dualidad de flujos opuestos	✗	✗	✗	✓
+Arquitectura simétrica / en espejo	✗	✗	✗	✓
+Agente dual opuesto	✗	✗	✗	✓
+Acumulación sin jerarquías	✗	✗	✗	✓
+Principios filosóficos como restricciones técnicas	✗	✗	✗	✓
+
+Ningún sistema previo combina la totalidad de estas características. En particular:
+
+    La portabilidad real del contexto entre modelos de IA (sin dependencia del proveedor) no existe en ningún sistema conocido.
+
+    La arquitectura simétrica o en espejo, donde dos flujos de procesamiento (consolidación y análisis) recorren sus respectivos repositorios en direcciones opuestas con igual jerarquía, no está presente en RAG, LangChain, ChatGPT, Claude ni en ningún otro sistema de IA documentado.
+
+    Tampoco existe en ningún sistema previo un agente dual opuesto que recorra simultáneamente todos los flujos, observe sin modificar, verifique reglas inmutables y pueda pausar el sistema ante violaciones.
+
+    La combinación de modos configurables de memoria, sellado temporal con carga bajo demanda, fragmentación protectora técnica y principios arquitectónicos inmutables es inédita.
+
+Por tanto, la invención aquí descrita es novedosa y no obvia respecto al estado de la técnica conocido a la fecha de esta publicación.
+4. Principios Arquitectónicos Fundamentales
+
+Los siguientes principios no son declaraciones de política; están codificados como restricciones técnicas inmutables en la arquitectura. Cada uno se implementa en componentes concretos:
+
+    Dialéctico – Implementado en el motor de generación de preguntas (Mitote) que confronta tesis y antítesis mediante la deliberación de grupos de sabios, produciendo síntesis. El agente observador verifica que se generen preguntas opuestas.
+
+    Cartesiano – Implementado mediante la Capa Anti-Bias 00 que etiqueta todo dato con su estado epistémico (verificado, especulativo, contradictorio, etc.) y la trazabilidad obligatoria de fuentes. El repositorio central conserva el hash de cada aportación.
+
+    Multidimensional – Implementado en la estructura de cada nodo, que contiene múltiples dimensiones de análisis del mismo actor o concepto: por ejemplo, un nodo sobre un conflicto incluye dimensiones geopolítica, económica, ecológica, social, histórica, etc. La Cámara de Diálogo activa grupos de sabios de distintas disciplinas para cada nodo, y el Blind Spot Detector detecta dimensiones ausentes, reiniciando el análisis si es necesario.
+
+    Plural – Implementado mediante la Cámara de Diálogo, que incluye grupos de pensamiento diversos (geopolítica, economía, ecología, feminismo, saberes indígenas, arte, ciencia, etc.) y la prohibición de jerarquización entre etiquetas. La fragmentación protectora impide que un solo proveedor imponga su visión.
+
+    Biosférico – Implementado mediante un modelo del mundo con indicadores ambientales, climáticos y de recursos, que se consulta automáticamente en los análisis. Las preguntas generadas consideran impactos ecológicos.
+
+    Socrático – Implementado mediante la generación de preguntas que exponen lo que el sistema no sabe, la revisión continua de hipótesis y la capacidad del agente observador de pausar el flujo ante violaciones, dejando que el usuario reanude.
+
+    Hermenéutico – Implementado mediante la acumulación sin jerarquías: todas las versiones, fuentes y etiquetas epistémicas se conservan; no se elimina información por su contenido. La MECP almacena todas las interpretaciones.
+
+    Transparencia radical – Implementado mediante el agente observador, que registra cada operación en un repositorio accesible al usuario, y la MECP que permite exportar el contexto completo con trazabilidad de fuentes y fechas.
+
+    Humanista – Implementado mediante la soberanía del usuario sobre sus datos (residencia en dispositivo), la no mercantilización del contexto (prohibición de uso para entrenamiento sin consentimiento) y la accesibilidad gratuita para uso individual, académico y civil.
+
+    Observar sin juzgar – Implementado mediante la Capa Anti-Bias 00 que etiqueta sin suprimir, y el repositorio central que conserva todas las versiones. La única respuesta ante información problemática es la etiqueta epistémica, nunca la supresión.
+
+    Noosférico – La noosfera es el espacio del pensamiento humano colectivo. El sistema reconoce que el conocimiento no es propiedad de un solo individuo ni de una corporación; es un bien común que se construye en la interacción de todas las conciencias. Este principio se implementa mediante la portabilidad del contexto (que permite que el conocimiento fluya entre personas y sistemas), la acumulación colaborativa (los nodos pueden ser enriquecidos por múltiples usuarios con permiso) y la licencia de valores que exige que cualquier implementación comercial preserve la gratuidad para uso individual y la no mercantilización del contexto humano.
+
+Estos principios son inmutables. Ninguna actualización, configuración del usuario ni instrucción de un modelo externo puede modificarlos sin romper la arquitectura. Son la base técnica de las reivindicaciones que siguen.
+5. Descripción de la Invención
+5.1 Memoria Episódica Contextual Portable (MECP)
+
+La MECP es un componente de software que gestiona el contexto del usuario con las siguientes características:
+5.1.1 Residencia en el dispositivo del usuario final
+
+    Todos los datos de contexto se almacenan exclusivamente en el dispositivo del usuario (smartphone, computadora personal, etc.). No hay copia en servidores del proveedor del modelo de IA ni de terceros.
+
+5.1.2 Independencia del modelo de IA
+
+    La MECP opera independientemente del modelo de IA utilizado (local o remoto). El contexto puede ser consumido por cualquier modelo mediante un protocolo de exportación estandarizado (formato de prompt que incluye el historial, modo, proyecto y metadatos).
+
+5.1.3 Persistencia entre sesiones
+
+    El contexto se mantiene incluso después de cerrar la aplicación o cambiar de dispositivo (mediante copia de seguridad local autorizada por el usuario).
+
+5.1.4 Portabilidad entre modelos y aplicaciones
+
+    El usuario puede transferir su contexto completo de un modelo de IA (ej. Ollama) a otro (ej. ChatGPT) sin pérdida de información, simplemente exportando el contexto en el formato estándar e inyectándolo en el prompt del nuevo modelo.
+
+5.1.5 N modos configurables por proyecto
+
+La MECP implementa al menos cuatro modos de comportamiento, configurables por el usuario a nivel de proyecto:
+
+    Modo Episódico: acumulación secuencial de nodos en orden cronológico. Permite recuperación por fecha, búsqueda por palabras clave y activación de recordatorios.
+
+    Modo Persistente: almacenamiento permanente con organización en subcategorías definidas por el usuario. Los episodios se sellan temporalmente cuando superan un umbral configurable.
+
+    Modo Cíclico: rotación automática por límite de tiempo o número de nodos. Los registros más antiguos se eliminan cuando se alcanza el límite.
+
+    Modo FugaZ (Sin persistencia): ningún dato se almacena en disco; todo contexto reside en memoria volátil durante la sesión activa.
+
+5.1.6 Sellado temporal y carga bajo demanda
+
+    El contexto se divide en sellos cronológicos (ej. por día). Cada sello es un archivo inmutable. El sistema solo carga en RAM el episodio activo; los episodios sellados residen en almacenamiento local, minimizando el consumo de memoria RAM y permitiendo funcionar en dispositivos de gama baja.
+
+5.1.7 Fragmentación protectora
+
+    Cuando la MECP exporta contexto a un modelo de IA externo, fragmenta los nodos y rompe las relaciones explícitas entre ellos. En la implementación de referencia, el agente observador extrae los nodos individuales, elimina sus identificadores de relación, metadatos de conexión y cualquier información que permita reconstruir el grafo completo, presentándolos en orden aleatorio o en fragmentos no relacionados. El modelo recibe solo los fragmentos relevantes para la tarea inmediata, pero no recibe:
+
+        La cadena completa de nodos con sus relaciones semánticas.
+
+        El historial completo de conversaciones del usuario.
+
+        Los metadatos de conexión entre nodos.
+
+        El grafo de conocimiento completo del usuario.
+
+    Esto impide que ningún host de IA ni su empresa operadora pueda extraer el perfil cognitivo completo del usuario. La protección es técnica, no contractual.
+
+5.1.8 Protocolo de exportación estándar
+
+Formato definido:
+text
+
+[INICIO_CONTEXTO]
+Proyecto: {nombre_proyecto}
+Modo: {modo_activo}
+Período: {fecha_inicio} - {fecha_actual}
+Nodos relevantes (últimos N):
+[{timestamp}][{etiqueta}] {contenido}
+[{timestamp}][{etiqueta}] {contenido}
+...
+Recordatorios activos: {lista}
+[FIN_CONTEXTO]
+
+Este formato es legible por humanos y por máquinas, y garantiza que el contexto pueda ser transferido a cualquier sistema presente o futuro sin dependencia del proveedor original.
+5.2 Arquitectura Simétrica Orbital Dual
+
+La arquitectura simétrica orbital dual describe el procesamiento interno del sistema, complementario a la MECP. Se fundamenta en dos conceptos tradicionales:
+
+    Sueño (Temictli) : es el conocimiento que se consolida, se integra, se guarda. Es la memoria que sedimenta, el repositorio de lo que se sabe con todas sus fuentes y versiones. En su movimiento, recorre los nodos acumulados, ordenándolos y preservándolos para el futuro.
+
+    Mitote (Mitotl) : es el proceso de cuestionamiento, la duda metódica, la dialéctica que genera nuevas preguntas. Es la mente que inquiere, que descompone lo establecido para encontrar nuevas perspectivas. En su movimiento, recorre los nodos en dirección opuesta al Sueño, desafiando lo consolidado.
+
+Aclaración sobre nomenclatura: En la implementación de referencia se utilizan los nombres tradicionales Sueño y Mitote para designar respectivamente el flujo de consolidación y el flujo de análisis; estos nombres son intercambiables con cualquier otra denominación que preserve la función técnica descrita.
+
+Ambos flujos operan simultáneamente y de forma simétrica: no hay jerarquía entre ellos. La simetría se refiere a que ambos tienen igual importancia y se retroalimentan mutuamente. Para mantener esta simetría, recorren sus respectivos repositorios en direcciones opuestas.
+5.2.1 Desdoblamiento en flujos simultáneos
+
+    Cuando un nuevo nodo de conocimiento ingresa al sistema, un componente (Ollin) lo desdobla en dos procesos paralelos e independientes:
+
+        Sueño: consolida el conocimiento, lo añade a los nodos existentes (acumulación) o crea nuevos nodos. Es la vía de la integración.
+
+        Mitote: analiza el conocimiento, genera preguntas dialécticas, sugiere nuevas investigaciones y detecta inconsistencias. Es la vía de la crítica.
+
+5.2.2 Órbitas opuestas simétricas
+
+    Sueño y Mitote recorren sus respectivos repositorios en direcciones unidireccionales pero opuestas. En la implementación de referencia, Sueño avanza en orden cronológico ascendente (de más antiguo a más reciente) mientras Mitote avanza en orden cronológico descendente (de más reciente a más antiguo). Esta disposición garantiza que el sistema mantenga una simetría perfecta entre la consolidación del conocimiento y su análisis crítico, sin jerarquías ni pesos matemáticos.
+
+5.2.3 Agente Observador Total (Ometeotl)
+
+    Un componente transversal recorre todos los flujos del sistema simultáneamente.
+
+    Observa sin modificar: registra cada operación en un repositorio separado (Conocimiento de los Dioses).
+
+    Verifica el cumplimiento de las reglas inmutables (principios arquitectónicos, no jerarquización, no omisión de información).
+
+    Pausa el flujo del sistema ante detección de violaciones; solo el usuario autorizado puede reanudar.
+
+    Gestiona la MECP: sellado temporal, activación de recordatorios, indexación por palabras clave.
+
+    Actúa como punto de integración con aplicaciones externas bajo permiso explícito del usuario, implementando la fragmentación protectora.
+
+5.2.4 Acumulación sin jerarquías
+
+    Todo conocimiento nuevo se acumula en los nodos existentes, conservando la fuente, fecha y etiqueta epistémica de cada aportación.
+
+    Prohibición expresa de jerarquización: ninguna etiqueta tiene valor superior a otra. No se asignan pesos numéricos a las categorías epistémicas (verificado, especulativo, etc.). Los valores numéricos solo se utilizan en dominios de ciencias exactas dentro de repositorios específicos.
+
+5.2.5 Dualidad simétrica
+
+    La arquitectura es simétrica por diseño: los flujos de Sueño y Mitote no se subordinan entre sí. Ambos depositan sus resultados en el repositorio central (AHO), que actúa como punto de equilibrio sin intervenir en el procesamiento.
+
+5.3 El Núcleo Completo – Los 4 Protones
+
+En la implementación de referencia, el sistema se organiza alrededor de un núcleo estable compuesto por cuatro componentes activos (protones) y un componente pasivo (neutrón):
+
+    AHO (La Piedra) actúa como el neutrón: sin carga, sin dirección, sin juicio. Es el repositorio central que almacena todo el conocimiento de forma inmutable. Solo masa, solo fundamento. Proporciona la estabilidad del núcleo.
+
+    Protones (componentes con carga, dirección y energía):
+
+        Ingesta (Anti-Bias 00) – carga clasificadora. Etiqueta epistemológicamente cada dato antes de ingresar al sistema, sin jerarquías ni pesos numéricos.
+
+        Sueño (Temictli) – carga consolidadora. Flujo hacia el interior, acumulación e integración del conocimiento.
+
+        Mitote (Mitotl) – carga analítica. Flujo hacia el exterior, generación de preguntas, dialéctica y síntesis.
+
+        Memoria Episódica Contextual Portable (MECP) – carga contextual. Gestiona el contexto del usuario con modos configurables (episódico, persistente, cíclico, fugaZ), sellado temporal y carga bajo demanda.
+
+La Memoria Episódica implementa el principio de carga bajo demanda: solo se cargan en RAM los fragmentos de contexto necesarios para la tarea inmediata; los episodios sellados permanecen en almacenamiento local. Esto permite que el sistema pueda tener millones de nodos y seguir funcionando en dispositivos con recursos limitados, cargando únicamente los 5‑10 nodos más relevantes para cada análisis.
+
+Esta estructura de núcleo, con cuatro protones orbitando alrededor de un neutrón, asegura la simetría, la portabilidad y la eficiencia energética (en términos de uso de recursos) que caracterizan a la invención.
+6. Reivindicaciones
+
+Reivindicación 1
+Sistema de memoria episódica contextual portable para modelos de inteligencia artificial, empresas de tecnología y aplicaciones de terceros, caracterizado porque reside en el dispositivo del usuario final, opera independientemente del modelo de IA utilizado, persiste entre sesiones y es portable entre distintos modelos de IA, aplicaciones y proveedores mediante un protocolo de exportación de contexto estandarizado, siendo la propiedad del contexto exclusiva e irrenunciable del usuario final.
+
+Reivindicación 2
+Sistema según la reivindicación 1, caracterizado porque implementa N modos de comportamiento configurables por proyecto, donde N es un número entero mayor o igual a 1, siendo cada modo independientemente configurable en términos de duración, persistencia y comportamiento de rotación, comprendiendo al menos un modo episódico, un modo persistente, un modo cíclico y un modo sin persistencia.
+
+Reivindicación 3
+Sistema según la reivindicación 1, caracterizado porque implementa un mecanismo de sellado temporal que crea puntos de quiebre cronológicos en la cadena de contexto, permitiendo recuperación de episodios específicos con carga bajo demanda desde almacenamiento local, minimizando el uso de memoria RAM activa.
+
+Reivindicación 4
+Sistema según la reivindicación 1, caracterizado porque incluye un agente observador que recorre simultáneamente todos los flujos del sistema, registra la totalidad de las operaciones en repositorio separado, verifica reglas operativas en tiempo real y gestiona el sellado temporal y la activación de recordatorios de la memoria episódica.
+
+Reivindicación 5
+Sistema según la reivindicación 4, caracterizado porque el agente observador implementa un protocolo de integración con aplicaciones externas que requiere permiso explícito, granular y revocable del usuario para cada fuente de datos, sin permitir flujo de datos en sentido contrario sin autorización adicional.
+
+Reivindicación 6
+Método de portabilidad de contexto cognitivo entre modelos de inteligencia artificial, caracterizado porque exporta el contexto acumulado en un formato estandarizado independiente del modelo de origen, permitiendo la continuación del contexto en cualquier modelo de IA de destino sin pérdida de información.
+
+Reivindicación 7
+Sistema según las reivindicaciones 1 a 6, caracterizado porque la totalidad del almacenamiento de contexto reside en el dispositivo del usuario final, siendo propiedad exclusiva e irrenunciable del usuario, sin residencia en servidores de terceros.
+
+Reivindicación 8
+Sistema según las reivindicaciones 1 a 7, caracterizado porque implementa los principios arquitectónicos fundamentales como restricciones técnicas inmutables, incluyendo al menos: dialéctico, cartesiano, multidimensional, plural, biosférico, socrático, hermenéutico, transparencia radical, humanista, observar sin juzgar y noosférico; siendo dichos principios no modificables por ninguna configuración, actualización o instrucción externa, y estando implementados técnicamente en los componentes del sistema según se describe en la sección 4.
+
+Reivindicación 9
+Sistema según las reivindicaciones 1 a 8, caracterizado porque el agente observador implementa un mecanismo de fragmentación protectora que, al exportar contexto, extrae nodos individuales, elimina sus identificadores de relación y metadatos de conexión, y los presenta en orden fragmentado, impidiendo que ningún host de IA ni su empresa operadora pueda extraer el contexto completo, el historial completo de conversaciones o el grafo de conocimiento completo del usuario, siendo esta protección técnica y no meramente contractual.
+
+Reivindicación 10
+Sistema según la reivindicación 9, caracterizado porque establece una distinción arquitectónica entre lo que un modelo de IA puede recibir — fragmentos de contexto relevantes para la tarea inmediata — y lo que ningún modelo ni su empresa operadora puede recibir — conversaciones completas, contexto continuo completo y relaciones completas entre nodos.
+
+Reivindicación 11
+Sistema según las reivindicaciones 1 a 10, caracterizado porque el modelo de IA utilizado para procesamiento y la entidad que lo opera no reciben actualización, retroalimentación ni acceso a los datos del contexto del usuario, salvo autorización explícita, granular y revocable del usuario para una transferencia específica y por el mínimo de datos técnicamente necesario.
+
+Reivindicación 12
+Arquitectura de procesamiento de conocimiento caracterizada por:
+
+    un componente de desdoblamiento (Ollin) que bifurca cada entrada de conocimiento en dos flujos paralelos;
+
+    un primer flujo (Sueño) que consolida la información hacia el interior del sistema de forma acumulativa;
+
+    un segundo flujo (Mitote) que analiza la información hacia el exterior generando preguntas y sugerencias;
+
+    donde ambos flujos recorren sus respectivos repositorios en direcciones unidireccionales opuestas, uno en orden cronológico ascendente y el otro en orden cronológico descendente, garantizando simetría sin jerarquías.
+
+Reivindicación 13
+Arquitectura según la reivindicación 12, caracterizada por incluir un agente observador (Ometeotl) que recorre todos los flujos simultáneamente, registra todas las operaciones, verifica el cumplimiento de reglas inmutables y puede pausar el flujo del sistema ante violaciones.
+
+Reivindicación 14
+Arquitectura según las reivindicaciones 12 o 13, caracterizada porque la acumulación de conocimiento en los nodos se realiza sin jerarquías ni pesos numéricos, conservando todas las versiones, fuentes y etiquetas epistémicas.
+
+Reivindicación 15
+Sistema según las reivindicaciones 1 a 14, caracterizado por incluir una Aplicación de Organización de Privacidad Personal (AOPP) que permite al usuario gestionar de forma granular qué fragmentos de contexto son visibles para cada modelo de IA, empresa de tecnología o aplicación externa, implementando separación de datos sin eliminación y gestión por períodos sellados temporalmente.
+
+Reivindicación 16
+Sistema según las reivindicaciones 1 a 15, caracterizado porque establece como condición de uso para toda empresa de tecnología, desarrollador de modelo de IA o aplicación externa que implemente esta arquitectura o acceda a la MECP del usuario, la adopción de los principios arquitectónicos fundamentales como restricciones técnicas de su propia implementación, la presentación de una AOPP funcional y el cumplimiento del protocolo de fragmentación protectora, siendo estas condiciones irrenunciables e inaudibles.
+
+Reivindicación 17
+Ecosistema de aplicaciones caracterizado porque requiere que toda aplicación que desee integrarse al repositorio de Memoria Episódica Contextual Portable adopte los principios arquitectónicos fundamentales como restricciones técnicas propias, declare públicamente sus solicitudes de datos y permita revocación inmediata de acceso sin pérdida de datos del usuario, siendo este requisito la condición de entrada al ecosistema OLLIN — Inteligencia Noosérica.
+
+Reivindicación 18
+Sistema según las reivindicaciones 1 a 17, caracterizado por implementar el principio de no omisión como restricción técnica inmutable: el sistema no puede ocultar, filtrar ni omitir información no personal en entrada o salida por razones ideológicas, comerciales o de conveniencia, siendo la etiqueta epistemológica la única respuesta técnicamente válida ante información problemática — nunca su supresión.
+
+Reivindicación 19
+Sistema según las reivindicaciones 1 a 18, caracterizado por incluir un componente de Capa Anti-Sesgo 00 en la entrada que clasifica y etiqueta epistemológicamente todo dato antes de ingresar al sistema, con dos principios inmutables: (a) prohibición de jerarquización entre etiquetas; (b) prohibición de valores numéricos en dichas etiquetas, siendo estos principios no alterables por ningún proceso posterior, configuración del usuario ni instrucción de modelo externo.
+
+Reivindicación 20
+Sistema según las reivindicaciones 1 a 19, caracterizado por organizarse como un núcleo estable compuesto por cuatro componentes activos (protones) – Ingesta, Sueño, Mitote y Memoria Episódica – orbitando alrededor de un repositorio central neutrón (AHO), donde la Memoria Episódica implementa carga bajo demanda y los flujos de Sueño y Mitote son opuestos y simétricos, según se describe en la sección 5.3.
+7. Condiciones de uso
+
+Este documento constituye publicación defensiva de prior art. El inventor, Luis Ernesto Berzunza Díaz, declara que toda la invención aquí descrita ha sido divulgada públicamente con fecha anterior a la presente. Cualquier solicitud de patente posterior que cubra total o parcialmente la misma invención o una sustancialmente similar, presentada con fecha posterior a esta divulgación, carecerá de novedad y constituirá un acto de mala fe.
+
+El inventor se reserva el derecho de oponerse a dichas solicitudes y de presentar este documento como prueba de estado de la técnica.
+
+La implementación de referencia de esta invención está disponible en el repositorio GitHub bajo la Licencia OLLIN v1.0, que establece el acceso gratuito para uso individual, académico y civil, y condiciones para uso comercial que preserven los valores fundacionales y principios arquitectónicos.
+
+Powered by OLLIN — Inteligencia Noosérica
+© 2026 Luis Ernesto Berzunza Díaz
+Safe Creative #2603205036980
+Chihuahua, Chihuahua, México
+24 de marzo de 2026
