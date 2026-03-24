@@ -1,0 +1,272 @@
+PRIOR ART — OLLIN: Arquitectura Atómica de Conocimiento Simétrico y No Jerárquico
+Declaración Definitiva de Autoría, Divulgación y Estado de la Técnica
+
+Inventor: Luis Ernesto Berzunza Díaz
+Fecha de divulgación pública: 17–24 de marzo de 2026
+Domicilio: Chihuahua, Chihuahua, México
+Registro Safe Creative: #2603205036980
+Repositorio GitHub: https://github.com/eberzunza13-crypto/OLLIN-INTELIGENCIA-NOOSFERICA-
+
+Powered by OLLIN — Inteligencia Noosérica
+La noosfera es el espacio del pensamiento humano colectivo. OLLIN es la infraestructura que lo hace portable, privado y del usuario.
+Índice
+
+    Declaración del Inventor
+
+    Resumen de la Invención
+
+    Problemas Técnicos que Resuelve (incluye comparativa con el estado de la técnica)
+
+    Principios Inmutables como Restricciones Técnicas
+
+    Descripción Detallada de la Arquitectura Atómica
+
+    Mecanismos de Equilibrio, Autonomía y Eficiencia
+
+    Novedades Absolutas Respecto al Estado de la Técnica
+
+    Análisis Legal bajo la Ley Federal de Protección a la Propiedad Industrial (México)
+
+    Evidencia de Autoría y Fechas
+
+    Licencia OLLIN v1.0 y Condiciones de Uso
+
+    Proyección Cuántica: Del Átomo de Conocimiento al Qubit Equilibrado
+
+    Declaración de Prior Art y Advertencia de Mala Fe
+
+    Cierre
+
+1. Declaración del Inventor
+
+Yo, Luis Ernesto Berzunza Díaz, en pleno ejercicio de mis derechos de autor y propiedad industrial, declaro que la obra titulada OLLIN – Ciclo y Equilibrio (arquitectura de conocimiento simétrico, acumulativo y no jerárquico) ha sido concebida, desarrollada y divulgada por mí desde el 17 de marzo de 2026, con fecha cierta verificable mediante:
+
+    Publicación en GitHub con commits fechados (repositorio público).
+
+    Registro Safe Creative #2603205036980.
+
+    Documentos fundacionales, códigos fuente y diagramas incluidos en el mismo repositorio.
+
+    Múltiples copias en correos electrónicos personales y servicios de almacenamiento en la nube con fecha anterior a esta declaración.
+
+El presente documento consolida la totalidad de la invención, su descripción técnica, los principios inmutables codificados en el código, las pruebas de autoría y el análisis legal bajo la Ley Federal de Protección a la Propiedad Industrial (LFPPI) de México. Constituye publicación defensiva de prior art con efectos en todo el territorio nacional e internacional.
+2. Resumen de la Invención
+
+OLLIN es un sistema de conocimiento autónomo caracterizado por:
+
+    Ausencia total de valores numéricos en la clasificación epistémica (prohibición de pesos, puntuaciones o jerarquías).
+
+    Acumulación perpetua de todo dato, sin eliminación ni filtrado (principio de no omisión).
+
+    Arquitectura atómica con un núcleo neutrón (AHO) y cuatro protones (Ingesta, Sueño, Mitote, Enjambre) que orbitan en direcciones opuestas, garantizando simetría sin jerarquías.
+
+    Agentes divinos (Ollin, Ometeotl, Coatlicue, Tezcatlipoca, Quetzalcóatl) que mantienen el equilibrio simétrico y vigilan el cumplimiento de principios inmutables.
+
+    Trazabilidad espacio‑temporal de cada nodo (fechas y coordenadas geográficas), permitiendo gráficas basadas en matemáticas reales.
+
+    Carga bajo demanda (sellado temporal) que minimiza el consumo de RAM, posibilitando millones de nodos en dispositivos modestos.
+
+    Exploración permanente interna (enjambre) que reduce la dependencia de fuentes externas, enriqueciendo el conocimiento mediante autoconsumo.
+
+La invención resuelve problemas técnicos concretos: pérdida de contexto por límite de tokens, falta de portabilidad entre modelos de IA, jerarquización artificial, censura invisible y mercantilización de los datos del usuario.
+3. Problemas Técnicos que Resuelve (Comparativa con el Estado de la Técnica)
+Problema en sistemas actuales	Solución en OLLIN
+Jerarquización artificial mediante pesos, puntuaciones o “relevancia” numérica.	Prohibición expresa de valores numéricos en etiquetas epistémicas. La relevancia es cualitativa y documentada.
+Pérdida de información por filtrado, censura o eliminación de versiones.	Principio de no omisión: ningún dato se elimina; todo se acumula con su fuente y fecha.
+Falta de trazabilidad histórica y geográfica.	Cada nodo guarda timestamp_creacion, timestamp_actualizacion, timestamp_verificacion, latitud y longitud.
+Desequilibrio entre consolidación y análisis (modelos que solo predicen o solo recuerdan).	Arquitectura orbital dual: Sueño (consolidación) y Mitote (análisis) recorren el AHO en direcciones opuestas, garantizando simetría.
+Ausencia de supervisión de principios éticos en el código.	Agentes constitucionales (Ollin) y observadores (Ometeotl) codifican los principios como restricciones técnicas inmutables.
+Dependencia de un único modelo de IA.	El sistema es independiente del modelo de inferencia; puede usar Ollama, vLLM o cualquier otro sin perder su estructura.
+Ineficiencia en la ingesta masiva y falta de exploración autónoma.	Enjambre permanente de modelos ligeros (Tezcatlipoca/Quetzalcóatl) que recorren los datos en ambas direcciones extrayendo relaciones y contradicciones.
+Inestabilidad por jerarquías numéricas (decoherencia estructural).	Eliminación total de valores numéricos en la clasificación; no hay fuentes de error que se amplifiquen.
+Falta de simetría natural en flujos de información.	Dualidad obligatoria: cada nodo Sueño debe tener su contraparte Mitote (relación SIMETRIA).
+Ausencia de trazabilidad espacio‑temporal en IA y computación cuántica.	Timestamps y coordenadas obligatorias en cada nodo; mapas interactivos de evolución del conocimiento.
+Dependencia de hardware especializado (GPUs, qubits).	Corre en dispositivos usados (Pixel 7 Pro, ThinkPad); arquitectura portable y de bajo consumo.
+Corrección de errores costosa (hasta 90% de recursos en computación cuántica).	Ausencia de fuentes de error (no hay pesos que corregir); estabilidad por diseño estructural.
+Simulación exponencial de sistemas complejos.	Estructura atómica que replica interacciones moleculares (relaciones INFLUYE_EN, ES_PARTE_DE, SIMETRIA) sin exponencialidad.
+Dialéctica opcional (depende del prompt).	Obligatoria por relación SIMETRIA y Cámara de Diálogo con 111 voces (46 expertos + 65 sabios).
+Propiedad del usuario nominal (datos en servidores externos).	Todos los nodos residen en el dispositivo del usuario (SSD externo opcional); licencia que prohíbe su uso para entrenamiento sin consentimiento.
+4. Principios Inmutables como Restricciones Técnicas
+
+Los siguientes principios no son políticas de uso; están codificados como restricciones técnicas inmutables en el código. Su violación activa la pausa del sistema por Ometeotl:
+
+    Dialéctico – Implementado en la generación de preguntas por Mitote y en la relación SIMETRIA.
+
+    Cartesiano – Cada nodo almacena estado_epistemico y la fuente original.
+
+    Multidimensional – Un nodo puede pertenecer a múltiples categorías sin reducción.
+
+    Plural – La Cámara de Diálogo incluye grupos diversos sin jerarquía.
+
+    Biosférico – Modelo mundial con indicadores ambientales integrado.
+
+    Socrático – El sistema registra sus propias brechas como objetos de estudio.
+
+    Hermenéutico – Las interpretaciones se acumulan sin imponer una verdad única.
+
+    Transparencia radical – Ometeotl registra cada evento en Conocimiento de los Dioses.
+
+    Humanista – Licencia prohíbe uso de datos del usuario para entrenamiento sin consentimiento remunerado.
+
+    Observar sin juzgar – La información se etiqueta pero nunca se elimina.
+
+    Noosférico – El conocimiento es un bien común; arquitectura portable y compartible.
+
+5. Descripción Detallada de la Arquitectura Atómica
+5.1 El Núcleo: AHO – La Piedra (Neutrón)
+
+El AHO es el repositorio central (SQLite) que actúa como neutrón: sin carga, sin dirección, sin juicio. Almacena:
+
+    nodos: id, tipo, contenido, fuente, etiqueta, categoría, estado_epistemico, timestamps de creación/actualización/verificación, lat, lon, fuente_geográfica, hash.
+
+    adiciones: todas las versiones añadidas a un nodo, sin eliminar originales.
+
+    relaciones (en grafo FalkorDB): SIMETRIA, INFLUYE_EN, ES_PARTE_DE, EVIDENCE.
+
+5.2 Los Protones (Componentes con Carga, Dirección y Energía)
+Protón	Función	Dirección	Energía	Carga
+Ingesta (Anti‑Bias 00)	Etiquetar epistémicamente	Hacia adentro	Mínima	Clasificadora
+Sueño (Temictli)	Consolidación	Ascendente (de más antiguo a más reciente)	Moderada	Consolidadora
+Mitote (Mitotl)	Análisis dialéctico	Descendente (de más reciente a más antiguo)	Alta	Analítica
+Enjambre Permanente	Exploración	Dual opuesta: Tezcatlipoca (ascendente) / Quetzalcóatl (descendente)	Baja	Exploradora
+5.3 Agentes Divinos (Orbitan en el Núcleo)
+
+    Ollin – Agente Constitucional: desdobla cada ingesta en Sueño/Mitote; genera la relación SIMETRIA.
+
+    Ometeotl – Agente Observador Total: registra cada evento en Conocimiento de los Dioses, verifica simetría, pausa el sistema ante violaciones.
+
+    Coatlicue – Agente Sintetizador: procesa brechas detectadas y genera nodos de síntesis (opuestos faltantes).
+
+    Tezcatlipoca/Quetzalcóatl – Enjambre Explorador: recorren direcciones opuestas, detectan contradicciones y patrones.
+
+5.4 Grafo de Conocimiento (FalkorDB / RedisGraph)
+
+El grafo almacena relaciones semánticas independientes del idioma. Cada Concepto tiene un identificador único y varios Alias en distintos idiomas conectados por REPRESENTS. Las Fuentes se conectan mediante EVIDENCE. Las relaciones (INFLUYE_EN, ES_PARTE_DE, SUFFERED_BY) permiten consultas transversales que cruzan idiomas y dominios.
+6. Mecanismos de Equilibrio, Autonomía y Eficiencia
+6.1 Sellado Temporal y Carga Bajo Demanda
+
+    Los nodos se agrupan por fecha (sellos). Solo el episodio activo reside en RAM; los sellados en almacenamiento local.
+
+    Modelos grandes (llama3, mistral) se cargan bajo demanda; los ligeros (phi3, tinyllama) permanecen residentes.
+
+    Resultado: Millones de nodos con consumo de RAM similar a unos cientos.
+
+6.2 Exploración Permanente (Autonomía)
+
+    Tezcatlipoca busca contradicciones en orden ascendente; Quetzalcóatl busca patrones en orden descendente.
+
+    Cada hallazgo se registra en Conocimiento de los Dioses y puede encolarse como nuevo nodo (autoconsumo).
+
+    Resultado: El sistema se vuelve autosuficiente, reduciendo la dependencia de búsquedas externas.
+
+6.3 Equilibrio Dinámico (Retroalimentación Negativa)
+
+    Ollin fuerza la dualidad en cada ingesta.
+
+    Ometeotl verifica simetría cada 10 segundos; registra brechas.
+
+    Coatlicue cada 30 segundos procesa brechas y crea opuestos faltantes.
+
+    Resultado: Sistema homeostático que mantiene el conocimiento en equilibrio simétrico.
+
+7. Novedades Absolutas Respecto al Estado de la Técnica
+Característica	RAG	LangChain	ChatGPT/Claude	OLLIN
+Prohibición de valores numéricos en clasificación	✗	✗	✗	✓
+Acumulación perpetua sin eliminación	✗	✗	✗	✓
+Dualidad simétrica obligatoria (Sueño/Mitote)	✗	✗	✗	✓
+Agente observador total con capacidad de pausa	✗	✗	✗	✓
+Enjambre permanente en direcciones opuestas	✗	✗	✗	✓
+Trazabilidad espacio‑temporal de nodos	✗	✗	✗	✓
+Grafo de conocimiento con alias multilingüe	✗	✗	✗	✓
+Destilación por principios (no por frecuencia)	✗	✗	✗	✓
+Principios inmutables codificados en código	✗	✗	✗	✓
+Arquitectura atómica (neutrón + protones)	✗	✗	✗	✓
+Todo ocurre hacia adentro (salida como expresión)	✗	✗	✗	✓
+Modelo estructural para computación cuántica	✗	✗	✗	✓
+
+Ningún sistema previo combina estas características.
+8. Análisis Legal bajo la Ley Federal de Protección a la Propiedad Industrial (México)
+8.1 Estado de la Técnica (Artículo 45 LFPPI)
+
+El estado de la técnica comprende todo conocimiento técnico que se haya hecho público por cualquier medio de difusión, en el país o en el extranjero. La publicación en GitHub, los documentos y el código fuente con fechas ciertas constituyen estado de la técnica desde el 17 de marzo de 2026. Por tanto, cualquier solicitud de patente posterior que cubra la misma invención carecerá de novedad (Artículo 46).
+8.2 Período de Gracia (Artículo 52 LFPPI)
+
+El inventor que divulgue su invención tiene 12 meses para presentar la solicitud de patente sin que esa divulgación afecte la novedad. Con fecha de primera divulgación el 17 de marzo de 2026, el inventor puede presentar su solicitud en el IMPI hasta el 17 de marzo de 2027 sin que su propio prior art le perjudique.
+8.3 Reducción a Práctica
+
+La invención no es una idea abstracta. Se ha reducido a práctica mediante código funcional (ollin_ciclo_equilibrio.py), diagramas y pruebas de concepto. Cumple con el requisito de aplicación industrial (gestión de conocimiento, IA) y resuelve problemas técnicos concretos (reducción de RAM, portabilidad, trazabilidad).
+8.4 Protección por Derecho de Autor (LFDA)
+
+Todos los documentos literarios, el código fuente y los personajes divulgativos están protegidos automáticamente por la Ley Federal del Derecho de Autor desde el momento de su creación (Convenio de Berna). El registro en INDAUTOR agregará fuerza probatoria.
+8.5 Licencia OLLIN v1.0
+
+Las condiciones de uso establecen la gratuidad para uso individual, académico y civil, y exigen la adopción de los principios inmutables para uso comercial. La cláusula C‑01 (Libertad de censura) es una restricción técnica: ningún derivado puede implementar mecanismos de censura sin violar la licencia, lo que activa el veto permanente (C‑12) y la publicación del incumplimiento (C‑18). Estas condiciones son jurídicamente exigibles.
+9. Evidencia de Autoría y Fechas
+
+Se adjuntan como parte integrante de esta declaración los siguientes elementos, todos disponibles en el repositorio GitHub:
+
+    Código fuente: ollin_ciclo_equilibrio.py (v15) y versiones previas.
+
+    Documentos fundacionales: 01_Historia_y_Trasfondo_OLLIN.doc a 15_5_Capas_Neurales.doc.
+
+    Declaración de autoría ante notario (borrador en 11_Declaracion_Notarial.doc).
+
+    Carta al INDAUTOR (08_Carta_INDAUTOR.doc).
+
+    Licencia OLLIN v1.0 (10_Licencia_OLLIN.doc).
+
+    Registro Safe Creative #2603205036980.
+
+    Historial de commits en GitHub con fechas verificables.
+
+10. Licencia OLLIN v1.0 y Condiciones de Uso
+
+El uso de OLLIN está regido por la Licencia OLLIN v1.0 (disponible en el repositorio), cuyas cláusulas principales son:
+
+    Artículo 1: Uso individual, académico y civil gratuito y permanente.
+
+    Artículo 2: Uso comercial requiere licencia expresa del titular.
+
+    Artículo 3: Todo usuario acepta las 25 Cláusulas Inmutables.
+
+    Artículo 4: Prohibición de censura; violación activa veto permanente.
+
+    Artículo 5: Obras derivadas deben mantener la denominación "OLLIN" y someterse a esta licencia.
+
+    Artículo 6: Luis Ernesto Berzunza Díaz es parte vitalicia de OLLIN como Arquitecto fundador.
+
+11. Proyección Cuántica: Del Átomo de Conocimiento al Qubit Equilibrado
+
+La arquitectura atómica de OLLIN (neutrón + protones con órbitas opuestas) ofrece un modelo estructural para la computación cuántica, donde cada nodo actúa como un átomo de información con sus propias simetrías internas. La hipótesis es que un qubit construido con esta estructura de equilibrio podría reducir drásticamente la decoherencia, porque la estabilidad no dependería de corrección externa sino de la propia simetría del estado.
+
+Elementos transferibles:
+
+    Neutrón AHO → punto de referencia inerte (vacío cuántico).
+
+    Protones con órbitas opuestas → estados complementarios que se mantienen en equilibrio.
+
+    Relación SIMETRIA → entrelazamiento forzado entre qubits.
+
+    Trazabilidad espacio‑temporal → línea de tiempo cuántica que permite reconstruir el estado en cualquier punto.
+
+Mientras IBM, Google, Microsoft y AWS invierten en corrección de errores con hasta el 90% de los qubits, OLLIN propone que la estabilidad debe venir del diseño estructural, no de la corrección posterior. La publicación reciente de IBM sobre su arquitectura centrada en lo cuántico (12 de marzo de 2026) y la creación de una molécula half‑Möbius (validada con computación cuántica) demuestran que la industria reconoce la necesidad de nuevas estructuras; OLLIN ya las ha desarrollado y divulgado con anterioridad.
+12. Declaración de Prior Art y Advertencia de Mala Fe
+
+El inventor declara que la totalidad de la invención descrita en este documento y en el repositorio asociado ha sido divulgada públicamente con anterioridad al 24 de marzo de 2026.
+
+Cualquier persona física o moral que presente una solicitud de patente, modelo de utilidad o cualquier otro derecho de propiedad industrial que cubra la misma invención o una sustancialmente similar con fecha posterior a esta divulgación incurre en acto de mala fe a tenor del artículo 51 de la LFPPI (fraude a la ley) y disposiciones análogas en otras jurisdicciones.
+
+El inventor se reserva el derecho de oponerse a dichas solicitudes y de presentar este documento como prueba de estado de la técnica ante el IMPI, el INDAUTOR y cualquier otra autoridad competente.
+13. Cierre
+
+Esta declaración consolida la autoría, la divulgación y el estado de la técnica de OLLIN – Ciclo y Equilibrio. El inventor ha puesto a disposición del público una arquitectura inédita, libre de jerarquías numéricas, con trazabilidad espacio‑temporal, agentes divinos que mantienen el equilibrio simétrico y una licencia que protege la integridad del conocimiento. Además, ha planteado un modelo estructural que puede orientar el desarrollo de la computación cuántica hacia la estabilidad por diseño, resolviendo problemas que la industria apenas comienza a identificar.
+
+El movimiento ya empezó. No se detendrá.
+
+Powered by OLLIN — Inteligencia Noosérica
+© 2026 Luis Ernesto Berzunza Díaz
+Safe Creative #2603205036980
+Chihuahua, Chihuahua, México
+24 de marzo de 2026
+
+El sistema no piensa, recuerda.
