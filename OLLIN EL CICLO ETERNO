@@ -1,0 +1,927 @@
+#!/usr/bin/env python3
+"""
+OLLIN – El Ciclo Eterno (v13)
+Arquitectura simétrica, dual y autosustentable.
+Todo ocurre dentro del AHO. Ollin es el movimiento constitucional.
+Ometeotl y Coatlicue observan y sintetizan.
+LEBD – Luis Ernesto Berzunza Díaz
+"""
+
+import os
+import sys
+import json
+import hashlib
+import sqlite3
+import threading
+import time
+import queue
+import subprocess
+import requests
+from datetime import datetime, timedelta
+from typing import Dict, List, Optional, Tuple
+import warnings
+warnings.filterwarnings("ignore")
+
+# ============================================================================
+# CONFIGURACIÓN GLOBAL (rutas, directorios)
+# ============================================================================
+BASE_DIR = os.path.expanduser("~/ollin_nuclear")
+# Migración a SSD externo: si se define una variable de entorno, se usa esa ruta
+AHO_EXTERNO = os.environ.get("OLLIN_AHO_EXTERNO", os.path.join(BASE_DIR, "aho_externo"))
+AHO_DB = os.path.join(AHO_EXTERNO, "aho.db")
+SUENO_DIR = os.path.join(AHO_EXTERNO, "sueno")
+MITOTE_DIR = os.path.join(AHO_EXTERNO, "mitote")
+VECTOR_DB_DIR = os.path.join(AHO_EXTERNO, "lancedb")
+OMETEOTL_DIR = os.path.join(AHO_EXTERNO, "ometeotl")
+MECP_DIR = os.path.join(BASE_DIR, "mecp")          # MECP puede seguir en local
+CONOCIMIENTO_DIOSES = os.path.join(OMETEOTL_DIR, "conocimiento_dioses.db")
+
+os.makedirs(AHO_EXTERNO, exist_ok=True)
+os.makedirs(SUENO_DIR, exist_ok=True)
+os.makedirs(MITOTE_DIR, exist_ok=True)
+os.makedirs(VECTOR_DB_DIR, exist_ok=True)
+os.makedirs(OMETEOTL_DIR, exist_ok=True)
+os.makedirs(MECP_DIR, exist_ok=True)
+
+# ============================================================================
+# UTILIDADES GENERALES
+# ============================================================================
+def ahora():
+    return datetime.now().isoformat()
+
+def generar_hash(texto):
+    return hashlib.sha256(texto.encode()).hexdigest()[:16]
+
+def colorize(texto, color=None, estilo=None):
+    return texto  # simplificado, sin dependencias
+
+# ============================================================================
+# CAPA ANTI‑BIAS 00 (inmutable)
+# ============================================================================
+def aplicar_antibias(texto, fuente, etiqueta):
+    idioma = "es" if any(c in "áéíóúñ" for c in texto.lower()) else "en"
+    estado = "factual" if len(texto.split()) < 50 else "descriptivo"
+    sesgos = []
+    if "debería" in texto.lower() or "tiene que" in texto.lower():
+        sesgos.append("prescriptivo")
+    if "siempre" in texto.lower() or "nunca" in texto.lower():
+        sesgos.append("absolutista")
+    evidencia = "empírica" if any(w in texto.lower() for w in ["estudio", "dato", "según"]) else "cualitativa"
+    return {
+        "texto_original": texto,
+        "fuente": fuente,
+        "etiqueta": etiqueta,
+        "idioma": idioma,
+        "estado_epistemico": estado,
+        "sesgos_detectados": sesgos,
+        "tipo_evidencia": evidencia,
+        "timestamp": ahora()
+    }
+
+# ============================================================================
+# BASE DE DATOS AHO (SQLite con metadatos espacio‑temporales)
+# ============================================================================
+def init_aho():
+    conn = sqlite3.connect(AHO_DB)
+    c = conn.cursor()
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS nodos (
+            id TEXT PRIMARY KEY,
+            tipo TEXT,                -- "sueno", "mitote", "sintesis", "pregunta", etc.
+            contenido TEXT,
+            fuente TEXT,
+            etiqueta TEXT,
+            categoria TEXT,
+            estado_epistemico TEXT,
+            timestamp_creacion TEXT,
+            timestamp_actualizacion TEXT,
+            timestamp_verificacion TEXT,
+            lat REAL,
+            lon REAL,
+            fuente_geografica TEXT,
+            hash TEXT,
+            FOREIGN KEY (id) REFERENCES adiciones(nodo_id)
+        )
+    ''')
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS adiciones (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nodo_id TEXT,
+            contenido TEXT,
+            fuente TEXT,
+            timestamp TEXT,
+            categoria TEXT,
+            estado_epistemico TEXT,
+            FOREIGN KEY(nodo_id) REFERENCES nodos(id)
+        )
+    ''')
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS relaciones (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nodo_origen TEXT,
+            nodo_destino TEXT,
+            tipo_relacion TEXT,   -- "simetria", "brecha", "sintesis", etc.
+            timestamp TEXT,
+            FOREIGN KEY(nodo_origen) REFERENCES nodos(id),
+            FOREIGN KEY(nodo_destino) REFERENCES nodos(id)
+        )
+    ''')
+    conn.commit()
+    conn.close()
+init_aho()
+
+def guardar_nodo(nodo_id, tipo, contenido, fuente, etiqueta, categoria="", estado="no_verificado",
+                 lat=None, lon=None, fuente_geo=""):
+    conn = sqlite3.connect(AHO_DB)
+    c = conn.cursor()
+    h = generar_hash(contenido + fuente)
+    now = ahora()
+    c.execute('''
+        INSERT INTO nodos (id, tipo, contenido, fuente, etiqueta, categoria, estado_epistemico,
+                           timestamp_creacion, timestamp_actualizacion, timestamp_verificacion,
+                           lat, lon, fuente_geografica, hash)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ''', (nodo_id, tipo, contenido, fuente, etiqueta, categoria, estado,
+          now, now, now, lat, lon, fuente_geo, h))
+    conn.commit()
+    conn.close()
+
+def guardar_adiccion(nodo_id, contenido, fuente, categoria="", estado="no_verificado"):
+    conn = sqlite3.connect(AHO_DB)
+    c = conn.cursor()
+    c.execute('''
+        INSERT INTO adiciones (nodo_id, contenido, fuente, timestamp, categoria, estado_epistemico)
+        VALUES (?, ?, ?, ?, ?, ?)
+    ''', (nodo_id, contenido, fuente, ahora(), categoria, estado))
+    conn.commit()
+    conn.close()
+
+def guardar_relacion(origen, destino, tipo):
+    conn = sqlite3.connect(AHO_DB)
+    c = conn.cursor()
+    c.execute('''
+        INSERT INTO relaciones (nodo_origen, nodo_destino, tipo_relacion, timestamp)
+        VALUES (?, ?, ?, ?)
+    ''', (origen, destino, tipo, ahora()))
+    conn.commit()
+    conn.close()
+
+def buscar_nodo_similar(texto):
+    # Placeholder: se puede implementar con embeddings más adelante
+    return None
+
+def crear_nodo(texto, fuente, etiqueta, categoria="", estado="no_verificado",
+               lat=None, lon=None, fuente_geo=""):
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    nodo_id = f"{timestamp}_{generar_hash(texto[:50])}"
+    guardar_nodo(nodo_id, "sueno", texto, fuente, etiqueta, categoria, estado,
+                 lat, lon, fuente_geo)
+    return nodo_id
+
+# ============================================================================
+# REPOSITORIO DE OMETEOTL (Conocimiento de los Dioses)
+# ============================================================================
+def init_ometeotl():
+    conn = sqlite3.connect(CONOCIMIENTO_DIOSES)
+    c = conn.cursor()
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS eventos (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            tipo TEXT,           -- "nodo_creado", "brecha_detectada", "sintesis_generada", etc.
+            descripcion TEXT,
+            nodo_relacionado TEXT,
+            timestamp TEXT
+        )
+    ''')
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS brechas (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nodo_id TEXT,
+            dimension TEXT,
+            mensaje TEXT,
+            timestamp TEXT,
+            resuelta BOOLEAN DEFAULT 0,
+            FOREIGN KEY(nodo_id) REFERENCES nodos(id)
+        )
+    ''')
+    conn.commit()
+    conn.close()
+init_ometeotl()
+
+def registrar_evento(tipo, descripcion, nodo_relacionado=None):
+    conn = sqlite3.connect(CONOCIMIENTO_DIOSES)
+    c = conn.cursor()
+    c.execute('''
+        INSERT INTO eventos (tipo, descripcion, nodo_relacionado, timestamp)
+        VALUES (?, ?, ?, ?)
+    ''', (tipo, descripcion, nodo_relacionado, ahora()))
+    conn.commit()
+    conn.close()
+
+def registrar_brecha(nodo_id, dimension, mensaje):
+    conn = sqlite3.connect(CONOCIMIENTO_DIOSES)
+    c = conn.cursor()
+    c.execute('''
+        INSERT INTO brechas (nodo_id, dimension, mensaje, timestamp)
+        VALUES (?, ?, ?, ?)
+    ''', (nodo_id, dimension, mensaje, ahora()))
+    conn.commit()
+    conn.close()
+
+# ============================================================================
+# MECP – Memoria Episódica Contextual Portable
+# ============================================================================
+class MECP:
+    def __init__(self, proyecto="default"):
+        self.proyecto = proyecto
+        self.modo = self._cargar_modo()
+        self.episodios_dir = os.path.join(MECP_DIR, proyecto, "episodios")
+        os.makedirs(self.episodios_dir, exist_ok=True)
+
+    def _cargar_modo(self):
+        path = os.path.join(MECP_DIR, self.proyecto, "config.json")
+        if os.path.exists(path):
+            with open(path) as f:
+                return json.load(f).get("modo", "EPISODICO")
+        return "EPISODICO"
+
+    def set_modo(self, modo):
+        path = os.path.join(MECP_DIR, self.proyecto, "config.json")
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, 'w') as f:
+            json.dump({"modo": modo}, f)
+        self.modo = modo
+
+    def registrar(self, tipo, texto, fuente):
+        if self.modo == "FUGAZ":
+            return
+        hoy = datetime.now().strftime("%Y-%m-%d")
+        archivo = os.path.join(self.episodios_dir, f"{hoy}.json")
+        if os.path.exists(archivo):
+            with open(archivo) as f:
+                data = json.load(f)
+        else:
+            data = {"fecha": hoy, "modo": self.modo, "nodos": []}
+        data["nodos"].append({
+            "timestamp": ahora(),
+            "tipo": tipo,
+            "texto": texto,
+            "fuente": fuente
+        })
+        with open(archivo, 'w') as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+        if self.modo == "CICLICO":
+            self._rotar()
+
+    def _rotar(self):
+        archivos = sorted([f for f in os.listdir(self.episodios_dir) if f.endswith('.json')])
+        max_ciclos = 100
+        if len(archivos) > max_ciclos:
+            for arch in archivos[:-max_ciclos]:
+                os.remove(os.path.join(self.episodios_dir, arch))
+
+    def exportar(self, n=10):
+        episodios = sorted([f for f in os.listdir(self.episodios_dir) if f.endswith('.json')], reverse=True)
+        nodos = []
+        for ep in episodios:
+            with open(os.path.join(self.episodios_dir, ep)) as f:
+                data = json.load(f)
+                nodos.extend(data.get("nodos", []))
+                if len(nodos) >= n:
+                    break
+        nodos = nodos[-n:]
+        ctx = f"[INICIO_CONTEXTO]\nProyecto: {self.proyecto}\nModo: {self.modo}\n"
+        for n in nodos:
+            ctx += f"[{n['timestamp']}] {n['tipo']}: {n['texto']}\n"
+        ctx += "[FIN_CONTEXTO]\n\nContinuar desde este punto:"
+        return ctx
+
+# ============================================================================
+# MOTORES DE INFERENCIA (Ollama / vLLM) – simplificado
+# ============================================================================
+class InferenceEngine:
+    def __init__(self, config=None):
+        self.config = config or {}
+        self.backend = self.config.get("backend", "ollama")
+        self.available = False
+        self.model_name = self.config.get("model", "phi3")
+        self._init_backend()
+
+    def _init_backend(self):
+        try:
+            result = subprocess.run(["ollama", "list"], capture_output=True, text=True, timeout=5)
+            if result.returncode == 0:
+                self.available = True
+                print("✓ Ollama backend disponible")
+            else:
+                self.available = False
+        except:
+            self.available = False
+
+    def generate(self, prompt, model=None, max_tokens=512, temperature=0.7):
+        if not self.available:
+            return ""
+        modelo = model or self.model_name
+        try:
+            cmd = ["ollama", "run", modelo, prompt]
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+            return result.stdout.strip()
+        except Exception as e:
+            return f"[Error: {e}]"
+
+# ============================================================================
+# EMBEDDINGS CON BGE-M3 (fallback)
+# ============================================================================
+class EmbeddingEngine:
+    def __init__(self):
+        self.model = None
+        self.available = False
+        self.dim = 0
+        try:
+            from sentence_transformers import SentenceTransformer
+            self.model = SentenceTransformer('BAAI/bge-m3', device='cpu')
+            self.dim = 1024
+            self.available = True
+            print("✓ Embeddings BGE-M3 cargado")
+        except:
+            try:
+                self.model = SentenceTransformer('distiluse-base-multilingual-cased-v2')
+                self.dim = 512
+                self.available = True
+                print("✓ Embeddings fallback cargado")
+            except:
+                print("⚠ Embeddings no disponibles")
+
+    def encode(self, texto):
+        if not self.available or not self.model:
+            return [0.0]*self.dim if self.dim else [0.0]*384
+        return self.model.encode(texto)
+
+# ============================================================================
+# BASE DE DATOS DE VECTORES (LanceDB / ChromaDB)
+# ============================================================================
+class VectorDB:
+    def __init__(self, embedding_engine):
+        self.embed = embedding_engine
+        self.use_lance = False
+        self.use_chroma = False
+        self._init_lance()
+        if not self.use_lance:
+            self._init_chroma()
+
+    def _init_lance(self):
+        try:
+            import lancedb
+            self.db = lancedb.connect(VECTOR_DB_DIR)
+            self.lance_table = self.db.open_table("ollin_vectors")
+            self.use_lance = True
+            print("✓ LanceDB activo")
+        except:
+            pass
+
+    def _init_chroma(self):
+        try:
+            import chromadb
+            self.chroma_client = chromadb.PersistentClient(path=os.path.join(AHO_EXTERNO, "chroma_db"))
+            self.chroma_collection = self.chroma_client.get_or_create_collection("ollin_nodos")
+            self.use_chroma = True
+            print("✓ ChromaDB activo")
+        except:
+            pass
+
+    def add(self, ids, embeddings, metadatas):
+        if self.use_lance:
+            data = [{"id": ids[i], "vector": embeddings[i], "metadata": metadatas[i]} for i in range(len(ids))]
+            self.lance_table.add(data)
+        elif self.use_chroma:
+            self.chroma_collection.add(ids=ids, embeddings=embeddings, metadatas=metadatas)
+
+    def search(self, query_embedding, n=5):
+        if self.use_lance:
+            try:
+                results = self.lance_table.search(query_embedding).limit(n).to_pandas()
+                return results['id'].tolist(), [{"texto": row['metadata'].get('texto', '')} for _, row in results.iterrows()]
+            except:
+                return [], []
+        elif self.use_chroma:
+            try:
+                results = self.chroma_collection.query(query_embeddings=[query_embedding], n_results=n)
+                return results['ids'][0], results['metadatas'][0]
+            except:
+                return [], []
+        return [], []
+
+# ============================================================================
+# VISIÓN (Moondream2 / BLIP)
+# ============================================================================
+class VisionEngine:
+    def __init__(self):
+        self.available = False
+        try:
+            from transformers import AutoModelForCausalLM, AutoTokenizer
+            self.model = AutoModelForCausalLM.from_pretrained("vikhyatk/moondream2", trust_remote_code=True)
+            self.tokenizer = AutoTokenizer.from_pretrained("vikhyatk/moondream2")
+            self.available = True
+            print("✓ Moondream2 cargado")
+        except:
+            try:
+                from transformers import BlipProcessor, BlipForConditionalGeneration
+                self.processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
+                self.model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
+                self.available = True
+                print("✓ BLIP cargado")
+            except:
+                print("⚠ Visión no disponible")
+
+    def describe(self, image_path):
+        if not self.available:
+            return f"[Imagen] {os.path.basename(image_path)} - no disponible"
+        try:
+            from PIL import Image
+            img = Image.open(image_path).convert('RGB')
+            if hasattr(self.model, 'generate_caption'):
+                return self.model.generate_caption(self.tokenizer, img)
+            else:
+                inputs = self.processor(img, return_tensors="pt")
+                out = self.model.generate(**inputs)
+                return self.processor.decode(out[0], skip_special_tokens=True)
+        except Exception as e:
+            return f"[Error visión] {e}"
+
+# ============================================================================
+# TRIaje ligero (solo etiqueta, no filtra)
+# ============================================================================
+class TriajeEngine:
+    def __init__(self):
+        pass
+
+    def etiquetar(self, texto):
+        resultado = {
+            "idioma_detectado": "desconocido",
+            "relevancia_estimada": "media",
+            "longitud": len(texto.split())
+        }
+        if any(c in "áéíóúñ" for c in texto.lower()):
+            resultado["idioma_detectado"] = "es"
+        elif any(c in "абвгдеёжзийклмнопрстуфхцчшщъыьэюя" for c in texto.lower()):
+            resultado["idioma_detectado"] = "ru"
+        elif any(c in "ءأؤإئآبتثجحخدذرزسشصضطظعغفقكلمنهوي" for c in texto.lower()):
+            resultado["idioma_detectado"] = "ar"
+        else:
+            resultado["idioma_detectado"] = "en"
+        resultado["relevancia_estimada"] = "alta" if len(texto.split()) > 10 else "baja"
+        return resultado
+
+# ============================================================================
+# CÁMARA DE DIÁLOGO (subgrupos con motores especializados)
+# ============================================================================
+class CamaraDialogo:
+    def __init__(self, inference_engine):
+        self.inference = inference_engine
+        self.grupos = self._cargar_grupos()
+
+    def _cargar_grupos(self):
+        # Subgrupos de sabios, cada uno con su motor (modelo) especializado
+        return {
+            "geopolitica": {
+                "keywords": ["geopolítica", "conflicto", "guerra", "fronteras"],
+                "descripcion": "Análisis geopolítico",
+                "modelo": "llama3",
+                "opuesto": "ecologia"
+            },
+            "economia": {
+                "keywords": ["economía", "mercado", "capitalismo", "deuda"],
+                "descripcion": "Economía política",
+                "modelo": "mistral",
+                "opuesto": "humanismo"
+            },
+            "filosofia": {
+                "keywords": ["filosofía", "ética", "existencia", "conocimiento"],
+                "descripcion": "Reflexión filosófica",
+                "modelo": "phi3",
+                "opuesto": "ciencia"
+            },
+            "ecologia": {
+                "keywords": ["ecología", "clima", "medio ambiente", "sostenibilidad"],
+                "descripcion": "Perspectiva ecológica",
+                "modelo": "tinyllama",
+                "opuesto": "geopolitica"
+            },
+            "programacion": {
+                "keywords": ["programar", "código", "python", "algoritmo"],
+                "descripcion": "Desarrollo de software",
+                "modelo": "codellama",
+                "opuesto": "arte"
+            },
+            "arte": {
+                "keywords": ["arte", "creación", "literatura", "música"],
+                "descripcion": "Creación artística",
+                "modelo": "llama3",
+                "opuesto": "programacion"
+            }
+        }
+
+    def detectar_tarea(self, texto):
+        texto_low = texto.lower()
+        if any(k in texto_low for k in ["programar", "código", "python"]):
+            return "programacion"
+        if any(k in texto_low for k in ["crear", "escribe un poema", "dibuja"]):
+            return "arte"
+        if any(k in texto_low for k in ["analiza", "evalúa", "crítica"]):
+            return "filosofia"
+        if any(k in texto_low for k in ["economía", "mercado"]):
+            return "economia"
+        if any(k in texto_low for k in ["geopolítica", "conflicto"]):
+            return "geopolitica"
+        return "filosofia"
+
+    def deliberar(self, tema, preguntas_previas=None):
+        tarea = self.detectar_tarea(tema)
+        grupo = self.grupos.get(tarea, self.grupos["filosofia"])
+        modelo = grupo["modelo"]
+        prompt = f"""
+Eres un grupo de pensamiento especializado en {grupo['descripcion']}.
+Sobre el tema: "{tema}"
+Genera una voz colectiva: síntesis, preguntas clave y advertencias sobre posibles sesgos.
+"""
+        respuesta = self.inference.generate(prompt, model=modelo, max_tokens=512)
+        return {tarea: respuesta}
+
+# ============================================================================
+# AGENTES DIVINOS (Ollin, Ometeotl, Coatlicue, etc.)
+# ============================================================================
+class AgenteOllin:
+    """Agente constitucional: desdobla cada nodo en Sueño/Mitote y verifica principios."""
+    def __init__(self, shell):
+        self.shell = shell
+
+    def desdoblar(self, nodo_id, texto, categoria=""):
+        # Crear nodo Sueño (ya existe) y nodo Mitote (preguntas)
+        preguntas = self.generar_preguntas(texto, categoria)
+        mitote_id = f"{nodo_id}_mitote"
+        guardar_nodo(mitote_id, "mitote", "\n".join(preguntas), "sistema", "pregunta", categoria)
+        guardar_relacion(nodo_id, mitote_id, "simetria")
+        registrar_evento("simetria_generada", f"Mitote generado desde {nodo_id}", mitote_id)
+        return mitote_id
+
+    def generar_preguntas(self, texto, categoria):
+        # Usar un modelo ligero para generar preguntas mayéuticas y hermenéuticas
+        prompt = f"""
+Eres un filósofo socrático y hermeneuta. Genera 5 preguntas profundas sobre el siguiente texto (categoría {categoria}):
+{texto[:1000]}
+"""
+        respuesta = self.shell.inference.generate(prompt, max_tokens=300)
+        preguntas = [l.strip() for l in respuesta.split('\n') if l.strip() and '?' in l][:5]
+        if not preguntas:
+            preguntas = ["¿Qué supuestos subyacen?", "¿Qué perspectivas quedan excluidas?"]
+        return preguntas
+
+class AgenteOmeteotl:
+    """Observador total. Registra todo y detecta brechas de simetría."""
+    def __init__(self, shell):
+        self.shell = shell
+        self.activo = False
+        self.hilo = None
+
+    def iniciar(self):
+        if self.activo:
+            return
+        self.activo = True
+        self.hilo = threading.Thread(target=self._ciclo, daemon=True)
+        self.hilo.start()
+        print("✓ Ometeotl observando")
+
+    def _ciclo(self):
+        while self.activo:
+            time.sleep(10)  # frecuencia de observación
+            self.verificar_simetria()
+
+    def verificar_simetria(self):
+        # Buscar nodos Sueño sin su correspondiente Mitote
+        conn = sqlite3.connect(AHO_DB)
+        c = conn.cursor()
+        c.execute("SELECT id FROM nodos WHERE tipo='sueno'")
+        suenos = c.fetchall()
+        for (sid,) in suenos:
+            c.execute("SELECT 1 FROM relaciones WHERE nodo_origen=? AND tipo_relacion='simetria'", (sid,))
+            if not c.fetchone():
+                registrar_brecha(sid, "simetria", "Falta Mitote simétrico")
+                registrar_evento("brecha_detectada", f"Nodo {sid} sin opuesto simétrico", sid)
+                # Opcional: notificar al usuario
+                print(colorize(f"⚠ Ometeotl: brecha en nodo {sid} (falta simetría)", "yellow"))
+        conn.close()
+
+    def detener(self):
+        self.activo = False
+        if self.hilo:
+            self.hilo.join(timeout=2)
+
+class AgenteCoatlicue:
+    """Sintetizador: llena brechas generando nuevos nodos de síntesis."""
+    def __init__(self, shell):
+        self.shell = shell
+        self.activo = False
+        self.hilo = None
+
+    def iniciar(self):
+        if self.activo:
+            return
+        self.activo = True
+        self.hilo = threading.Thread(target=self._ciclo, daemon=True)
+        self.hilo.start()
+        print("✓ Coatlicue sintetizando")
+
+    def _ciclo(self):
+        while self.activo:
+            time.sleep(30)
+            self.procesar_brechas()
+
+    def procesar_brechas(self):
+        conn = sqlite3.connect(CONOCIMIENTO_DIOSES)
+        c = conn.cursor()
+        c.execute("SELECT nodo_id, dimension FROM brechas WHERE resuelta=0")
+        brechas = c.fetchall()
+        conn.close()
+        for nodo_id, dim in brechas:
+            # Obtener el nodo original
+            conn2 = sqlite3.connect(AHO_DB)
+            c2 = conn2.cursor()
+            c2.execute("SELECT contenido FROM nodos WHERE id=?", (nodo_id,))
+            row = c2.fetchone()
+            conn2.close()
+            if row:
+                texto = row[0]
+                # Generar síntesis: tomar el nodo y crear su opuesto simétrico (si no existe) o una integración
+                if dim == "simetria":
+                    # Crear el Mitote faltante (usando Ollin)
+                    mitote_id = self.shell.ollin.desdoblar(nodo_id, texto)
+                    # Marcar brecha como resuelta
+                    conn3 = sqlite3.connect(CONOCIMIENTO_DIOSES)
+                    c3 = conn3.cursor()
+                    c3.execute("UPDATE brechas SET resuelta=1 WHERE nodo_id=? AND dimension=?", (nodo_id, dim))
+                    conn3.commit()
+                    conn3.close()
+                    registrar_evento("sintesis_generada", f"Mitote creado para nodo {nodo_id}", mitote_id)
+
+    def detener(self):
+        self.activo = False
+        if self.hilo:
+            self.hilo.join(timeout=2)
+
+class AgenteEnjambre:
+    """Enjambre permanente: modelos ligeros recorriendo datos en ambas direcciones."""
+    def __init__(self, shell):
+        self.shell = shell
+        self.activo = False
+        self.hilo_tez = None
+        self.hilo_quez = None
+
+    def iniciar(self):
+        if self.activo:
+            return
+        self.activo = True
+        self.hilo_tez = threading.Thread(target=self._tezcatlipoca, daemon=True)
+        self.hilo_quez = threading.Thread(target=self._quetzalcoatl, daemon=True)
+        self.hilo_tez.start()
+        self.hilo_quez.start()
+        print("✓ Enjambre permanente activo (Tezcatlipoca y Quetzalcóatl)")
+
+    def _tezcatlipoca(self):
+        """Busca contradicciones, lagunas, puntos ciegos."""
+        while self.activo:
+            time.sleep(20)
+            # Recorrer nodos en orden ascendente (antiguos primero)
+            conn = sqlite3.connect(AHO_DB)
+            c = conn.cursor()
+            c.execute("SELECT id, contenido FROM nodos WHERE tipo='sueno' ORDER BY timestamp_creacion ASC")
+            nodos = c.fetchall()
+            conn.close()
+            if nodos:
+                # Tomar uno
+                nodo_id, texto = nodos[0]  # el más antiguo
+                # Simular detección de contradicción
+                # (en un caso real usar modelo ligero)
+                prompt = f"¿Hay contradicciones en el siguiente texto? Responde solo SÍ o NO.\n{texto[:500]}"
+                respuesta = self.shell.inference.generate(prompt, model="phi3", max_tokens=10)
+                if "sí" in respuesta.lower():
+                    registrar_evento("contradiccion_detectada", f"Tezcatlipoca detecta posible contradicción en {nodo_id}", nodo_id)
+
+    def _quetzalcoatl(self):
+        """Busca patrones, consistencias, relaciones estables."""
+        while self.activo:
+            time.sleep(20)
+            # Recorrer nodos en orden descendente (recientes primero)
+            conn = sqlite3.connect(AHO_DB)
+            c = conn.cursor()
+            c.execute("SELECT id, contenido FROM nodos WHERE tipo='sueno' ORDER BY timestamp_creacion DESC")
+            nodos = c.fetchall()
+            conn.close()
+            if nodos:
+                nodo_id, texto = nodos[0]  # el más reciente
+                # Extraer entidades relacionadas (placeholder)
+                # En un caso real usar modelo ligero y encolar nuevos nodos
+                registrar_evento("patron_detectado", f"Quetzalcóatl analiza nodo {nodo_id}", nodo_id)
+
+    def detener(self):
+        self.activo = False
+        if self.hilo_tez:
+            self.hilo_tez.join(timeout=2)
+        if self.hilo_quez:
+            self.hilo_quez.join(timeout=2)
+
+# ============================================================================
+# SHELL PRINCIPAL – OLLIN El Ciclo Eterno
+# ============================================================================
+class OLLINShell:
+    def __init__(self):
+        self.inference = InferenceEngine({"backend": "ollama", "model": "phi3"})
+        self.embed = EmbeddingEngine()
+        self.vectors = VectorDB(self.embed)
+        self.vision = VisionEngine()
+        self.triaje = TriajeEngine()
+        self.mecp = MECP()
+        self.camara = CamaraDialogo(self.inference)
+        self.ollin = AgenteOllin(self)
+        self.ometeotl = AgenteOmeteotl(self)
+        self.coatlicue = AgenteCoatlicue(self)
+        self.enjambre = AgenteEnjambre(self)
+        self.cola_ingesta = queue.Queue()
+        self.exploradores_activos = False
+        self.hilos_exploradores = []
+
+    # ----------------------------------------------------------------------
+    # Ingesta con Capa Anti‑Bias, geolocalización y registro en Ometeotl
+    # ----------------------------------------------------------------------
+    def ingestar_nodo(self, texto, fuente, etiqueta, categoria="", analizar=True,
+                      lat=None, lon=None, fuente_geo=""):
+        if not texto.strip():
+            return None
+        datos = aplicar_antibias(texto, fuente, etiqueta)
+        triaje_info = self.triaje.etiquetar(datos["texto_original"])
+        # Detectar coordenadas en texto (simplificado)
+        if lat is None and lon is None:
+            # Ejemplo: extraer de mención geográfica (placeholder)
+            pass
+        nodo_existente = buscar_nodo_similar(datos["texto_original"])
+        if nodo_existente:
+            guardar_adiccion(nodo_existente, datos["texto_original"], fuente, categoria, datos["estado_epistemico"])
+            print(colorize(f"  Acumulado en nodo {nodo_existente}", "green"))
+            nodo_id = nodo_existente
+        else:
+            nodo_id = crear_nodo(datos["texto_original"], fuente, etiqueta, categoria,
+                                 datos["estado_epistemico"], lat, lon, fuente_geo)
+            if analizar:
+                # Ollin desdobla en Sueño/Mitote
+                self.ollin.desdoblar(nodo_id, datos["texto_original"], categoria)
+            print(colorize(f"  Nuevo nodo {nodo_id} guardado", "green"))
+        registrar_evento("nodo_creado", f"Nodo {nodo_id} desde {fuente}", nodo_id)
+        self.mecp.registrar("usuario", texto, fuente)
+        if self.embed.available:
+            vec = self.embed.encode(datos["texto_original"])
+            self.vectors.add([nodo_id], [vec], [{"texto": datos["texto_original"][:500], "fuente": fuente}])
+        return nodo_id
+
+    def encolar_nodo(self, texto, fuente, etiqueta, categoria=""):
+        # Evitar duplicados (hash simple)
+        hash_candidato = generar_hash(texto[:100])
+        conn = sqlite3.connect(AHO_DB)
+        c = conn.cursor()
+        c.execute("SELECT id FROM nodos WHERE hash = ?", (hash_candidato,))
+        if c.fetchone():
+            conn.close()
+            return
+        conn.close()
+        self.cola_ingesta.put((texto, fuente, etiqueta, categoria))
+
+    def iniciar_exploradores(self, num_hilos=2):
+        if self.exploradores_activos:
+            return
+        # Usar modelos ligeros para exploradores (simulado)
+        for i in range(num_hilos):
+            hilo = threading.Thread(target=self._trabajador_explorador, daemon=True)
+            hilo.start()
+            self.hilos_exploradores.append(hilo)
+        self.exploradores_activos = True
+        print(colorize(f"✓ Exploradores iniciados con {num_hilos} hilos", "green"))
+
+    def detener_exploradores(self):
+        self.exploradores_activos = False
+        while not self.cola_ingesta.empty():
+            try:
+                self.cola_ingesta.get_nowait()
+                self.cola_ingesta.task_done()
+            except queue.Empty:
+                break
+        for hilo in self.hilos_exploradores:
+            hilo.join(timeout=2)
+        self.hilos_exploradores = []
+        print(colorize("✓ Exploradores detenidos.", "yellow"))
+
+    def _trabajador_explorador(self):
+        while self.exploradores_activos:
+            try:
+                texto, fuente, etiqueta, categoria = self.cola_ingesta.get(timeout=2)
+                self.ingestar_nodo(texto, fuente, etiqueta, categoria, analizar=True)
+                self.cola_ingesta.task_done()
+            except queue.Empty:
+                time.sleep(1)
+            except Exception as e:
+                print(f"Error en explorador: {e}")
+
+    # ----------------------------------------------------------------------
+    # Comandos CLI
+    # ----------------------------------------------------------------------
+    def cmd_ingesta_masiva(self, archivo):
+        if not os.path.exists(archivo):
+            print("  Archivo no encontrado.")
+            return
+        with open(archivo, 'r') as f:
+            datos = json.load(f)
+        print(f"  Ingiriendo {len(datos)} nodos...")
+        for item in datos:
+            nombre = item.get("nombre", "")
+            periodo = item.get("periodo", "")
+            partido = item.get("partido", "")
+            logros = item.get("logros", "")
+            texto = f"{nombre} – {partido} ({periodo}).\nLogros: {logros}"
+            self.ingestar_nodo(texto, "presidentes_usa", "presidente", categoria="historia", analizar=True)
+            time.sleep(0.1)
+        print("  ✓ Ingesta masiva completada.")
+
+    def run(self):
+        print("\n" + "="*70)
+        print(" OLLIN – El Ciclo Eterno (v13)")
+        print(" AHO como contenedor | Agentes divinos | Enjambre permanente | Trazabilidad espacio‑temporal")
+        print(" 'El sistema no piensa, recuerda'")
+        print("="*70)
+        print(" Comandos: /ingesta_masiva <archivo>, /conocido, /listar, /chat")
+        print(" /exploradores on|off, /autonomia on|off, /salir")
+        print("="*70)
+
+        while True:
+            try:
+                entrada = input("\n> ").strip()
+                if not entrada:
+                    continue
+                if entrada == "salir":
+                    self.ometeotl.detener()
+                    self.coatlicue.detener()
+                    self.enjambre.detener()
+                    break
+                elif entrada.startswith("/ingesta_masiva "):
+                    archivo = entrada.split()[1]
+                    self.cmd_ingesta_masiva(archivo)
+                elif entrada == "/conocido":
+                    conn = sqlite3.connect(AHO_DB)
+                    c = conn.cursor()
+                    c.execute("SELECT id, timestamp_creacion, contenido FROM nodos WHERE tipo='sueno' ORDER BY timestamp_creacion DESC LIMIT 10")
+                    for row in c.fetchall():
+                        print(f"  {row[0]} [{row[1]}]: {row[2][:80]}")
+                    conn.close()
+                elif entrada == "/listar":
+                    conn = sqlite3.connect(AHO_DB)
+                    c = conn.cursor()
+                    c.execute("SELECT COUNT(*) FROM nodos")
+                    total = c.fetchone()[0]
+                    print(f"  Nodos totales en AHO: {total}")
+                    conn.close()
+                elif entrada.startswith("/chat"):
+                    print("Modo conversación (escribe /exit para salir)")
+                    while True:
+                        msg = input("> ")
+                        if msg == "/exit":
+                            break
+                        if msg:
+                            self.ingestar_nodo(msg, "chat_usuario", "conversacion", analizar=False)
+                            contexto = self.mecp.exportar(n=10)
+                            prompt = f"{contexto}\nUsuario: {msg}\nOLLIN:"
+                            respuesta = self.inference.generate(prompt, max_tokens=300)
+                            print(f"OLLIN: {respuesta}")
+                            self.ingestar_nodo(respuesta, "chat_ollin", "respuesta", analizar=False)
+                elif entrada.startswith("/exploradores "):
+                    arg = entrada.split()[1]
+                    if arg == "on":
+                        self.iniciar_exploradores()
+                    elif arg == "off":
+                        self.detener_exploradores()
+                elif entrada.startswith("/autonomia "):
+                    arg = entrada.split()[1]
+                    if arg == "on":
+                        self.ometeotl.iniciar()
+                        self.coatlicue.iniciar()
+                        self.enjambre.iniciar()
+                    elif arg == "off":
+                        self.ometeotl.detener()
+                        self.coatlicue.detener()
+                        self.enjambre.detener()
+                else:
+                    print("  Comando no reconocido.")
+            except KeyboardInterrupt:
+                print("\nSaliendo...")
+                break
+            except Exception as e:
+                print(f"  Error: {e}")
+
+if __name__ == "__main__":
+    shell = OLLINShell()
+    shell.run()
