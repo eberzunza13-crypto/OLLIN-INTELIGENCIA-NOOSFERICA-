@@ -1,0 +1,54 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office'
+xmlns:w='urn:schemas-microsoft-com:office:word'
+xmlns='http://www.w3.org/TR/REC-html40'>
+<head><meta charset='UTF-8'>
+<style>
+body{font-family:Arial,sans-serif;font-size:12pt;color:#111;margin:80px 90px;line-height:1.7}
+h1{font-size:18pt;color:#002060;border-bottom:2pt solid #002060;padding-bottom:6pt;margin-bottom:18pt}
+h2{font-size:13pt;color:#1a4070;margin-top:20pt;margin-bottom:8pt}
+h3{font-size:12pt;color:#1a4070;margin-top:14pt;margin-bottom:6pt}
+p{margin-bottom:8pt}
+.highlight{background:#e8f0fc;border-left:4pt solid #2060b0;padding:8pt 12pt;margin:10pt 0}
+.firma{margin-top:40pt;border-top:1pt solid #aaa;padding-top:14pt;color:#555;font-size:10pt}
+table{border-collapse:collapse;width:100%;margin:10pt 0}
+td,th{border:1pt solid #bbb;padding:6pt 10pt;font-size:11pt;vertical-align:top}
+th{background:#d0e0f0;color:#002060;font-weight:bold}
+tr:nth-child(even) td{background:#f5f8ff}
+.num{color:#2060a0;font-weight:bold}
+ul{margin:6pt 0 8pt 20pt}
+li{margin-bottom:4pt}
+</style></head><body>
+
+<h1>Checklist de Registro de Autoría — OLLIN Dual Neural</h1>
+<h2>Paso 1 — Hoy (sin costo)</h2>
+<table>
+<tr><th>Tarea</th><th>Estado</th><th>Notas</th></tr>
+<tr><td>Gmail a cuenta propia con ZIP adjunto</td><td><strong>✅ COMPLETADO</strong></td><td>Timestamp servidor Google activo</td></tr>
+<tr><td>Google Drive (timestamp automático)</td><td>✅ Activo</td><td>Ya registrado automáticamente</td></tr>
+<tr><td>Safe Creative (safecreative.org)</td><td>⏳ Pendiente hoy</td><td>Gratuito. Certificado en minutos.</td></tr>
+</table>
+<h2>Paso 2 — Esta Semana (INDAUTOR)</h2>
+<p><strong>Web:</strong> indautor.gob.mx → Trámites en línea → Registro de Obras</p>
+<p><strong>Presencial:</strong> Puebla 143, col. Roma Norte, CDMX · Lunes a viernes 9:00-14:00</p>
+<table>
+<tr><th>Documento</th><th>Archivo</th></tr>
+<tr><td>Carta de presentación firmada</td><td>08_Carta_INDAUTOR.doc</td></tr>
+<tr><td>Solicitud de registro software</td><td>09_Solicitud_Registro_Software.doc</td></tr>
+<tr><td>Código fuente (USB o impreso)</td><td>ollin_completo.py + ollin_neural.py</td></tr>
+<tr><td>Documentación técnica</td><td>13_Descripcion_Tecnica.doc</td></tr>
+<tr><td>Identificación oficial</td><td>INE o pasaporte</td></tr>
+</table>
+<p><strong>Categorías:</strong> Programa de computación (Art. 102) · Obra literaria · Obra de compilación · Obras artísticas (personajes)</p>
+<p><strong>Costo estimado:</strong> $300-600 MXN por categoría · <strong>Tiempo:</strong> 5-10 días hábiles</p>
+<h2>Paso 3 — Mediano Plazo (IMPI)</h2>
+<p>Registrar marca "OLLIN" en Clase 42 (servicios tecnológicos). Nombres de personajes como marcas. <strong>Web:</strong> gob.mx/impi · <strong>Costo:</strong> ~$3,000-5,000 MXN</p>
+<h2>Paso 4 — Opcional (Notaría)</h2>
+<p>Llevar 11_Declaracion_Notarial.doc a notario público para autenticación de firma y fecha.</p>
+<div class="highlight"><strong>Nota:</strong> La protección del Convenio de Berna es automática desde la creación en 181 países. El registro agrega fuerza probatoria — no crea el derecho. El derecho ya existe desde 17 de marzo de 2026.</div>
+
+<div class="firma">
+<strong>Luis Ernesto Berzunza Díaz</strong><br>
+Arquitecto y Titular único de OLLIN<br>
+Chihuahua, Chihuahua · 17 de marzo de 2026 · OLLIN Dual Neural
+</div>
+</body></html>

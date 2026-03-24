@@ -1,0 +1,55 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office'
+xmlns:w='urn:schemas-microsoft-com:office:word'
+xmlns='http://www.w3.org/TR/REC-html40'>
+<head><meta charset='UTF-8'>
+<style>
+body{font-family:Arial,sans-serif;font-size:12pt;color:#111;margin:80px 90px;line-height:1.7}
+h1{font-size:18pt;color:#002060;border-bottom:2pt solid #002060;padding-bottom:6pt;margin-bottom:18pt}
+h2{font-size:13pt;color:#1a4070;margin-top:20pt;margin-bottom:8pt}
+h3{font-size:12pt;color:#1a4070;margin-top:14pt;margin-bottom:6pt}
+p{margin-bottom:8pt}
+.highlight{background:#e8f0fc;border-left:4pt solid #2060b0;padding:8pt 12pt;margin:10pt 0}
+.firma{margin-top:40pt;border-top:1pt solid #aaa;padding-top:14pt;color:#555;font-size:10pt}
+table{border-collapse:collapse;width:100%;margin:10pt 0}
+td,th{border:1pt solid #bbb;padding:6pt 10pt;font-size:11pt;vertical-align:top}
+th{background:#d0e0f0;color:#002060;font-weight:bold}
+tr:nth-child(even) td{background:#f5f8ff}
+.num{color:#2060a0;font-weight:bold}
+ul{margin:6pt 0 8pt 20pt}
+li{margin-bottom:4pt}
+</style></head><body>
+
+<h1>Las 5 Capas Neurales de OLLIN Dual Neural</h1>
+<p>Con las 5 capas neurales, OLLIN deja de solo guardar y empieza a razonar. Todas tienen fallback gracioso — el sistema corre sin instalar nada, y cada librería activa su capa cuando está disponible.</p>
+<table>
+<tr><th>Capa</th><th>Nombre</th><th>Librería</th><th>Fallback</th></tr>
+<tr><td class="num">C1</td><td>Encoder semántico</td><td>sentence-transformers</td><td>Hash-128d</td></tr>
+<tr><td class="num">C2</td><td>Vector store</td><td>ChromaDB</td><td>Coseno en memoria</td></tr>
+<tr><td class="num">C3</td><td>LLM local</td><td>Ollama</td><td>Claude API → DeepSeek → simulado</td></tr>
+<tr><td class="num">C4</td><td>Consolidación neural</td><td>scikit-learn K-Means</td><td>Agrupación por carpeta</td></tr>
+<tr><td class="num">C5</td><td>Grafo de conocimiento</td><td>networkx DiGraph</td><td>Diccionario de adyacencia</td></tr>
+</table>
+<h2>C1 — Encoder Semántico</h2>
+<p>Modelo: <strong>all-MiniLM-L6-v2</strong> (80MB, rápido y ligero). Calcula un vector de 384 dimensiones para cada nodo al momento de entrar por Anti-Bias. Ese vector codifica el <em>significado</em>, no las palabras. Un nodo sobre "sacrificio ritual azteca" y otro sobre "ofrenda ceremonial mesoamericana" tendrán vectores cercanos aunque no compartan ninguna palabra.</p>
+<h2>C2 — Vector Store</h2>
+<p>ChromaDB guarda los vectores en disco de forma persistente. El comando <strong>sem</strong> hace búsqueda por similitud coseno en todo el AHO. Escala bien hasta cientos de miles de nodos.</p>
+<h2>C3 — LLM Local</h2>
+<p>Prioridad de uso: Ollama local (llama3, mistral, phi3, gemma2) → Claude Sonnet 4.6 API → DeepSeek API → modo simulado. Con Ollama el sistema razona localmente sin internet y sin costo. Requiere mínimo 4GB RAM libre.</p>
+<h2>C4 — Consolidador Neural</h2>
+<p>K-Means corre en hilo daemon cada 10 nodos nuevos. El Sueño ya no solo guarda — agrupa, refuerza y marca clusters de conocimiento relacionado. Su valor real aparece cuando el AHO supera los 200-300 nodos.</p>
+<h2>C5 — Grafo de Conocimiento</h2>
+<p>Conecta automáticamente todo par de nodos con similitud coseno > 0.72. La Cámara Dialéctica recibe los vecinos semánticos del nodo analizado. El umbral puede bajarse a 0.60 para un grafo más rico desde el inicio.</p>
+<h2>Instalación</h2>
+<p>pip install -r requirements_neural.txt</p>
+<p>Para Ollama (LLM local gratuito):<br>
+Mac/Linux: curl -fsSL https://ollama.ai/install.sh | sh<br>
+Windows: https://ollama.ai/download<br>
+Luego: ollama pull llama3</p>
+<div class="highlight"><strong>Con las 5 capas activas:</strong> OLLIN busca por significado (C2), razona localmente (C3), consolida mientras duerme (C4) y conecta nodos por semántica (C5). El sistema no piensa — recuerda. Y ahora también razona.</div>
+
+<div class="firma">
+<strong>Luis Ernesto Berzunza Díaz</strong><br>
+Arquitecto y Titular único de OLLIN<br>
+Chihuahua, Chihuahua · 17 de marzo de 2026 · OLLIN Dual Neural
+</div>
+</body></html>

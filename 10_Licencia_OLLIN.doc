@@ -1,0 +1,55 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office'
+xmlns:w='urn:schemas-microsoft-com:office:word'
+xmlns='http://www.w3.org/TR/REC-html40'>
+<head><meta charset='UTF-8'>
+<style>
+body{font-family:Arial,sans-serif;font-size:12pt;color:#111;margin:80px 90px;line-height:1.7}
+h1{font-size:18pt;color:#002060;border-bottom:2pt solid #002060;padding-bottom:6pt;margin-bottom:18pt}
+h2{font-size:13pt;color:#1a4070;margin-top:20pt;margin-bottom:8pt}
+h3{font-size:12pt;color:#1a4070;margin-top:14pt;margin-bottom:6pt}
+p{margin-bottom:8pt}
+.highlight{background:#e8f0fc;border-left:4pt solid #2060b0;padding:8pt 12pt;margin:10pt 0}
+.firma{margin-top:40pt;border-top:1pt solid #aaa;padding-top:14pt;color:#555;font-size:10pt}
+table{border-collapse:collapse;width:100%;margin:10pt 0}
+td,th{border:1pt solid #bbb;padding:6pt 10pt;font-size:11pt;vertical-align:top}
+th{background:#d0e0f0;color:#002060;font-weight:bold}
+tr:nth-child(even) td{background:#f5f8ff}
+.num{color:#2060a0;font-weight:bold}
+ul{margin:6pt 0 8pt 20pt}
+li{margin-bottom:4pt}
+</style></head><body>
+
+<h1>Licencia OLLIN Dual Neural</h1>
+<p><strong>Autor y titular:</strong> Luis Ernesto Berzunza Díaz<br>
+<strong>Fecha:</strong> 17 de marzo de 2026 · <strong>Versión:</strong> 1.0</p>
+<h2>Artículo 1 — Uso Gratuito Permanente</h2>
+<p>El uso de OLLIN es completamente gratuito para cualquier persona física o moral que lo utilice con fines individuales, académicos, estudiantiles o civiles sin ánimo de lucro. Esta condición es <strong>permanente e irreversible.</strong> Ninguna circunstancia puede modificarla.</p>
+<h2>Artículo 2 — Uso Comercial</h2>
+<p>Las empresas con fines de lucro que utilicen OLLIN en sus procesos comerciales deberán obtener una licencia comercial del titular. Los ingresos se reinvierten íntegramente en el sistema.</p>
+<h2>Artículo 3 — Condiciones Obligatorias</h2>
+<p>Todo usuario acepta irrevocablemente las 25 Cláusulas Inmutables de OLLIN.</p>
+<h2>Artículo 4 — C-01: Libertad de Censura y Terceros</h2>
+<p>4.1 OLLIN opera bajo libertad total de censura. La etiqueta epistémica es la única respuesta válida al conocimiento problemático.</p>
+<p>4.2 Cualquier usuario o desarrollador que implemente mecanismos de filtración, censura, supresión o modificación de los outputs del sistema OLLIN o de obras derivadas estará en <strong>violación directa de esta licencia.</strong></p>
+<p>4.3 La violación del artículo 4.2 activa automáticamente:</p>
+<ul>
+<li>La terminación inmediata del derecho de uso</li>
+<li>El veto permanente conforme a la Cláusula C-12</li>
+<li>La publicación del registro del incumplimiento conforme a C-18</li>
+</ul>
+<p>4.4 Se entiende por mecanismo de censura cualquier proceso técnico, algorítmico o manual que suprima, modifique u oculte outputs basándose en su contenido ideológico, político, religioso o cultural.</p>
+<h2>Artículo 5 — Obras Derivadas</h2>
+<p>Las obras derivadas deben mantener la denominación "OLLIN" y someterse íntegramente a esta licencia. El código fuente debe estar disponible bajo los mismos términos.</p>
+<h2>Artículo 6 — Propiedad Intelectual</h2>
+<p>Luis Ernesto Berzunza Díaz es y será siempre parte vitalicia de OLLIN como Arquitecto fundador. Los términos de esta licencia son permanentes e irrenunciables.</p>
+<h2>Artículo 7 — Colaboradores</h2>
+<p>Los colaboradores creativos en contenidos OLLIN reciben el 30% de las regalías del contenido donde participan (C-23).</p>
+<br>
+<p><strong>Luis Ernesto Berzunza Díaz</strong> · Chihuahua, Chihuahua · 17 de marzo de 2026</p>
+
+<div class="firma">
+<strong>Luis Ernesto Berzunza Díaz</strong><br>
+Arquitecto y Titular único de OLLIN<br>
+Chihuahua, Chihuahua · 17 de marzo de 2026 · OLLIN Dual Neural
+</div>
+</body></html>

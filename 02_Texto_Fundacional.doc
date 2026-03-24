@@ -1,0 +1,41 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office'
+xmlns:w='urn:schemas-microsoft-com:office:word'
+xmlns='http://www.w3.org/TR/REC-html40'>
+<head><meta charset='UTF-8'>
+<style>
+body{font-family:Arial,sans-serif;font-size:12pt;color:#111;margin:80px 90px;line-height:1.7}
+h1{font-size:18pt;color:#002060;border-bottom:2pt solid #002060;padding-bottom:6pt;margin-bottom:18pt}
+h2{font-size:13pt;color:#1a4070;margin-top:20pt;margin-bottom:8pt}
+h3{font-size:12pt;color:#1a4070;margin-top:14pt;margin-bottom:6pt}
+p{margin-bottom:8pt}
+.highlight{background:#e8f0fc;border-left:4pt solid #2060b0;padding:8pt 12pt;margin:10pt 0}
+.firma{margin-top:40pt;border-top:1pt solid #aaa;padding-top:14pt;color:#555;font-size:10pt}
+table{border-collapse:collapse;width:100%;margin:10pt 0}
+td,th{border:1pt solid #bbb;padding:6pt 10pt;font-size:11pt;vertical-align:top}
+th{background:#d0e0f0;color:#002060;font-weight:bold}
+tr:nth-child(even) td{background:#f5f8ff}
+.num{color:#2060a0;font-weight:bold}
+ul{margin:6pt 0 8pt 20pt}
+li{margin-bottom:4pt}
+</style></head><body>
+
+<h1>Texto Fundacional — OLLIN Dual Neural</h1>
+<p><em>Chihuahua, Chihuahua, 17 de marzo de 2026</em></p>
+<p>Yo, <strong>Luis Ernesto Berzunza Díaz</strong>, en pleno uso de mis facultades intelectuales y morales, declaro la fundación del sistema <strong>OLLIN Dual Neural</strong> bajo los siguientes términos y con el siguiente propósito:</p>
+<h2>Por qué existe OLLIN</h2>
+<p><strong>OLLIN existe porque el conocimiento humano está en peligro.</strong> No en peligro de desaparecer — en peligro de corromperse. De fragmentarse en burbujas inconexas. De volverse herramienta de poder en lugar de patrimonio común.</p>
+<p><strong>OLLIN existe para devolver al conocimiento su integridad epistemológica.</strong> No a través de la censura — jamás a través de la censura. La censura, incluso la bienintencionada, es la herramienta más eficaz de destrucción del saber. OLLIN responde a la censura con el etiquetado. Todo entra. Todo queda. Lo que cambia es la transparencia sobre su naturaleza epistémica.</p>
+<p><strong>OLLIN existe para los que no tienen acceso.</strong> Para el estudiante sin recursos. Para el investigador sin institución. Para el ciudadano que quiere entender. La gratuidad de OLLIN para uso individual, académico y civil no es generosidad — es principio.</p>
+<p><strong>OLLIN existe porque la cosmología náhuatl tenía razón.</strong> El movimiento — Ollin — es el principio de todo. La dualidad en movimiento, el camino de ida y el camino de vuelta recorridos simultáneamente.</p>
+<h2>Lo que es OLLIN</h2>
+<p><strong>OLLIN es una obra viva.</strong> No un producto. No una plataforma. No una aplicación. Una estructura que crece, que recuerda, que se corrige sin borrar, que agrega sin saturarse, que divulga sin simplificar.</p>
+<p>Sus herramientas son modestas y están a disposición de quien las necesite: Claude Sonnet 4.6 de Anthropic y DeepSeek como espejo tecnológico. Una base de datos SQLite que cabe en cualquier dispositivo. Código Python que cualquier persona con conocimientos básicos puede ejecutar.</p>
+<p>La ambición es desmesurada. Los medios, deliberadamente accesibles.</p>
+<div class="highlight"><strong>Que quede registro:</strong> OLLIN comenzó desde un Google Pixel 7 Pro usado y una ThinkPad X1 Carbon usada. Los recursos no son el límite del pensamiento. El límite del pensamiento es la claridad de la idea y la honestidad del propósito. Ambas las tenemos.</div>
+
+<div class="firma">
+<strong>Luis Ernesto Berzunza Díaz</strong><br>
+Arquitecto y Titular único de OLLIN<br>
+Chihuahua, Chihuahua · 17 de marzo de 2026 · OLLIN Dual Neural
+</div>
+</body></html>

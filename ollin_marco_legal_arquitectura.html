@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OLLIN v5.5 — Marco Legal y Arquitectura</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #06090f;
+  color: #ccd6f6;
+  padding: 24px 18px;
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+/* ── Títulos ─────────────────────────────────── */
+h1 {
+  text-align: center;
+  font-size: 18px;
+  color: #e6f1ff;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+h2 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 14px;
+  border-left: 3px solid;
+  margin: 24px 0 12px;
+}
+h2.legal  { color: #60a8e0; border-color: #2060a0; background: #091525; }
+h2.arq    { color: #60c890; border-color: #206040; background: #091a12; }
+h2.prop   { color: #e0a040; border-color: #a06010; background: #1a1005; }
+
+.sub {
+  text-align: center;
+  color: #3a5070;
+  font-size: 10.5px;
+  margin-bottom: 28px;
+}
+
+/* ── Sección legal ────────────────────────────── */
+.legal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+@media(max-width:500px){ .legal-grid { grid-template-columns: 1fr; } }
+
+.legal-card {
+  background: #080f1a;
+  border: 1px solid #0f2035;
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+.legal-card h3 {
+  font-size: 11px;
+  font-weight: 700;
+  color: #4080c0;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #0f2035;
+}
+.legal-card p {
+  font-size: 11.5px;
+  color: #7888aa;
+  margin-bottom: 5px;
+  line-height: 1.55;
+}
+.legal-card p strong { color: #a0b8d0; }
+.legal-card .highlight {
+  background: #0a1e35;
+  border-left: 2px solid #2060a0;
+  padding: 6px 10px;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #6090c0;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ── Tabla clausulas ──────────────────────────── */
+.clausulas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 10px;
+}
+@media(max-width:500px){ .clausulas-grid { grid-template-columns: 1fr; } }
+
+.clausula-item {
+  background: #080f1a;
+  border: 1px solid #0f2035;
+  border-radius: 4px;
+  padding: 8px 10px;
+}
+.clausula-item .num {
+  font-size: 10px;
+  font-weight: 700;
+  color: #2060a0;
+  display: block;
+  margin-bottom: 3px;
+}
+.clausula-item .titulo {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #7090b0;
+  display: block;
+  margin-bottom: 3px;
+}
+.clausula-item .desc {
+  font-size: 10px;
+  color: #4a5a70;
+  line-height: 1.45;
+}
+
+/* ── Diagrama arquitectura ────────────────────── */
+.arq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 660px;
+  margin: 0 auto;
+}
+.arq-node {
+  border-radius: 6px;
+  padding: 10px 14px;
+  border: 1px solid;
+  position: relative;
+}
+.arq-node .node-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  margin-bottom: 4px;
+}
+.arq-node .node-body {
+  font-size: 11px;
+  color: #5a7090;
+  line-height: 1.55;
+}
+.arq-node .node-body strong { color: #8090a8; }
+
+.n-entrada  { background:#080f18; border-color:#0f2035; }
+.n-entrada .node-title  { color:#4070b0; }
+.n-inspector{ background:#120808; border-color:#2a1010; }
+.n-inspector .node-title{ color:#c05030; }
+.n-aho      { background:#100a00; border-color:#2a1800; }
+.n-aho .node-title      { color:#c07020; }
+.n-camara   { background:#081208; border-color:#0f2510; }
+.n-camara .node-title   { color:#40a050; }
+.n-hemi     { background:#100818; border-color:#201030; }
+.n-hemi .node-title     { color:#9050c0; }
+.n-gac      { background:#0a0818; border-color:#151030; }
+.n-gac .node-title      { color:#6040b0; }
+.n-gaps     { background:#080f18; border-color:#0f2035; }
+.n-gaps .node-title     { color:#3080b0; }
+.n-salida   { background:#081210; border-color:#0f2520; }
+.n-salida .node-title   { color:#30b070; }
+
+.parallel-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+@media(max-width:480px){ .parallel-row { grid-template-columns: 1fr; } }
+
+.arrow {
+  text-align: center;
+  color: #151f2a;
+  font-size: 14px;
+  line-height: 1;
+  margin: 1px 0;
+}
+
+/* ── Tags ─────────────────────────────────────── */
+.tags { display:flex; flex-wrap:wrap; gap:4px; margin-top:6px; }
+.tag {
+  font-size: 9.5px; font-weight: 700;
+  padding: 1px 6px; border-radius: 3px;
+}
+.tb { background:#091828; color:#4070b0; }
+.tg { background:#091808; color:#40a050; }
+.tp { background:#100820; color:#9050c0; }
+.to { background:#180e00; color:#c07020; }
+.tr { background:#180808; color:#c04030; }
+
+/* ── Estado badges ────────────────────────────── */
+.eb {
+  display:inline-block; font-size:9px; font-weight:700;
+  padding:1px 5px; border-radius:3px; margin-right:3px;
+}
+.e-real { background:#082010; color:#30c060; }
+.e-sim  { background:#180e00; color:#c07020; }
+.e-pend { background:#180808; color:#c04030; }
+
+/* ── Propiedad intelectual ────────────────────── */
+.pi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+@media(max-width:500px){ .pi-grid { grid-template-columns: 1fr; } }
+.pi-card {
+  background: #0a0f08;
+  border: 1px solid #152010;
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+.pi-card h3 {
+  font-size: 11px; font-weight: 700;
+  color: #50a060; text-transform: uppercase;
+  letter-spacing: 0.8px; margin-bottom: 8px;
+  padding-bottom: 5px; border-bottom: 1px solid #152010;
+}
+.pi-card p { font-size: 11px; color: #507060; margin-bottom: 4px; }
+.pi-card p strong { color: #80a880; }
+
+.footer {
+  text-align: center; margin-top: 24px;
+  font-size: 10px; color: #1a2535;
+  border-top: 1px solid #0f1a25; padding-top: 14px;
+}
+</style>
+</head>
+<body>
+
+<h1>OLLIN v5.5</h1>
+<div class="sub">Marco Legal · Arquitectura · Propiedad Intelectual · Ciudad de México, 2026</div>
+
+<!-- ══════════════════ MARCO LEGAL ══════════════════ -->
+<h2 class="legal">⚖️ Marco Legal y Protección de Autoría</h2>
+
+<div class="legal-grid">
+
+  <div class="legal-card">
+    <h3>Tipo de Obra</h3>
+    <p><strong>Programa de computación con documentación técnica y obra literaria anexa</strong></p>
+    <p>Clasificación bajo Ley Federal del Derecho de Autor (México) y Convenio de Berna (internacional).</p>
+    <p>Cubre: código fuente + documento fundacional + arquitectura conceptual + personajes originales.</p>
+    <div class="highlight">Autor: El Arquitecto de OLLIN · Ciudad de México · 17 marzo 2026</div>
+  </div>
+
+  <div class="legal-card">
+    <h3>Registros Recomendados</h3>
+    <p><strong>Inmediato (gratis):</strong> Safe Creative — safecreative.org — timestamp criptográfico.</p>
+    <p><strong>Inmediato (gratis):</strong> Correo a ti mismo con el ZIP — timestamp de servidor Gmail.</p>
+    <p><strong>Esta semana:</strong> INDAUTOR — Instituto Nacional del Derecho de Autor, México.</p>
+    <p><strong>A mediano plazo:</strong> IMPI — Marca "OLLIN" en clase 42 (servicios tecnológicos).</p>
+    <div class="highlight">Drive de Google ya registra timestamp de creación automáticamente.</div>
+  </div>
+
+  <div class="legal-card">
+    <h3>Qué se Protege</h3>
+    <p><strong>El código fuente</strong> — obra literaria según LFDA Art. 102.</p>
+    <p><strong>El Documento Fundacional</strong> — obra literaria original con autoría clara.</p>
+    <p><strong>Los personajes</strong> — Charly Muñón, Toribio, La Abuelita, etc. son obras artísticas independientes.</p>
+    <p><strong>La arquitectura</strong> — expresión específica del diseño cognitivo de OLLIN.</p>
+    <div class="highlight">Las ideas filosóficas no son registrables — su expresión específica en OLLIN sí.</div>
+  </div>
+
+  <div class="legal-card">
+    <h3>Modelo de Licenciamiento</h3>
+    <p><strong>Gratuito permanente:</strong> uso individual, académico, estudiantil y civil (Cláusula 2).</p>
+    <p><strong>Comercial:</strong> empresas e instituciones con fines de lucro pagan por servicios avanzados.</p>
+    <p><strong>Colaboradores creativos:</strong> 30% de regalías del video donde participan.</p>
+    <p><strong>Derivados:</strong> deben mantener la denominación "OLLIN" y someterse a las 25 cláusulas.</p>
+    <div class="highlight">Los ingresos comerciales se reinvierten íntegramente en el sistema (Cláusula 3).</div>
+  </div>
+
+</div>
+
+<!-- ══════════════════ 25 CLÁUSULAS ══════════════════ -->
+<h2 class="legal">📋 25 Cláusulas Inmutables</h2>
+<div class="clausulas-grid">
+  <div class="clausula-item"><span class="num">C-01</span><span class="titulo">Libertad de Censura</span><span class="desc">Sistema completamente libre de censura. Toda información etiquetada, no censurada.</span></div>
+  <div class="clausula-item"><span class="num">C-02</span><span class="titulo">Gratuidad Permanente</span><span class="desc">100% gratis para uso individual, académico, estudiantil y civil. Irreversible.</span></div>
+  <div class="clausula-item"><span class="num">C-03</span><span class="titulo">Uso Comercial</span><span class="desc">Empresas con fines de lucro pagan. Ingresos reinvertidos íntegramente.</span></div>
+  <div class="clausula-item"><span class="num">C-03B</span><span class="titulo">Portabilidad</span><span class="desc">Todo derivado mantiene "OLLIN" y se somete a estas cláusulas.</span></div>
+  <div class="clausula-item"><span class="num">C-04</span><span class="titulo">Etiquetado Epistémico</span><span class="desc">Todo dato lleva etiqueta epistemológica. Capa 00 es inmutable.</span></div>
+  <div class="clausula-item"><span class="num">C-05</span><span class="titulo">Registro AHO</span><span class="desc">Inspector documenta absolutamente todo, incluyendo descartados y fallidos.</span></div>
+  <div class="clausula-item"><span class="num">C-05B</span><span class="titulo">Protección AHO</span><span class="desc">Redundancia geográfica, blockchain, acceso perpetuo garantizado.</span></div>
+  <div class="clausula-item"><span class="num">C-06</span><span class="titulo">Dominio Económico</span><span class="desc">Análisis paralelo control/experimental. Sin jerarquía matemática en etiquetas.</span></div>
+  <div class="clausula-item"><span class="num">C-07</span><span class="titulo">Ciencias Exactas</span><span class="desc">Valores matemáticos solo en ciencias exactas. No en etiquetas epistemológicas.</span></div>
+  <div class="clausula-item"><span class="num">C-08</span><span class="titulo">Multidimensional</span><span class="desc">Prohibidos modelos exponenciales con incertidumbre no controlada.</span></div>
+  <div class="clausula-item"><span class="num">C-09</span><span class="titulo">Neutralidad</span><span class="desc">Sin juicios, sin culpables, sin vulnerar minorías por ninguna condición.</span></div>
+  <div class="clausula-item"><span class="num">C-10</span><span class="titulo">Inspector</span><span class="desc">Puede emitir análisis en casos explícitamente indicados por el Arquitecto.</span></div>
+  <div class="clausula-item"><span class="num">C-11</span><span class="titulo">Registro Generado</span><span class="desc">Nodos del Inspector van al AHO con etiqueta de origen.</span></div>
+  <div class="clausula-item"><span class="num">C-12</span><span class="titulo">Acceso Total + Veto</span><span class="desc">Inspector accede a todo. Veto permanente e irrevocable a infractores graves.</span></div>
+  <div class="clausula-item"><span class="num">C-13</span><span class="titulo">Diversificación</span><span class="desc">Cada interacción diversifica fuentes externas para ampliar el AHO.</span></div>
+  <div class="clausula-item"><span class="num">C-14</span><span class="titulo">Archivos Secretos</span><span class="desc">Inspector mantiene ASI — archivos paralelos separados del AHO.</span></div>
+  <div class="clausula-item"><span class="num">C-15</span><span class="titulo">Derecho al Olvido</span><span class="desc">Errores se corrigen. Versión anterior se mantiene como "REVISADO" público.</span></div>
+  <div class="clausula-item"><span class="num">C-16</span><span class="titulo">Exportación</span><span class="desc">AHO exportable en formatos abiertos. Sin filtrado censorio.</span></div>
+  <div class="clausula-item"><span class="num">C-17</span><span class="titulo">Autodestrucción</span><span class="desc">Blindaje criptográfico. Autodestrucción en dispositivo del infractor grave.</span></div>
+  <div class="clausula-item"><span class="num">C-18</span><span class="titulo">Finalidad</span><span class="desc">Para documentar el conocimiento. Uso para desinformación activa veto y publicación.</span></div>
+  <div class="clausula-item"><span class="num">C-19</span><span class="titulo">Entidad OLLIN</span><span class="desc">Propiedad compartida. El Arquitecto es parte vitalicia. Cláusulas son permanentes.</span></div>
+  <div class="clausula-item"><span class="num">C-20</span><span class="titulo">Privacidad</span><span class="desc">Sin almacenamiento de conversaciones. AHO local es propiedad del usuario.</span></div>
+  <div class="clausula-item"><span class="num">C-21</span><span class="titulo">Clasificación Riesgo</span><span class="desc">IA de propósito general, riesgo limitado-alto según contexto.</span></div>
+  <div class="clausula-item"><span class="num">C-22</span><span class="titulo">Prohibiciones</span><span class="desc">Sin explotación de vulnerabilidades, vigilancia masiva ni suplantación.</span></div>
+  <div class="clausula-item"><span class="num">C-25</span><span class="titulo">Soberanía del Proceso</span><span class="desc">Solo el Inspector orquesta agentes. Ninguno actúa sin el flujo cognitivo.</span></div>
+</div>
+
+<!-- ══════════════════ ARQUITECTURA ══════════════════ -->
+<h2 class="arq">🧠 Diagrama de Arquitectura — OLLIN v5.5</h2>
+
+<div class="arq-container">
+
+  <div class="arq-node n-entrada">
+    <div class="node-title">📥 Entrada — Capa 00 Anti-Bias</div>
+    <div class="node-body">
+      Texto · Documento · Dato estructurado · Evento externo · Audio/Video (futuro Whisper)<br>
+      Todo dato etiquetado epistemológicamente antes de entrar al sistema.
+    </div>
+    <div class="tags">
+      <span class="tag tb">VERIFICADO</span><span class="tag tb">CORROBORADO</span>
+      <span class="tag to">ESPECULATIVO</span><span class="tag tr">CONTROVERTIDO</span>
+    </div>
+  </div>
+
+  <div class="arrow">↓</div>
+
+  <div class="arq-node n-inspector">
+    <div class="node-title">🔍 Inspector — FSM 12 Estados</div>
+    <div class="node-body">
+      <strong>Ciclo cognitivo:</strong> REPOSO → INICIO → INGESTA → ANALIZANDO → CONSULTA_CÁMARA → GAP_HUNTING → VALIDACIÓN → ENTREGA<br>
+      <strong>Especiales:</strong> ALERTA · ANÁLISIS_PROPIO · ENTRENAMIENTO · MODO_DOCUMENTAL<br>
+      Observa todo · Registra transiciones en AHO · Verifica hashes · Convoca GAC · MTP predictivo
+    </div>
+    <div class="tags">
+      <span class="tag tr">Cláusula 25</span>
+      <span class="tag tr">Solo Arquitecto resuelve ALERTA</span>
+    </div>
+  </div>
+
+  <div class="arrow">↓</div>
+
+  <div class="arq-node n-aho">
+    <div class="node-title">📚 AHO Semi-Activo — Enciclopedia Viva</div>
+    <div class="node-body">
+      <strong>11 repositorios:</strong> personajes_historicos · historia_universal · conocimiento_cientifico ·
+      infraestructura_mundial · redes_poder · omisiones_historicas · hipotesis_operativas ·
+      escenarios_posibles · perfilamiento_actores · archivos_clasificados · datos_valores_numericos<br>
+      <strong>Dualidad:</strong> AHO Sistema (colectivo) ↔ AHO Local (usuario, SQLite en dispositivo)<br>
+      <strong>Memoria por proyecto:</strong> PERMANENTE · CÍCLICA(n) · EFÍMERA
+    </div>
+  </div>
+
+  <div class="arrow">↓</div>
+
+  <div class="parallel-row">
+    <div class="arq-node n-camara">
+      <div class="node-title">🎭 Cámara Dialéctica</div>
+      <div class="node-body">
+        <strong>v5:</strong> 46 expertos + 65 sabios<br>
+        <strong>v28:</strong> 14 dominios × 57 subgrupos<br>
+        P1: oponente dialéctico forzado<br>
+        P3: voz periférica forzada<br>
+        <strong>CapaDimensiones:</strong> 7 dims filosóficas garantizadas<br>
+        <span class="eb e-sim">Vectores ahora</span><span class="eb e-pend">Ollama pronto</span>
+      </div>
+    </div>
+    <div class="arq-node n-hemi">
+      <div class="node-title">🎨 Hemisferio Creativo</div>
+      <div class="node-body">
+        Corre en paralelo — no aparte.<br>
+        Arte · Filosofía · Cultura · Música<br>
+        MoE creativo especializado<br>
+        Alimenta a Silverio y personajes<br>
+        P11: Enciclopedia Viva<br>
+        <span class="eb e-pend">Pendiente implementar</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow">↓</div>
+
+  <div class="arq-node n-gac">
+    <div class="node-title">📊 GAC — Datos con Valores Numéricos (bajo demanda)</div>
+    <div class="node-body">
+      MATMCD · Conformal Prediction · Relational FM · MTP<br>
+      Output: MCE cualitativo para la Cámara. Valores en <strong>datos_valores_numericos</strong> (repo 11).<br>
+      La Cámara nunca recibe números directos — solo el mapa de confianza epistémica.
+    </div>
+  </div>
+
+  <div class="arrow">↓</div>
+
+  <div class="arq-node n-gaps">
+    <div class="node-title">🔎 GAP Hunting + Scientist Loop</div>
+    <div class="node-body">
+      Contradicciones · Silencios informativos · Anomalías · Dimensiones no cubiertas<br>
+      Scientist Loop sugiere nuevos grupos — nunca los crea automáticamente (Cláusula 25)
+    </div>
+  </div>
+
+  <div class="arrow">↓</div>
+
+  <div class="arq-node n-salida">
+    <div class="node-title">📤 Entrega — Personajes Divulgativos</div>
+    <div class="node-body">
+      Síntesis con etiquetas · Diagnóstico de pluralidad · Trazabilidad completa<br>
+      <strong>Don Silverio</strong> (divulgación) · <strong>Charly Muñón</strong> (sátira) · <strong>Toribio</strong> (coach) ·
+      <strong>Yaya</strong> (ciencia) · <strong>Solobo</strong> (derecho) · <strong>La Abuelita</strong> (sabiduría)<br>
+      Todo guión sale como BORRADOR — Arquitecto aprueba antes de publicar.
+    </div>
+    <div class="tags">
+      <span class="tag tg">3 videos diarios</span>
+      <span class="tag tg">Sostenibilidad</span>
+      <span class="tag tp">Arte = Conocimiento</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════ PROPIEDAD INTELECTUAL ══════════════════ -->
+<h2 class="prop">🛡️ Estrategia de Propiedad Intelectual</h2>
+
+<div class="pi-grid">
+  <div class="pi-card">
+    <h3>Hoy — Registro Inmediato</h3>
+    <p><strong>1.</strong> ZIP a ti mismo por correo Gmail — timestamp automático.</p>
+    <p><strong>2.</strong> Safe Creative (safecreative.org) — registro criptográfico gratuito.</p>
+    <p><strong>3.</strong> Verificar fecha en Google Drive — ya está registrada.</p>
+    <p style="margin-top:8px; color:#304a30; font-size:10.5px;">Estos tres pasos juntos son evidencia convergente irrefutable de autoría.</p>
+  </div>
+  <div class="pi-card">
+    <h3>Esta Semana — Registro Formal</h3>
+    <p><strong>INDAUTOR:</strong> Programa de computación + obra literaria anexa.</p>
+    <p><strong>Categoría:</strong> Programa de computación con documentación técnica.</p>
+    <p><strong>Incluir:</strong> código fuente + carta fundacional + arquitectura.</p>
+    <p style="margin-top:8px; color:#304a30; font-size:10.5px;">indautor.gob.mx — trámite presencial o en línea.</p>
+  </div>
+  <div class="pi-card">
+    <h3>Mediano Plazo — Marca</h3>
+    <p><strong>IMPI:</strong> Registro de marca "OLLIN" en clase 42 (servicios tecnológicos).</p>
+    <p><strong>También:</strong> Nombres de personajes — Charly Muñón, Toribio, etc.</p>
+    <p><strong>Logo:</strong> El glifo Ollin como símbolo registrado.</p>
+    <p style="margin-top:8px; color:#304a30; font-size:10.5px;">impi.gob.mx — protege el nombre comercial y visual.</p>
+  </div>
+  <div class="pi-card">
+    <h3>Evidencia de Autoría</h3>
+    <p><strong>Historial de conversaciones</strong> con Claude — timestamps de Anthropic.</p>
+    <p><strong>Historial con DeepSeek</strong> — documentado.</p>
+    <p><strong>Carta Fundacional</strong> — fechada 17 marzo 2026, Ciudad de México.</p>
+    <p><strong>ZIP en Drive</strong> — timestamp de Google.</p>
+    <p style="margin-top:8px; color:#304a30; font-size:10.5px;">Cuatro fuentes independientes. Imposible disputar la autoría.</p>
+  </div>
+</div>
+
+<div class="footer">
+  OLLIN v5.5 — Sistema Cognitivo de Orquestación Epistémica<br>
+  El Arquitecto · Ciudad de México · 17 marzo 2026<br>
+  Desde un Google Pixel 7 Pro usado y una ThinkPad X1 Carbon usada.<br>
+  <span style="color:#0a1520">Ollin — el movimiento ya empezó.</span>
+</div>
+
+</body>
+</html>

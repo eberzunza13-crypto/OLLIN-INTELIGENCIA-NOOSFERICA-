@@ -1,0 +1,35 @@
+
+# OLLIN v5.5 Neural — requirements_neural.txt
+# Autor: Luis Ernesto Berzunza Diaz - Ciudad de Mexico - 2026
+#
+# INSTALACION COMPLETA (todas las capas neurales):
+#   pip install -r requirements_neural.txt
+#
+# OLLAMA (C3 - LLM local):
+#   Mac/Linux : curl -fsSL https://ollama.ai/install.sh | sh
+#   Windows   : https://ollama.ai/download
+#   Luego     : ollama pull llama3
+#
+# El sistema corre sin nada instalado (modo simulado).
+# Cada libreria activa su capa cuando esta disponible.
+
+# ── Capa 1: Embeddings semanticos ─────────────────────────
+sentence-transformers>=2.7.0
+
+# ── Capa 2: Vector store ───────────────────────────────────
+chromadb>=0.5.0
+
+# ── Capa 3: LLM local (cliente Ollama) ────────────────────
+ollama>=0.2.0
+
+# ── Capa 4: Consolidacion neural ──────────────────────────
+scikit-learn>=1.4.0
+numpy>=1.26.0
+
+# ── Capa 5: Grafo de conocimiento ─────────────────────────
+networkx>=3.3
+
+# ── API fallbacks (opcionales) ────────────────────────────
+anthropic>=0.25.0
+openai>=1.14.0
+python-dotenv>=1.0.0

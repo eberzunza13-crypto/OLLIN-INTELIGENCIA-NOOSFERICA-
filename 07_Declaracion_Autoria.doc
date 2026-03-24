@@ -1,0 +1,55 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office'
+xmlns:w='urn:schemas-microsoft-com:office:word'
+xmlns='http://www.w3.org/TR/REC-html40'>
+<head><meta charset='UTF-8'>
+<style>
+body{font-family:Arial,sans-serif;font-size:12pt;color:#111;margin:80px 90px;line-height:1.7}
+h1{font-size:18pt;color:#002060;border-bottom:2pt solid #002060;padding-bottom:6pt;margin-bottom:18pt}
+h2{font-size:13pt;color:#1a4070;margin-top:20pt;margin-bottom:8pt}
+h3{font-size:12pt;color:#1a4070;margin-top:14pt;margin-bottom:6pt}
+p{margin-bottom:8pt}
+.highlight{background:#e8f0fc;border-left:4pt solid #2060b0;padding:8pt 12pt;margin:10pt 0}
+.firma{margin-top:40pt;border-top:1pt solid #aaa;padding-top:14pt;color:#555;font-size:10pt}
+table{border-collapse:collapse;width:100%;margin:10pt 0}
+td,th{border:1pt solid #bbb;padding:6pt 10pt;font-size:11pt;vertical-align:top}
+th{background:#d0e0f0;color:#002060;font-weight:bold}
+tr:nth-child(even) td{background:#f5f8ff}
+.num{color:#2060a0;font-weight:bold}
+ul{margin:6pt 0 8pt 20pt}
+li{margin-bottom:4pt}
+</style></head><body>
+
+<h1>Declaración Formal de Autoría y Propiedad Intelectual</h1>
+<p>Yo, <strong>Luis Ernesto Berzunza Díaz</strong>, con domicilio en la Ciudad de México, declaro ser el único autor, creador y titular de todos los derechos de propiedad intelectual del sistema denominado <strong>OLLIN Dual Neural</strong>, concebido y desarrollado entre 2025 y el 17 de marzo de 2026.</p>
+<h2>Naturaleza de la Obra</h2>
+<p>OLLIN es una estructura cognitiva y epistemológica original: un sistema de organización, análisis y divulgación del conocimiento, expresado mediante documentos, arquitectura conceptual, código fuente ejecutable, personajes narrativos y cláusulas operativas.</p>
+<h2>Alcance de la Declaración</h2>
+<ul>
+<li>El <strong>Documento Fundacional</strong> en todas sus versiones</li>
+<li>La <strong>Arquitectura Espejo</strong> y el principio de dualidad cognitiva</li>
+<li>El <strong>AHO</strong> como concepto, estructura y metodología, incluyendo su conexión con el temazcal</li>
+<li>Las <strong>25 Cláusulas Inmutables</strong> en su redacción específica</li>
+<li>Los <strong>personajes divulgativos</strong>: Don Silverio, Charly Muñón, Toribio, Yaya, Solobo, La Abuelita</li>
+<li>La <strong>nomenclatura propia</strong>: AHO, Ometeotl, Temictli, Mitotl, Cámara Dialéctica, GAC</li>
+<li>El <strong>código fuente</strong>: ollin_completo.py y ollin_neural.py</li>
+</ul>
+<h2>Sobre las Herramientas de IA</h2>
+<p>Para el desarrollo de OLLIN se utilizaron como herramientas de asistencia los modelos <strong>Claude Sonnet 4.6</strong> (Anthropic) y <strong>DeepSeek</strong>. Dichos modelos son instrumentos de creación y no ostentan derechos de autoría. La totalidad de la concepción intelectual, el diseño arquitectónico, el concepto filosófico y todas las decisiones creativas son de autoría exclusiva de <strong>Luis Ernesto Berzunza Díaz</strong>.</p>
+<div class="highlight">El concepto y la guía de OLLIN son autoría de Luis Ernesto Berzunza Díaz. Las herramientas de IA fueron el instrumento de traducción — no el origen de la idea.</div>
+<h2>Evidencia de Autoría</h2>
+<table>
+<tr><th>Fuente</th><th>Tipo</th><th>Estado</th></tr>
+<tr><td>Historial Claude Sonnet 4.6</td><td>Timestamps de Anthropic</td><td>Documentado</td></tr>
+<tr><td>Historial DeepSeek</td><td>Timestamps de DeepSeek AI</td><td>Documentado</td></tr>
+<tr><td>Google Drive</td><td>Timestamp automático</td><td>Activo</td></tr>
+<tr><td>Gmail a cuenta propia</td><td>Timestamp servidor Google</td><td>✅ Completado</td></tr>
+<tr><td>Safe Creative</td><td>Registro criptográfico</td><td>Pendiente hoy</td></tr>
+<tr><td>INDAUTOR</td><td>Registro oficial México</td><td>Pendiente esta semana</td></tr>
+</table>
+
+<div class="firma">
+<strong>Luis Ernesto Berzunza Díaz</strong><br>
+Arquitecto y Titular único de OLLIN<br>
+Chihuahua, Chihuahua · 17 de marzo de 2026 · OLLIN Dual Neural
+</div>
+</body></html>

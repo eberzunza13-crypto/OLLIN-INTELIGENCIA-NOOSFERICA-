@@ -1,0 +1,59 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office'
+xmlns:w='urn:schemas-microsoft-com:office:word'
+xmlns='http://www.w3.org/TR/REC-html40'>
+<head><meta charset='UTF-8'>
+<style>
+body{font-family:Arial,sans-serif;font-size:12pt;color:#111;margin:80px 90px;line-height:1.7}
+h1{font-size:18pt;color:#002060;border-bottom:2pt solid #002060;padding-bottom:6pt;margin-bottom:18pt}
+h2{font-size:13pt;color:#1a4070;margin-top:20pt;margin-bottom:8pt}
+h3{font-size:12pt;color:#1a4070;margin-top:14pt;margin-bottom:6pt}
+p{margin-bottom:8pt}
+.highlight{background:#e8f0fc;border-left:4pt solid #2060b0;padding:8pt 12pt;margin:10pt 0}
+.firma{margin-top:40pt;border-top:1pt solid #aaa;padding-top:14pt;color:#555;font-size:10pt}
+table{border-collapse:collapse;width:100%;margin:10pt 0}
+td,th{border:1pt solid #bbb;padding:6pt 10pt;font-size:11pt;vertical-align:top}
+th{background:#d0e0f0;color:#002060;font-weight:bold}
+tr:nth-child(even) td{background:#f5f8ff}
+.num{color:#2060a0;font-weight:bold}
+ul{margin:6pt 0 8pt 20pt}
+li{margin-bottom:4pt}
+</style></head><body>
+
+<h1>Carta de Presentación para Registro de Obra</h1>
+<p>Instituto Nacional del Derecho de Autor<br>
+Dirección General de Registro<br>
+Puebla 143, col. Roma Norte, Ciudad de México</p>
+<p><strong>Fecha:</strong> 17 de marzo de 2026</p>
+<p><strong>ASUNTO:</strong> Solicitud de registro de obra original denominada OLLIN Dual Neural</p>
+<p>Estimados señores:</p>
+<p>Por medio del presente, yo, <strong>Luis Ernesto Berzunza Díaz</strong>, en pleno ejercicio de mis derechos como autor, solicito respetuosamente el registro de las obras que se describen a continuación, de las cuales soy el único creador y titular.</p>
+<h2>Obras a Registrar</h2>
+<p><strong>1. Programa de computación — Art. 102 LFDA</strong><br>
+Denominación: OLLIN Dual Neural / OLLIN Dual Neural Neural<br>
+Archivos: ollin_completo.py / ollin_neural.py<br>
+Lenguaje: Python 3.9+. Aprox. 2,000 líneas de código original.</p>
+<p><strong>2. Obra literaria — Art. 13 fracción I LFDA</strong><br>
+Denominación: Texto Fundacional OLLIN Dual Neural<br>
+Descripción: Documento que establece origen, propósito, principios filosóficos y 25 Cláusulas Inmutables.</p>
+<p><strong>3. Obra de compilación — Art. 13 fracción XII LFDA</strong><br>
+Denominación: Arquitectura Epistemológica OLLIN<br>
+Descripción: Selección y organización original de 46 expertos, 65 sabios y 11 repositorios.</p>
+<p><strong>4. Obras artísticas — Art. 13 fracción VI LFDA</strong><br>
+Personajes: Don Silverio, Charly Muñón, Toribio, Yaya, Solobo, La Abuelita.</p>
+<h2>Declaración sobre Herramientas de IA</h2>
+<p>El desarrollo de OLLIN fue asistido por Claude Sonnet 4.6 (Anthropic) y DeepSeek, utilizados exclusivamente como herramientas de creación. Conforme a la legislación vigente, dichos modelos no son coautores. La autoría es exclusivamente de Luis Ernesto Berzunza Díaz.</p>
+<p>Quedo a sus órdenes para cualquier aclaración.</p>
+<br>
+<p>Atentamente,</p>
+<br><br>
+<p>_________________________________<br>
+<strong>Luis Ernesto Berzunza Díaz</strong><br>
+Autor y titular único<br>
+Chihuahua, Chihuahua, 17 de marzo de 2026</p>
+
+<div class="firma">
+<strong>Luis Ernesto Berzunza Díaz</strong><br>
+Arquitecto y Titular único de OLLIN<br>
+Chihuahua, Chihuahua · 17 de marzo de 2026 · OLLIN Dual Neural
+</div>
+</body></html>

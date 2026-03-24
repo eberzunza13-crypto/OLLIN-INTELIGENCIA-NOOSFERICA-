@@ -1,0 +1,51 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office'
+xmlns:w='urn:schemas-microsoft-com:office:word'
+xmlns='http://www.w3.org/TR/REC-html40'>
+<head><meta charset='UTF-8'>
+<style>
+body{font-family:Arial,sans-serif;font-size:12pt;color:#111;margin:80px 90px;line-height:1.7}
+h1{font-size:18pt;color:#002060;border-bottom:2pt solid #002060;padding-bottom:6pt;margin-bottom:18pt}
+h2{font-size:13pt;color:#1a4070;margin-top:20pt;margin-bottom:8pt}
+h3{font-size:12pt;color:#1a4070;margin-top:14pt;margin-bottom:6pt}
+p{margin-bottom:8pt}
+.highlight{background:#e8f0fc;border-left:4pt solid #2060b0;padding:8pt 12pt;margin:10pt 0}
+.firma{margin-top:40pt;border-top:1pt solid #aaa;padding-top:14pt;color:#555;font-size:10pt}
+table{border-collapse:collapse;width:100%;margin:10pt 0}
+td,th{border:1pt solid #bbb;padding:6pt 10pt;font-size:11pt;vertical-align:top}
+th{background:#d0e0f0;color:#002060;font-weight:bold}
+tr:nth-child(even) td{background:#f5f8ff}
+.num{color:#2060a0;font-weight:bold}
+ul{margin:6pt 0 8pt 20pt}
+li{margin-bottom:4pt}
+</style></head><body>
+
+<h1>Solicitud de Registro — Programa de Computación</h1>
+<p><strong>Fundamento legal:</strong> Art. 102 LFDA · Art. 10 bis Convenio de Berna · ADPIC Art. 10</p>
+<table>
+<tr><th>Campo</th><th>Dato</th></tr>
+<tr><td>Nombre completo</td><td>Luis Ernesto Berzunza Díaz</td></tr>
+<tr><td>Nacionalidad</td><td>Mexicana</td></tr>
+<tr><td>Domicilio</td><td>Chihuahua, Chihuahua, México</td></tr>
+<tr><td>Calidad</td><td>Autor y titular único</td></tr>
+<tr><td>Título de la obra</td><td>OLLIN Dual Neural — Sistema Cognitivo Epistemológico</td></tr>
+<tr><td>Tipo</td><td>Programa de computación con documentación técnica</td></tr>
+<tr><td>Lenguaje</td><td>Python 3.9+</td></tr>
+<tr><td>Versión</td><td>5.5 / 5.5-neural</td></tr>
+<tr><td>Fecha de creación</td><td>17 de marzo de 2026</td></tr>
+<tr><td>Modalidad</td><td>Obra inédita / no publicada comercialmente</td></tr>
+<tr><td>Líneas de código</td><td>Aprox. 2,000 líneas originales</td></tr>
+</table>
+<h2>Descripción Funcional</h2>
+<p>OLLIN Dual Neural implementa: Capa Anti-Bias con etiquetado epistemológico obligatorio (7 etiquetas), Arquitectura Espejo Dual (Temictli/Mitotl en hilos paralelos), AHO en SQLite y ChromaDB, módulo Ometeotl de vigilancia de cláusulas, Cámara Dialéctica con 111 voces, y 5 Capas Neurales opcionales.</p>
+<h2>Originalidad</h2>
+<p>La combinación específica de los elementos, la nomenclatura náhuatl (AHO, Ometeotl, Temictli, Mitotl), la arquitectura de espejo dual inspirada en el glifo Ollin, y las 25 Cláusulas como restricciones operativas del código constituyen una expresión original e inédita que no existe en ningún otro sistema de software conocido.</p>
+<br>
+<p>_________________________________<br>
+<strong>Luis Ernesto Berzunza Díaz</strong> · Chihuahua, Chihuahua · 17 de marzo de 2026</p>
+
+<div class="firma">
+<strong>Luis Ernesto Berzunza Díaz</strong><br>
+Arquitecto y Titular único de OLLIN<br>
+Chihuahua, Chihuahua · 17 de marzo de 2026 · OLLIN Dual Neural
+</div>
+</body></html>

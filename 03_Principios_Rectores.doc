@@ -1,0 +1,43 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office'
+xmlns:w='urn:schemas-microsoft-com:office:word'
+xmlns='http://www.w3.org/TR/REC-html40'>
+<head><meta charset='UTF-8'>
+<style>
+body{font-family:Arial,sans-serif;font-size:12pt;color:#111;margin:80px 90px;line-height:1.7}
+h1{font-size:18pt;color:#002060;border-bottom:2pt solid #002060;padding-bottom:6pt;margin-bottom:18pt}
+h2{font-size:13pt;color:#1a4070;margin-top:20pt;margin-bottom:8pt}
+h3{font-size:12pt;color:#1a4070;margin-top:14pt;margin-bottom:6pt}
+p{margin-bottom:8pt}
+.highlight{background:#e8f0fc;border-left:4pt solid #2060b0;padding:8pt 12pt;margin:10pt 0}
+.firma{margin-top:40pt;border-top:1pt solid #aaa;padding-top:14pt;color:#555;font-size:10pt}
+table{border-collapse:collapse;width:100%;margin:10pt 0}
+td,th{border:1pt solid #bbb;padding:6pt 10pt;font-size:11pt;vertical-align:top}
+th{background:#d0e0f0;color:#002060;font-weight:bold}
+tr:nth-child(even) td{background:#f5f8ff}
+.num{color:#2060a0;font-weight:bold}
+ul{margin:6pt 0 8pt 20pt}
+li{margin-bottom:4pt}
+</style></head><body>
+
+<h1>Los 10 Principios Rectores de OLLIN</h1>
+<p>Los principios son la base filosófica de la que emanan las cláusulas. No son negociables. No tienen excepciones.</p>
+<table>
+<tr><th>Nº</th><th>Principio</th><th>Descripción</th></tr>
+<tr><td class="num">P-01</td><td><strong>Integridad Epistémica</strong></td><td>Todo conocimiento tiene una naturaleza epistémica verificable. OLLIN se compromete a hacer visible esa naturaleza en cada nodo, sin excepción. La honestidad sobre lo que sabemos es más valiosa que la apariencia de certeza.</td></tr>
+<tr><td class="num">P-02</td><td><strong>No Censura</strong></td><td>Ninguna información es suprimida. La respuesta al conocimiento problemático, falso o peligroso es el etiquetado visible, no la eliminación. Eliminar es mentir sobre la existencia. Etiquetar es decir la verdad sobre la naturaleza.</td></tr>
+<tr><td class="num">P-03</td><td><strong>Acceso Universal</strong></td><td>El conocimiento es un derecho humano. OLLIN es y será siempre gratuito para cualquier persona que lo use de forma individual, académica, estudiantil o civil. Este principio es irrevocable e irreversible.</td></tr>
+<tr><td class="num">P-04</td><td><strong>Memoria Total</strong></td><td>Nada se borra de forma definitiva. Los errores se corrigen con transparencia: la versión anterior permanece etiquetada como REVISADO. El sistema recuerda todo, incluyendo sus propias equivocaciones.</td></tr>
+<tr><td class="num">P-05</td><td><strong>Dualidad</strong></td><td>Todo nodo de conocimiento tiene su opuesto simétrico. Todo análisis tiene su contraanálisis. Toda voz dominante tiene su voz periférica forzada. La verdad no está en ninguno de los dos lados — está en la tensión entre ambos.</td></tr>
+<tr><td class="num">P-06</td><td><strong>Pluridimensionalidad</strong></td><td>Ningún conocimiento es unidimensional. Cada nodo debe ser analizado desde al menos siete dimensiones filosóficas. La reducción es una forma de falsificación.</td></tr>
+<tr><td class="num">P-07</td><td><strong>Neutralidad Activa</strong></td><td>OLLIN no tiene ideología declarada. Tiene metodología declarada. No hay juicios sobre las personas. No hay vulneración de minorías. No hay culpables — hay actores, estructuras, procesos y consecuencias.</td></tr>
+<tr><td class="num">P-08</td><td><strong>Trazabilidad</strong></td><td>Todo lo que ocurre en OLLIN queda registrado. El origen de cada nodo, la transición de cada estado, la detección de cada gap. El sistema es completamente auditable por el Arquitecto.</td></tr>
+<tr><td class="num">P-09</td><td><strong>Soberanía del Proceso</strong></td><td>Ningún agente actúa de forma autónoma dentro de OLLIN. El flujo cognitivo es el único camino. La velocidad no es una virtud que justifique saltarse el proceso.</td></tr>
+<tr><td class="num">P-10</td><td><strong>Reinversión Total</strong></td><td>Los ingresos que OLLIN genere en sus modalidades comerciales se reinvierten íntegramente en el sistema. OLLIN no es un negocio. Es una infraestructura de conocimiento.</td></tr>
+</table>
+
+<div class="firma">
+<strong>Luis Ernesto Berzunza Díaz</strong><br>
+Arquitecto y Titular único de OLLIN<br>
+Chihuahua, Chihuahua · 17 de marzo de 2026 · OLLIN Dual Neural
+</div>
+</body></html>

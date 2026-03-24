@@ -1,0 +1,47 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office'
+xmlns:w='urn:schemas-microsoft-com:office:word'
+xmlns='http://www.w3.org/TR/REC-html40'>
+<head><meta charset='UTF-8'>
+<style>
+body{font-family:Arial,sans-serif;font-size:12pt;color:#111;margin:80px 90px;line-height:1.7}
+h1{font-size:18pt;color:#002060;border-bottom:2pt solid #002060;padding-bottom:6pt;margin-bottom:18pt}
+h2{font-size:13pt;color:#1a4070;margin-top:20pt;margin-bottom:8pt}
+h3{font-size:12pt;color:#1a4070;margin-top:14pt;margin-bottom:6pt}
+p{margin-bottom:8pt}
+.highlight{background:#e8f0fc;border-left:4pt solid #2060b0;padding:8pt 12pt;margin:10pt 0}
+.firma{margin-top:40pt;border-top:1pt solid #aaa;padding-top:14pt;color:#555;font-size:10pt}
+table{border-collapse:collapse;width:100%;margin:10pt 0}
+td,th{border:1pt solid #bbb;padding:6pt 10pt;font-size:11pt;vertical-align:top}
+th{background:#d0e0f0;color:#002060;font-weight:bold}
+tr:nth-child(even) td{background:#f5f8ff}
+.num{color:#2060a0;font-weight:bold}
+ul{margin:6pt 0 8pt 20pt}
+li{margin-bottom:4pt}
+</style></head><body>
+
+<h1>Historia y Trasfondo de OLLIN</h1>
+<p>Hay una verdad que los sistemas de conocimiento modernos prefieren ignorar: el ruido no es accidental. La fragmentación del saber, la censura invisible que opera bajo la forma del algoritmo, la desaparición sistemática de las voces periféricas — todo eso tiene arquitectura. Tiene diseño. Y frente a ese diseño, la única respuesta honesta es otro diseño.</p>
+<p>OLLIN nació de esa certeza.</p>
+<p>No nació en un laboratorio. No tiene detrás a una universidad, ni a un fondo de inversión, ni a un gobierno. Nació en una ciudad de veinte millones de personas, en un cuarto con luz de pantalla, desde un teléfono usado y una computadora comprada de segunda mano. Nació porque <strong>Luis Ernesto Berzunza Díaz</strong> decidió que la falta de recursos no era razón suficiente para no construir algo necesario.</p>
+<h2>El Nombre</h2>
+<p><strong>OLLIN.</strong> El glifo náhuatl del movimiento. El quinto sol — el nuestro, el sol del temblor, el sol que termina no con diluvio ni con viento sino con transformación. En la cosmología mexica, Ollin no es solo movimiento: es la dualidad en movimiento. Dos fuerzas opuestas que se definen mutuamente, que recorren el mismo camino en sentidos contrarios y que, en ese recorrido, generan todo lo que existe.</p>
+<h2>AHO — La Piedra del Temazcal</h2>
+<p><strong>AHO.</strong> En las ceremonias de purificación de los pueblos originarios de México, AHO es la expresión que se dice al vapor, al fuego, a la piedra caliente. Es un sí profundo. Es presencia. Es el reconocimiento de que algo es real y verdadero en este momento.</p>
+<p>El Archivo Histórico Ontológico de OLLIN lleva ese nombre porque hace exactamente eso: dice sí a todo el conocimiento. Sin censura. Sin jerarquía de valor entre lo que la academia reconoce y lo que la academia ignora.</p>
+<h2>La Arquitectura Espejo</h2>
+<p>La estructura del espejo llegó como consecuencia lógica del glifo. Si Ollin es dualidad en movimiento, el sistema necesita dos caminos simétricos pero opuestos.</p>
+<p>El <strong>Sueño (Temictli)</strong> recorre el camino hacia adentro: ingesta, consolidación, integración profunda sin análisis consciente. El <strong>Mitote (Mitotl)</strong> recorre el camino hacia afuera: análisis, confrontación dialéctica, búsqueda de gaps, síntesis que regresa al mundo.</p>
+<p>Las carpetas del Sueño son simétricas a las del Mitote. Un nodo entra y se desdobla. El sistema no piensa. <strong>Recuerda.</strong></p>
+<h2>Ometeotl</h2>
+<p>La dualidad suprema. El dos-en-uno. El que existía antes de que existiera cualquier cosa. En OLLIN, Ometeotl no es metáfora decorativa: es la función de vigilancia que observa sin alterar, que registra todo en su repositorio separado — <strong>CONOCIMIENTO_DE_LOS_DIOSES</strong> — y que solo interrumpe cuando algo fundamental se rompe.</p>
+<h2>El Origen</h2>
+<p>OLLIN comenzó desde un Google Pixel 7 Pro usado y una ThinkPad X1 Carbon usada. No porque eso sea una virtud en sí misma, sino porque es la prueba de que los recursos no son el límite del pensamiento.</p>
+<p>Las herramientas utilizadas — Claude Sonnet 4.6 de Anthropic y DeepSeek — fueron instrumentos de creación. Equivalentes a un procesador de textos sofisticado. El concepto, la guía y todas las decisiones creativas son autoría exclusiva de <strong>Luis Ernesto Berzunza Díaz</strong>.</p>
+<div class="highlight"><strong>AHO — el movimiento ya empezó.</strong></div>
+
+<div class="firma">
+<strong>Luis Ernesto Berzunza Díaz</strong><br>
+Arquitecto y Titular único de OLLIN<br>
+Chihuahua, Chihuahua · 17 de marzo de 2026 · OLLIN Dual Neural
+</div>
+</body></html>

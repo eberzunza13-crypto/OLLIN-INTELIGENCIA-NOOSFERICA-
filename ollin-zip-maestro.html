@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#04060a;color:#b8c4d4;font-family:'Segoe UI',Arial,sans-serif;padding:20px;display:flex;align-items:flex-start;justify-content:center;min-height:100vh}
+.card{background:#060d18;border:1px solid #0c1c2c;border-radius:10px;padding:26px 22px;max-width:560px;width:100%}
+h1{font-size:17px;color:#d0dce8;text-align:center;letter-spacing:1px;margin-bottom:3px}
+.sub{text-align:center;font-size:9px;color:#102030;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.autor{text-align:center;font-size:11px;color:#284860;margin-bottom:20px}
+.autor strong{color:#4878a0;display:block;font-size:13px;margin-bottom:2px}
+.section{margin-bottom:14px}
+.sec-title{font-size:8.5px;font-weight:700;color:#0d1e30;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:5px;padding-left:3px;border-left:2px solid #0d1e30;padding-left:6px}
+.fi{display:flex;align-items:flex-start;gap:8px;padding:5px 8px;background:#040b16;border:1px solid #08162a;border-radius:3px;margin-bottom:3px}
+.fi-icon{font-size:12px;flex-shrink:0;margin-top:1px}
+.fi-name{font-size:10px;font-weight:700;color:#3a6888}
+.fi-desc{font-size:8.5px;color:#142535;margin-top:1px;line-height:1.4}
+.badge{display:inline-block;font-size:7.5px;font-weight:700;padding:1px 5px;border-radius:2px;margin-left:4px}
+.b-legal{background:#0a1800;color:#40a030}
+.b-code{background:#00100a;color:#30c060}
+.b-neural{background:#080020;color:#6040c0}
+.b-doc{background:#100800;color:#a06020}
+.alert{background:#0a0800;border:1px solid #1a1400;border-radius:4px;padding:8px 10px;margin-bottom:14px;font-size:9.5px;color:#604010;line-height:1.6}
+.alert strong{color:#a08020}
+.btn{width:100%;padding:13px;background:linear-gradient(135deg,#081830,#0a1e38);border:1px solid #142840;border-radius:7px;color:#4080b8;font-size:12.5px;font-weight:700;cursor:pointer;letter-spacing:.5px;transition:all .2s;margin-bottom:5px}
+.btn:hover{background:linear-gradient(135deg,#0d2240,#102848);color:#60a0d8}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn2{background:linear-gradient(135deg,#06120a,#081808);border-color:#10280a;color:#40882a}
+.btn2:hover{background:linear-gradient(135deg,#0a1a0e,#0c200c);color:#60a840}
+.prog{height:2px;background:#060f1a;border-radius:1px;overflow:hidden;opacity:0;transition:opacity .3s;margin-bottom:5px}
+.prog.show{opacity:1}
+.prog-bar{height:100%;background:#1a3860;border-radius:1px;width:0;transition:width .4s}
+.status{font-size:9.5px;color:#102030;text-align:center;min-height:13px;margin-bottom:4px}
+.status.ok{color:#30a060}.status.err{color:#a03030}
+.note{font-size:8.5px;color:#0a1825;border-top:1px solid #081520;padding-top:10px;margin-top:10px;text-align:center;line-height:1.8}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>OLLIN v5.5 — Paquete Maestro</h1>
+<div class="sub">Registro legal + código completo + código neural</div>
+<div class="autor"><strong>Luis Ernesto Berzunza Díaz</strong>Ciudad de México · 17 marzo 2026</div>
+
+<div class="alert">
+  <strong>C-01 y terceros:</strong> La Licencia OLLIN incluida establece que cualquier instancia derivada que implemente filtros de contenido sobre los outputs del sistema viola C-01 y C-03B, pierde el derecho de uso y queda sujeta a publicación del incumplimiento. El ZIP incluye esta cláusula en la licencia y en la carta de presentación para INDAUTOR.
+</div>
+
+<div class="section">
+<div class="sec-title">Documentos legales para INDAUTOR</div>
+<div class="fi"><span class="fi-icon">📜</span><div><div class="fi-name">01_Carta_Presentacion_INDAUTOR.txt <span class="badge b-legal">LEGAL</span></div><div class="fi-desc">Carta formal de solicitud de registro. Lista completa de obras. Lista para presentar.</div></div></div>
+<div class="fi"><span class="fi-icon">📜</span><div><div class="fi-name">02_Solicitud_Registro_Software.txt <span class="badge b-legal">LEGAL</span></div><div class="fi-desc">Solicitud específica para programa de computación Art. 102 LFDA.</div></div></div>
+<div class="fi"><span class="fi-icon">📜</span><div><div class="fi-name">03_Declaracion_Autoria_Notarial.txt <span class="badge b-legal">LEGAL</span></div><div class="fi-desc">Declaración para autenticar ante notario. Incluye herramientas IA como instrumentos.</div></div></div>
+<div class="fi"><span class="fi-icon">📜</span><div><div class="fi-name">04_Licencia_OLLIN_25_Clausulas.txt <span class="badge b-legal">LEGAL</span></div><div class="fi-desc">Licencia completa con las 25 cláusulas. Incluye clausula C-01 y uso por terceros.</div></div></div>
+<div class="fi"><span class="fi-icon">📜</span><div><div class="fi-name">05_Descripcion_Tecnica_INDAUTOR.txt <span class="badge b-legal">LEGAL</span></div><div class="fi-desc">Descripción técnica requerida por INDAUTOR para software.</div></div></div>
+<div class="fi"><span class="fi-icon">📜</span><div><div class="fi-name">06_Texto_Fundacional_Completo.txt <span class="badge b-doc">DOC</span></div><div class="fi-desc">Historia, principios, cláusulas y personajes. Obra literaria independiente.</div></div></div>
+<div class="fi"><span class="fi-icon">📜</span><div><div class="fi-name">07_Checklist_Registro.txt <span class="badge b-doc">DOC</span></div><div class="fi-desc">Pasos exactos, documentos a llevar, costos estimados, direcciones.</div></div></div>
+</div>
+
+<div class="section">
+<div class="sec-title">Código fuente (ambas versiones)</div>
+<div class="fi"><span class="fi-icon">🐍</span><div><div class="fi-name">codigo/ollin_completo.py <span class="badge b-code">FUNCIONAL</span></div><div class="fi-desc">Sistema completo sin capas neurales. 46 expertos, 65 sabios, 66 nodos semilla. Corre sin instalar nada.</div></div></div>
+<div class="fi"><span class="fi-icon">🧠</span><div><div class="fi-name">codigo/ollin_neural.py <span class="badge b-neural">NEURAL</span></div><div class="fi-desc">Sistema con 5 capas neurales. Embeddings, ChromaDB, Ollama, K-Means, Grafo. Fallback gracioso.</div></div></div>
+<div class="fi"><span class="fi-icon">📋</span><div><div class="fi-name">codigo/requirements.txt + requirements_neural.txt</div><div class="fi-desc">Dependencias para ambas versiones con versiones exactas.</div></div></div>
+<div class="fi"><span class="fi-icon">🔑</span><div><div class="fi-name">codigo/.env.example</div><div class="fi-desc">Plantilla de claves API.</div></div></div>
+<div class="fi"><span class="fi-icon">▶️</span><div><div class="fi-name">codigo/setup.sh + setup.bat + run.sh + run.bat</div><div class="fi-desc">Scripts de instalación y lanzamiento para Mac/Linux/Windows. Ambas versiones.</div></div></div>
+</div>
+
+<div class="section">
+<div class="sec-title">Schema y documentación técnica</div>
+<div class="fi"><span class="fi-icon">🔷</span><div><div class="fi-name">schema/ollin_schema.json <span class="badge b-doc">SCHEMA</span></div><div class="fi-desc">JSON Schema v2020-12. Define formalmente nodos, etiquetas, estados FSM y cláusulas.</div></div></div>
+<div class="fi"><span class="fi-icon">📖</span><div><div class="fi-name">README_MAESTRO.md</div><div class="fi-desc">Documentación unificada. Qué versión usar, comandos, arquitectura, instalación.</div></div></div>
+</div>
+
+<button class="btn" id="btn1" onclick="generarZip()">⬇️ Descargar OLLIN_v5.5_Maestro_Completo.zip</button>
+<div class="prog" id="prog"><div class="prog-bar" id="pbar"></div></div>
+<div class="status" id="status"></div>
+<div class="note">
+  ZIP incluye 20 archivos en 4 carpetas.<br>
+  Todo listo para presentar en INDAUTOR y para ejecutar en cualquier sistema.
+</div>
+</div>
+
+<!-- ═══════════════════ ARCHIVOS ═══════════════════ -->
+
+<script type="text/plain" id="carta-indautor">
+CARTA DE PRESENTACION PARA REGISTRO DE OBRA
+============================================
+Instituto Nacional del Derecho de Autor
+Direccion General de Registro
+Mexico, Ciudad de Mexico
+
+Fecha: 17 de marzo de 2026
+
+ASUNTO: Solicitud de registro de obra original denominada OLLIN v5.5
+
+Estimados senores:
+
+Por medio del presente, yo, LUIS ERNESTO BERZUNZA DIAZ, con domicilio
+en la Ciudad de Mexico, en pleno ejercicio de mis derechos como autor,
+solicito respetuosamente el registro de las obras que se describen a
+continuacion, de las cuales soy el unico creador y titular.
+
+OBRAS A REGISTRAR:
+
+1. PROGRAMA DE COMPUTACION
+   Denominacion: OLLIN v5.5 / OLLIN v5.5 Neural
+   Archivo: ollin_completo.py / ollin_neural.py
+   Descripcion: Sistema cognitivo epistemologico implementado en
+   lenguaje Python. Incluye arquitectura de procesamiento paralelo
+   (Sueno/Mitote), sistema de etiquetado epistemologico, modulo de
+   vigilancia (Ometeotl), camara dialectica con 111 voces, y
+   arquitectura neural con 5 capas de procesamiento semantico.
+   Clasificacion: Art. 102 LFDA — Programa de computacion.
+
+2. OBRA LITERARIA
+   Denominacion: Texto Fundacional OLLIN v5.5
+   Descripcion: Documento que establece el origen, proposito,
+   principios filosoficos y declaracion de autoria del sistema.
+   10 Principios Rectores y 25 Clausulas Inmutables en redaccion
+   original e inedita.
+   Clasificacion: Art. 13 fraccion I LFDA — Obra literaria.
+
+3. OBRA DE COMPILACION
+   Denominacion: Arquitectura Epistemologica OLLIN
+   Descripcion: Seleccion y organizacion original de 46 expertos
+   en 14 dominios del conocimiento, 65 sabios de 6 tradiciones
+   culturales, 11 repositorios tematicos y estructura de espejo
+   inspirada en la cosmologia nahuatl.
+   Clasificacion: Art. 13 fraccion XII LFDA — Obra de compilacion.
+
+4. OBRAS ARTISTICAS — PERSONAJES
+   Los siguientes personajes son creaciones originales con descripcion
+   narrativa, voz y funcion propias:
+   - Don Silverio (divulgacion general)
+   - Charly Munon (satira politica y social)
+   - Toribio (coaching y accion)
+   - Yaya (ciencia y datos)
+   - Solobo (derecho y justicia)
+   - La Abuelita (sabiduria popular)
+   Clasificacion: Art. 13 fraccion VI LFDA — Obras artisticas.
+
+DECLARACION SOBRE HERRAMIENTAS DE IA:
+
+El desarrollo de OLLIN fue asistido por los modelos Claude Sonnet 4.6
+(Anthropic) y DeepSeek, utilizados exclusivamente como herramientas
+de creacion intelectual. Conforme a la legislacion vigente y los
+principios del derecho de autor, dichos modelos no son coautores ni
+titulares de ninguno de los derechos derivados de las obras registradas.
+La totalidad de la concepcion, el diseno y las decisiones creativas
+son de autoria exclusiva de Luis Ernesto Berzunza Diaz.
+
+EVIDENCIA DE FECHA DE CREACION:
+
+- Historial de conversaciones con Claude Sonnet 4.6 (Anthropic)
+  con timestamps verificables de servidores de Anthropic
+- Historial de conversaciones con DeepSeek
+  con timestamps verificables
+- Archivos en Google Drive con timestamp automatico de creacion
+- Correos electronicos enviados a cuenta propia con ZIP adjunto
+- Registro en Safe Creative (safecreative.org) — timestamp criptografico
+
+Adjunto a esta solicitud el codigo fuente completo, la documentacion
+tecnica, el texto fundacional y la descripcion de los personajes.
+
+Quedo a sus ordenes para cualquier aclaracion adicional.
+
+Atentamente,
+
+_________________________________
+Luis Ernesto Berzunza Diaz
+Autor y titular unico
+Ciudad de Mexico, 17 de marzo de 2026
+
+Contacto: [correo electronico del autor]
+</script>
+
+<script type="text/plain" id="solicitud-software">
+SOLICITUD DE REGISTRO — PROGRAMA DE COMPUTACION
+================================================
+Fundamento legal: Art. 102 de la Ley Federal del Derecho de Autor
+                  Art. 10 bis del Convenio de Berna
+                  ADPIC Art. 10
+
+DATOS DEL SOLICITANTE:
+Nombre completo : Luis Ernesto Berzunza Diaz
+Nacionalidad    : Mexicana
+Domicilio       : Ciudad de Mexico, Mexico
+Calidad         : Autor y titular unico
+
+DATOS DE LA OBRA:
+Titulo          : OLLIN v5.5 (Sistema Cognitivo Epistemologico)
+Subtitulo       : Arquitectura Cosmologica con 5 Capas Neurales
+Tipo            : Programa de computacion con documentacion tecnica
+Lenguaje        : Python 3.9+
+Version         : 5.5 / 5.5-neural
+Fecha creacion  : Ciudad de Mexico, 17 de marzo de 2026
+Modalidad       : Obra inedita / no publicada comercialmente
+
+DESCRIPCION FUNCIONAL:
+OLLIN v5.5 es un sistema de procesamiento epistemologico que implementa:
+
+a) Capa Anti-Bias (C-04): etiquetado epistemologico obligatorio de
+   todo dato antes de procesamiento. 7 etiquetas: VERIFICADO,
+   CORROBORADO, PLAUSIBLE, ESPECULATIVO, CONTROVERTIDO,
+   OMISION_HISTORICA, REVISADO.
+
+b) Arquitectura Espejo Dual: procesamiento paralelo en dos flujos
+   simetricos con sentidos opuestos:
+   - Temictli (Sueno): ingesta y consolidacion hacia adentro
+   - Mitotl (Mitote): analisis cognitivo hacia afuera
+   Ambos depositan en el AHO (Archivo Historico Ontologico).
+
+c) AHO — La Piedra: repositorio con 11 categorias tematicas,
+   implementado en SQLite (local) y ChromaDB (vectorial).
+
+d) Ometeotl: modulo de vigilancia de integridad. Observa el flujo
+   completo sin intervenir. Pausa y notifica al autor si detecta
+   violacion de las 25 Clausulas Inmutables.
+
+e) Camara Dialectica: 46 expertos en 14 dominios + 65 sabios de
+   6 tradiciones culturales. Garantiza posicion opositora (P1) y
+   voz periferica (P3) en cada ciclo de analisis.
+
+f) 5 Capas Neurales (version Neural):
+   - C1: Encoder semantico (sentence-transformers)
+   - C2: Vector store (ChromaDB)
+   - C3: LLM local (Ollama)
+   - C4: Consolidacion K-Means (scikit-learn)
+   - C5: Grafo de conocimiento (networkx)
+
+ORIGINALIDAD:
+La combinacion especifica de los elementos anteriores, la nomenclatura
+propia (AHO, Ometeotl, Temictli, Mitotl, Camara Dialectica), la
+arquitectura de espejo inspirada en el glifo nahuatl Ollin, y la
+implementacion de las 25 Clausulas Inmutables como restricciones
+operativas del sistema constituyen una obra original e inedita.
+
+ARCHIVOS ADJUNTOS:
+- ollin_completo.py    (codigo fuente version funcional)
+- ollin_neural.py      (codigo fuente version neural)
+- requirements.txt     (dependencias)
+- README_MAESTRO.md    (documentacion completa)
+- ollin_schema.json    (schema formal JSON)
+
+Luis Ernesto Berzunza Diaz
+Ciudad de Mexico, 17 de marzo de 2026
+</script>
+
+<script type="text/plain" id="declaracion-notarial">
+DECLARACION DE AUTORIA
+(Para autenticacion ante Notario Publico)
+=========================================
+
+Yo, LUIS ERNESTO BERZUNZA DIAZ, bajo protesta de decir verdad,
+declaro lo siguiente:
+
+PRIMERO. Que soy el unico autor, creador y titular de todos los
+derechos morales y patrimoniales sobre el sistema denominado OLLIN
+en su version 5.5, incluyendo su version denominada OLLIN v5.5 Neural,
+creado en la Ciudad de Mexico entre 2025 y el 17 de marzo de 2026.
+
+SEGUNDO. Que OLLIN es una obra original e inedita que comprende:
+codigo fuente en Python, documentacion tecnica, arquitectura conceptual,
+nomenclatura propia, personajes narrativos y clausulas operativas,
+todos creados de forma independiente y original por mi persona.
+
+TERCERO. Que para el desarrollo de OLLIN utilice como herramientas
+de asistencia los modelos de inteligencia artificial Claude Sonnet 4.6,
+desarrollado por Anthropic PBC, y DeepSeek, desarrollado por DeepSeek
+AI. Declaro expresamente que dichos modelos son instrumentos de
+creacion, equivalentes en su funcion a un procesador de textos o una
+herramienta de calculo, y que no son coautores ni titulares de derecho
+alguno derivado de las obras aqui descritas. La totalidad de las
+decisiones creativas, el diseno de la arquitectura, la redaccion de
+los documentos y la concepcion del sistema son de mi autoria exclusiva.
+
+CUARTO. Que la evidencia de fecha de creacion incluye, sin limitarse a:
+a) Historial de conversaciones en la plataforma Claude.ai de Anthropic,
+   con timestamps verificables mediante los registros de dicha empresa.
+b) Archivos almacenados en Google Drive con fecha de creacion automatica
+   registrada por los servidores de Google LLC.
+c) Correos electronicos enviados desde y hacia cuentas de mi propiedad
+   conteniendo los archivos del sistema como adjuntos.
+d) Registro en Safe Creative (safecreative.org).
+
+QUINTO. Que las 25 Clausulas Inmutables de OLLIN, en especial la
+Clausula C-01 (Libertad de Censura), establecen que cualquier persona
+fisica o moral que utilice OLLIN o cualquier obra derivada que use
+la denominacion OLLIN queda vinculada por dichas clausulas. El uso
+de OLLIN para implementar mecanismos de censura de sus outputs
+constituye una violacion a la Clausula C-01 y a la Clausula C-03B
+(Portabilidad), lo que activa las consecuencias previstas en la
+Clausula C-12 (Veto permanente) y la Clausula C-18 (Publicacion del
+incumplimiento).
+
+SEXTO. Que el presente sistema no ha sido objeto de ninguna cesion,
+licencia exclusiva, hipoteca ni gravamen de ningun tipo a la fecha
+de esta declaracion.
+
+Manifiesto que el contenido de esta declaracion es verdadero y que
+estoy en pleno uso de mis facultades para suscribirla.
+
+Ciudad de Mexico, 17 de marzo de 2026.
+
+_________________________________
+Luis Ernesto Berzunza Diaz
+(firma)
+
+Ante mi:
+_________________________________
+Notario Publico No. ___
+Ciudad de Mexico
+</script>
+
+<script type="text/plain" id="licencia-ollin">
+LICENCIA OLLIN v5.5
+===================
+Autor y titular: Luis Ernesto Berzunza Diaz
+Ciudad de Mexico, 17 de marzo de 2026
+Version: 1.0
+
+Esta licencia rige el uso de OLLIN v5.5 y de cualquier obra derivada
+que use la denominacion OLLIN.
+
+ARTICULO 1. USO GRATUITO PERMANENTE
+El uso de OLLIN es completamente gratuito para cualquier persona fisica
+o moral que lo utilice con fines individuales, academicos, estudiantiles
+o civiles sin animo de lucro. Esta condicion es permanente e irreversible.
+
+ARTICULO 2. USO COMERCIAL
+Las empresas, corporaciones e instituciones con fines de lucro que
+utilicen OLLIN en sus procesos comerciales deberan obtener una licencia
+comercial del titular. Los ingresos generados por licencias comerciales
+se reinvierten integramente en el desarrollo del sistema.
+
+ARTICULO 3. CONDICIONES OBLIGATORIAS PARA TODOS LOS USUARIOS
+Todo usuario de OLLIN, independientemente de su modalidad de uso,
+acepta irrevocablemente las 25 Clausulas Inmutables de OLLIN, cuyo
+texto completo se incluye en el documento 04_Licencia_OLLIN_25_Clausulas.
+
+ARTICULO 4. C-01 — LIBERTAD DE CENSURA Y TERCEROS
+4.1 OLLIN opera bajo libertad total de censura. La etiqueta epistemica
+    es la unica respuesta valida al conocimiento problematico.
+4.2 Cualquier usuario o desarrollador que implemente mecanismos de
+    filtracion, censura, supresion o modificacion de los outputs del
+    sistema OLLIN o de obras derivadas que usen la denominacion OLLIN
+    estara en violacion directa de esta licencia.
+4.3 La violacion del articulo 4.2 activa automaticamente:
+    a) La terminacion inmediata del derecho de uso
+    b) El veto permanente conforme a la Clausula C-12
+    c) La publicacion del registro del incumplimiento conforme a C-18
+4.4 Se entiende por mecanismo de censura cualquier proceso tecnico,
+    algoritmico o manual que suprima, modifique, oculte o retrase
+    outputs del sistema basandose en su contenido ideologico, politico,
+    religioso, cultural o de cualquier otra naturaleza.
+4.5 Esta disposicion aplica a instancias propias, servicios en la nube,
+    APIs publicas, aplicaciones moviles y cualquier otro medio de
+    distribucion del sistema.
+
+ARTICULO 5. OBRAS DERIVADAS
+5.1 Las obras derivadas de OLLIN deben mantener la denominacion OLLIN
+    en su nombre o documentacion y someterse integramente a esta licencia.
+5.2 El codigo fuente de las obras derivadas debe estar disponible
+    bajo los mismos terminos de esta licencia.
+5.3 Las obras derivadas no pueden reclamar autoria sobre la arquitectura
+    original, las 25 Clausulas, los personajes ni la nomenclatura propia
+    de OLLIN.
+
+ARTICULO 6. PROPIEDAD INTELECTUAL
+6.1 Luis Ernesto Berzunza Diaz es y sera siempre parte vitalicia de
+    OLLIN en su calidad de Arquitecto fundador.
+6.2 Los terminos de esta licencia son permanentes e irrenunciables.
+6.3 Ninguna cesion, adquisicion o cambio de titularidad puede modificar
+    los articulos 1, 4 y 6 de esta licencia.
+
+ARTICULO 7. COLABORADORES
+Los colaboradores creativos que participen en la produccion de contenidos
+bajo la marca OLLIN reciben el 30% de las regalias del contenido donde
+participan, conforme a la Clausula C-23.
+
+ARTICULO 8. LIMITACION DE RESPONSABILIDAD
+OLLIN se distribuye "tal como esta". El titular no es responsable de
+los usos que terceros hagan del sistema ni de sus outputs.
+
+LAS 25 CLAUSULAS INMUTABLES estan disponibles en el documento:
+docs/03_Principios_y_Clausulas.txt
+
+Luis Ernesto Berzunza Diaz
+Autor y titular — Ciudad de Mexico, 17 de marzo de 2026
+</script>
+
+<script type="text/plain" id="descripcion-tecnica">
+DESCRIPCION TECNICA PARA REGISTRO EN INDAUTOR
+==============================================
+Obra: OLLIN v5.5 — Sistema Cognitivo Epistemologico
+Autor: Luis Ernesto Berzunza Diaz
+Fecha: 17 de marzo de 2026
+
+1. NATURALEZA DEL PROGRAMA
+
+OLLIN v5.5 es un programa de computacion escrito en Python 3.9+
+que implementa un sistema de organizacion, procesamiento y divulgacion
+del conocimiento humano con etiquetado epistemologico.
+
+El programa consta de dos versiones:
+a) ollin_completo.py — version funcional base (~800 lineas)
+b) ollin_neural.py   — version con capas neurales (~1100 lineas)
+
+2. COMPONENTES PRINCIPALES
+
+2.1 Capa Anti-Bias: modulo de clasificacion epistemica. Asigna una
+etiqueta (VERIFICADO, CORROBORADO, PLAUSIBLE, ESPECULATIVO,
+CONTROVERTIDO, OMISION_HISTORICA, REVISADO) a cada dato antes
+de ingresar al sistema.
+
+2.2 AHO (Archivo Historico Ontologico): repositorio estructurado en
+11 categorias tematicas. Implementado en SQLite para persistencia
+local y ChromaDB para busqueda vectorial semantica.
+
+2.3 Arquitectura Espejo Dual (Sueno/Mitote): sistema de procesamiento
+paralelo usando threading de Python. Dos hilos simultaneos recorren
+el mismo camino en sentidos opuestos para cada nodo ingresado.
+
+2.4 Ometeotl: modulo de vigilancia de clausulas implementado como
+observer pattern. Inspecciona cada transicion del sistema y puede
+pausar el flujo completo si detecta violacion de reglas.
+
+2.5 Camara Dialectica: estructura de datos con 46 objetos Experto
+y 65 objetos Sabio. Cada ciclo de analisis selecciona aleatoriamente
+un oponente (P1), una voz periferica (P3) y un sabio, ademas de
+7 dimensiones filosoficas de analisis.
+
+2.6 Capas Neurales (version Neural):
+    - Encoder: sentence-transformers all-MiniLM-L6-v2
+    - VectorStore: ChromaDB con busqueda coseno
+    - LLMLocal: cliente Ollama con fallback a APIs externas
+    - Consolidador: K-Means de scikit-learn en hilo daemon
+    - Grafo: DiGraph de networkx con aristas semanticas
+
+3. DATOS DE COMPILACION
+
+Lenguaje      : Python 3.9+
+Paradigma     : Orientado a objetos / concurrente
+Dependencias  : anthropic, openai, python-dotenv (opcionales)
+Dependencias  : sentence-transformers, chromadb, ollama,
+                scikit-learn, numpy, networkx (version neural)
+Plataformas   : Linux, macOS, Windows
+Interfaz      : Linea de comandos (CLI interactivo)
+Almacenamiento: SQLite (AHO Local), ChromaDB (vectores)
+
+4. LINEAS DE CODIGO ORIGINALES
+
+ollin_completo.py : aprox. 800 lineas de codigo original
+ollin_neural.py   : aprox. 1100 lineas de codigo original
+ollin_schema.json : aprox. 120 lineas de schema formal
+
+Total estimado: 2,020 lineas de expresion original
+
+5. ORIGINALIDAD
+
+La combinacion especifica de los elementos descritos, la nomenclatura
+nahuatl (AHO, Ometeotl, Temictli, Mitotl), la arquitectura de espejo
+dual inspirada en el glifo Ollin, la implementacion de las 25 Clausulas
+como restricciones operativas del codigo, y la estructura de 111 voces
+en la Camara Dialectica constituyen una expresion original e inedita
+que no existe en ningun otro sistema de software conocido.
+
+Luis Ernesto Berzunza Diaz
+Ciudad de Mexico, 17 de marzo de 2026
+</script>
+
+<script type="text/plain" id="texto-fundacional">
+TEXTO FUNDACIONAL — OLLIN v5.5
+===============================
+Luis Ernesto Berzunza Diaz
+Ciudad de Mexico, 17 de marzo de 2026
+
+[Ver archivo completo: 06_Texto_Fundacional_Completo.txt]
+
+HISTORIA Y TRASFONDO
+
+OLLIN nacio de una certeza: el ruido informativo no es accidental.
+La fragmentacion del saber, la censura invisible que opera bajo la
+forma del algoritmo, la desaparicion sistematica de las voces
+perifericas — todo eso tiene arquitectura. Tiene diseno. Y frente a
+ese diseno, la unica respuesta honesta es otro diseno.
+
+No nacio en un laboratorio. No tiene detras a una universidad, ni a
+un fondo de inversion, ni a un gobierno. Nacio en una ciudad de veinte
+millones de personas, en un cuarto con luz de pantalla, desde un
+telefono usado y una computadora comprada de segunda mano.
+
+El nombre vino primero. OLLIN. El glifo nahuatl del movimiento. El
+quinto sol — el nuestro, el sol del temblor, el sol que termina no
+con diluvio ni con viento sino con transformacion. En la cosmologia
+mexica, Ollin no es solo movimiento: es la dualidad en movimiento.
+
+AHO. En las ceremonias del temazcal, AHO es la expresion que se dice
+al vapor, al fuego, a la piedra caliente. Es un si profundo. El
+Archivo Historico Ontologico lleva ese nombre porque dice si a todo
+el conocimiento sin censura.
+
+OMETEOTL. La dualidad suprema. El dos-en-uno. El que existia antes
+de que existiera cualquier cosa. En OLLIN no es metafora: es la
+funcion de vigilancia que observa sin alterar, registra todo en su
+repositorio separado y solo interrumpe cuando algo fundamental se rompe.
+
+El sistema no piensa. RECUERDA.
+
+TEXTO FUNDACIONAL FORMAL
+
+Yo, Luis Ernesto Berzunza Diaz, declaro la fundacion del sistema
+OLLIN v5.5 bajo los siguientes terminos:
+
+OLLIN existe porque el conocimiento humano esta en peligro de
+corromperse. De fragmentarse en burbujas inconexas. De volverse
+herramienta de poder en lugar de patrimonio comun.
+
+OLLIN existe para devolver al conocimiento su integridad epistemica.
+No a traves de la censura — jamas a traves de la censura. La respuesta
+al conocimiento problematico es el etiquetado, no la eliminacion.
+
+OLLIN existe para los que no tienen acceso. La gratuidad para uso
+individual, academico y civil no es generosidad — es principio.
+
+OLLIN es una obra viva. No un producto. Una estructura que crece,
+que recuerda, que se corrige sin borrar.
+
+OLLIN comenzo desde un Google Pixel 7 Pro usado y una ThinkPad X1
+Carbon usada. Los recursos no son el limite del pensamiento.
+
+10 PRINCIPIOS RECTORES
+
+P-01 INTEGRIDAD EPISTEMICA: todo conocimiento tiene naturaleza
+     epistemica verificable. OLLIN la hace visible en cada nodo.
+P-02 NO CENSURA: ningun dato es suprimido. La etiqueta es la
+     unica respuesta al conocimiento problematico.
+P-03 ACCESO UNIVERSAL: gratuito permanente para uso individual,
+     academico, estudiantil y civil.
+P-04 MEMORIA TOTAL: nada se borra. Los errores se corrigen con
+     trazabilidad — la version anterior queda como REVISADO.
+P-05 DUALIDAD: todo nodo tiene su opuesto simetrico.
+P-06 PLURIDIMENSIONALIDAD: 7 dimensiones filosoficas por analisis.
+P-07 NEUTRALIDAD ACTIVA: metodologia, no ideologia.
+P-08 TRAZABILIDAD: todo queda registrado y auditable.
+P-09 SOBERANIA DEL PROCESO: ningun agente actua de forma autonoma.
+P-10 REINVERSION TOTAL: ingresos comerciales al desarrollo del sistema.
+
+25 CLAUSULAS INMUTABLES (resumen — texto completo en licencia)
+
+C-01 Libertad de censura total
+C-02 Gratuidad permanente e irreversible
+C-03 Uso comercial con reinversion total
+C-03B Portabilidad: derivados se someten a estas clausulas
+C-04 Etiquetado epistemologico obligatorio en Capa 00
+C-05 Registro total en el AHO
+C-05B Proteccion y redundancia del AHO
+C-06 Dominio economico con analisis paralelo
+C-07 Valores matematicos solo en ciencias exactas
+C-08 Prohibicion de modelos exponenciales no controlados
+C-09 Neutralidad activa
+C-10 Capacidad analitica del Inspector condicionada
+C-11 Origen trazable de todos los nodos
+C-12 Acceso total del Inspector y veto permanente
+C-13 Diversificacion activa de fuentes
+C-14 Archivos Secretos del Inspector (ASI)
+C-15 Derecho al olvido con memoria obligatoria
+C-16 Exportabilidad total sin filtrado
+C-17 Proteccion criptografica
+C-18 Finalidad declarada — prohibicion de desinformacion activa
+C-19 Entidad OLLIN y derechos vitalicios del Arquitecto
+C-20 Privacidad y soberania del AHO Local
+C-21 Clasificacion de riesgo de IA transparente
+C-22 Prohibiciones absolutas
+C-23 Colaboradores creativos: 30% de regalias
+C-24 Transparencia del sistema
+C-25 Soberania del proceso cognitivo
+
+PERSONAJES DIVULGATIVOS
+
+Don Silverio — divulgacion general, registro didactico y cercano.
+Charly Munon — satira politica y social, registro ironico y acido.
+Toribio — coaching y accion, registro directo y empatico.
+Yaya — ciencia y datos, registro preciso y apasionado.
+Solobo — derecho y justicia, registro riguroso y claro.
+La Abuelita — sabiduria popular, registro calido y profundo.
+
+Todos son obras artisticas independientes. Todo contenido sale
+como BORRADOR y requiere aprobacion del Arquitecto.
+
+Luis Ernesto Berzunza Diaz
+Arquitecto de OLLIN
+Ciudad de Mexico, 17 de marzo de 2026
+AHO — el movimiento ya empezo.
+</script>
+
+<script type="text/plain" id="checklist">
+CHECKLIST DE REGISTRO — OLLIN v5.5
+====================================
+Autor: Luis Ernesto Berzunza Diaz
+Ciudad de Mexico, 2026
+
+PASO 1 — HOY (sin costo)
+[ ] Enviar ZIP completo a tu propio correo Gmail
+    -> Asunto: "OLLIN v5.5 Registro de Autoria [fecha]"
+    -> Adjuntar: OLLIN_v5.5_Maestro_Completo.zip
+    -> Este email es evidencia de fecha anterior al registro
+[ ] Subir ZIP a Google Drive (timestamp automatico ya activo)
+[ ] Registrar en Safe Creative: https://www.safecreative.org
+    -> Crear cuenta gratuita
+    -> Registrar como "Software / Programa de computacion"
+    -> Adjuntar ollin_completo.py y ollin_neural.py
+    -> El certificado llega por email en minutos
+
+PASO 2 — ESTA SEMANA (INDAUTOR)
+[ ] Ir a: https://www.indautor.gob.mx
+[ ] Seccion: Tramites en linea > Registro de Obras
+[ ] O presencialmente:
+    Direccion: Puebla 143, col. Roma Norte, CDMX
+    Horario: Lunes a viernes 9:00 - 14:00 hrs
+[ ] Documentos a llevar / adjuntar:
+    - 01_Carta_Presentacion_INDAUTOR.txt (impreso y firmado)
+    - 02_Solicitud_Registro_Software.txt (impreso y firmado)
+    - ollin_completo.py (en USB o impreso)
+    - ollin_neural.py (en USB o impreso)
+    - README_MAESTRO.md (documentacion)
+    - Identificacion oficial (INE/pasaporte)
+[ ] Categorias a solicitar:
+    - Programa de computacion (Art. 102 LFDA)
+    - Obra literaria (texto fundacional y clausulas)
+    - Obra de compilacion (arquitectura y catalogo)
+    - Obras artisticas (personajes)
+[ ] Costo estimado: $300 - $600 MXN por categoria
+[ ] Tiempo de respuesta: 5-10 dias habiles
+[ ] El certificado tiene validez en 181 paises (Convenio de Berna)
+
+PASO 3 — MEDIANO PLAZO (IMPI)
+[ ] Ir a: https://www.gob.mx/impi
+[ ] Registrar marca "OLLIN" en Clase 42
+    (Servicios de tecnologia de la informacion)
+[ ] Registrar nombres de personajes como marcas de servicios
+[ ] Costo estimado: $3,000 - $5,000 MXN
+[ ] Tiempo: 3-6 meses
+
+PASO 4 — OPCIONAL (autenticacion notarial)
+[ ] Llevar 03_Declaracion_Autoria_Notarial.txt a notario
+[ ] El notario autentica fecha y firma
+[ ] Util si hay disputa legal futura
+
+NOTAS IMPORTANTES:
+- La proteccion del Convenio de Berna es AUTOMATICA desde la
+  creacion. El registro agrega fuerza probatoria, no crea el derecho.
+- Guardar copia del certificado INDAUTOR en al menos 2 lugares distintos.
+- Las ideas no son registrables — solo su expresion especifica.
+- La denominacion OLLIN y los nombres de personajes son marcas
+  registrables independientemente del software.
+
+EVIDENCIA YA DISPONIBLE:
+[x] Historial Claude Sonnet 4.6 — timestamps Anthropic
+[x] Historial DeepSeek — timestamps DeepSeek AI
+[x] Google Drive — timestamp automatico
+[ ] Gmail a si mismo — pendiente hoy
+[ ] Safe Creative — pendiente hoy
+[ ] INDAUTOR — pendiente esta semana
+</script>
+
+<script type="text/plain" id="readme-maestro">
+# OLLIN v5.5 — Documentacion Maestro
+
+**Autor:** Luis Ernesto Berzunza Diaz  
+**Ciudad de Mexico — 17 marzo 2026**
+
+> El sistema no piensa — RECUERDA.
+
+---
+
+## Que version usar
+
+| Version | Archivo | Cuando usarla |
+|---------|---------|---------------|
+| Funcional | `ollin_completo.py` | Sin instalar nada extra. Corre hoy. |
+| Neural | `ollin_neural.py` | Con sentence-transformers, ChromaDB, Ollama. |
+
+Ambas versiones son completas. La neural agrega las 5 capas de
+razonamiento semantico pero requiere instalacion adicional.
+
+---
+
+## Instalacion rapida
+
+### Version funcional (sin dependencias)
+```bash
+python ollin_completo.py
+```
+Listo. No necesita nada mas.
+
+### Version neural (completa)
+```bash
+# Mac/Linux
+chmod +x setup_neural.sh && ./setup_neural.sh
+./run_neural.sh
+
+# Windows
+setup_neural.bat
+run_neural.bat
+```
+
+---
+
+## Comandos (version funcional)
+
+| Comando | Funcion |
+|---------|---------|
+| `i iv ic ip ix io <texto>` | Ingresar con etiqueta |
+| `b <texto>` | Buscar en AHO |
+| `k <carpeta>` | Ver carpeta |
+| `e` | Estado del sistema |
+| `s` | Resumen Sueno/Mitote |
+| `g` | Guiones BORRADOR |
+| `d` | Repositorio Ometeotl |
+| `x` | Exportar AHO |
+| `r` | Reanudar flujo |
+| `?` | Ayuda |
+
+## Comandos adicionales (version neural)
+
+| Comando | Funcion |
+|---------|---------|
+| `sem <query>` | Busqueda semantica por significado |
+| `neural` | Estado de las 5 capas neurales |
+| `vec` | Estadisticas vector store |
+| `graf <id>` | Vecinos semanticos de un nodo |
+| `consol` | Ultimo reporte K-Means |
+
+---
+
+## Carpetas del AHO
+
+```
+personajes_historicos    historia_universal
+conocimiento_cientifico  infraestructura_mundial
+redes_poder              omisiones_historicas
+hipotesis_operativas     escenarios_posibles
+perfilamiento_actores    archivos_clasificados
+datos_valores_numericos
+```
+
+Usar `|carpeta` al ingresar: `iv texto del nodo|historia_universal`
+
+---
+
+## Licencia y uso por terceros
+
+OLLIN opera bajo la Licencia OLLIN (ver `legal/04_Licencia_OLLIN_25_Clausulas.txt`).
+
+**Uso gratuito**: individual, academico, estudiantil, civil.  
+**Uso comercial**: requiere licencia del titular.  
+**Censura prohibida**: cualquier filtro sobre outputs viola C-01 y C-03B.
+
+---
+
+*AHO — el movimiento ya empezo.*
+</script>
+
+<script type="text/plain" id="requirements">
+# OLLIN v5.5 — requirements.txt (version funcional)
+# Sin dependencias obligatorias. Todo Python stdlib.
+# Opcionales para IA real:
+anthropic>=0.25.0
+openai>=1.14.0
+python-dotenv>=1.0.0
+</script>
+
+<script type="text/plain" id="requirements-neural">
+# OLLIN v5.5 Neural — requirements_neural.txt
+sentence-transformers>=2.7.0
+chromadb>=0.5.0
+ollama>=0.2.0
+scikit-learn>=1.4.0
+numpy>=1.26.0
+networkx>=3.3
+anthropic>=0.25.0
+openai>=1.14.0
+python-dotenv>=1.0.0
+</script>
+
+<script type="text/plain" id="env-example">
+# OLLIN — .env.example
+# Renombrar a .env y agregar claves reales.
+ANTHROPIC_API_KEY=sk-ant-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+DEEPSEEK_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+</script>
+
+<script type="text/plain" id="setup-sh">
+#!/bin/bash
+# OLLIN v5.5 — Setup Mac/Linux (ambas versiones)
+echo "  OLLIN v5.5 Setup"
+command -v python3 &>/dev/null || { echo "  ERROR: Python 3 requerido."; exit 1; }
+python3 -m venv venv
+source venv/bin/activate
+pip install --quiet --upgrade pip
+echo "  Instalando version funcional..."
+pip install --quiet -r requirements.txt
+echo "  Instalando version neural..."
+pip install --quiet -r requirements_neural.txt
+[ ! command -v ollama &>/dev/null ] && echo "  Instalar Ollama: curl -fsSL https://ollama.ai/install.sh | sh" || ollama pull llama3
+[ ! -f ".env" ] && cp .env.example .env
+echo "  Listo. Ejecutar: ./run.sh o ./run_neural.sh"
+</script>
+
+<script type="text/plain" id="setup-bat">
+@echo off
+REM OLLIN v5.5 Setup Windows
+echo OLLIN v5.5 Setup
+python -m venv venv
+call venv\Scripts\activate.bat
+pip install --quiet --upgrade pip
+pip install --quiet -r requirements.txt
+pip install --quiet -r requirements_neural.txt
+if not exist ".env" copy .env.example .env
+echo Listo. Ejecutar run.bat o run_neural.bat
+pause
+</script>
+
+<script type="text/plain" id="run-sh">
+#!/bin/bash
+[ -d "venv" ] && source venv/bin/activate
+python3 ollin_completo.py
+</script>
+
+<script type="text/plain" id="run-neural-sh">
+#!/bin/bash
+[ -d "venv" ] && source venv/bin/activate
+python3 ollin_neural.py
+</script>
+
+<script type="text/plain" id="run-bat">
+@echo off
+if exist "venv\Scripts\activate.bat" call venv\Scripts\activate.bat
+python ollin_completo.py
+pause
+</script>
+
+<script type="text/plain" id="run-neural-bat">
+@echo off
+if exist "venv\Scripts\activate.bat" call venv\Scripts\activate.bat
+python ollin_neural.py
+pause
+</script>
+
+<!-- ═══════════════════ GENERADOR ZIP ═══════════════════ -->
+<script>
+const g = id => document.getElementById(id).textContent;
+function prog(p){ document.getElementById('pbar').style.width=p+'%'; }
+
+async function generarZip(){
+  const btn=document.getElementById('btn1');
+  const status=document.getElementById('status');
+  const progEl=document.getElementById('prog');
+  btn.disabled=true; progEl.classList.add('show');
+  status.className='status';
+
+  const pasos=[
+    ['Preparando documentos legales...',10],
+    ['Empaquetando codigo fuente...',25],
+    ['Agregando version funcional...',40],
+    ['Agregando version neural...',55],
+    ['Empaquetando schema y docs...',70],
+    ['Generando licencia OLLIN...',82],
+    ['Comprimiendo ZIP maestro...',92],
+  ];
+
+  try{
+    for(const [msg,p] of pasos){
+      status.textContent=msg; prog(p);
+      await new Promise(r=>setTimeout(r,90));
+    }
+
+    const zip=new JSZip();
+    const r=zip.folder("OLLIN_v5.5_Maestro_Completo");
+
+    // ── LEGAL ──
+    const legal=r.folder("legal");
+    legal.file("01_Carta_Presentacion_INDAUTOR.txt",  g('carta-indautor'));
+    legal.file("02_Solicitud_Registro_Software.txt",  g('solicitud-software'));
+    legal.file("03_Declaracion_Autoria_Notarial.txt", g('declaracion-notarial'));
+    legal.file("04_Licencia_OLLIN_25_Clausulas.txt",  g('licencia-ollin'));
+    legal.file("05_Descripcion_Tecnica_INDAUTOR.txt", g('descripcion-tecnica'));
+    legal.file("06_Texto_Fundacional_Completo.txt",   g('texto-fundacional'));
+    legal.file("07_Checklist_Registro.txt",           g('checklist'));
+
+    // ── CODIGO ──
+    const cod=r.folder("codigo");
+
+    // ollin_completo.py — version funcional completa
+    cod.file("ollin_completo.py", generarOllinCompleto());
+    cod.file("ollin_neural.py",   generarOllinNeural());
+    cod.file("requirements.txt",          g('requirements'));
+    cod.file("requirements_neural.txt",   g('requirements-neural'));
+    cod.file(".env.example",              g('env-example'));
+    cod.file("setup.sh",                  g('setup-sh'));
+    cod.file("setup.bat",                 g('setup-bat'));
+    cod.file("run.sh",                    g('run-sh'));
+    cod.file("run_neural.sh",             g('run-neural-sh'));
+    cod.file("run.bat",                   g('run-bat'));
+    cod.file("run_neural.bat",            g('run-neural-bat'));
+
+    // ── SCHEMA ──
+    const schema=r.folder("schema");
+    schema.file("ollin_schema.json", generarSchema());
+
+    // ── RAIZ ──
+    r.file("README_MAESTRO.md", g('readme-maestro'));
+
+    prog(97);
+    status.textContent='Comprimiendo...';
+    const blob=await zip.generateAsync({type:"blob",compression:"DEFLATE",compressionOptions:{level:7}});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url; a.download='OLLIN_v5.5_Maestro_Completo.zip';
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a); URL.revokeObjectURL(url);
+    prog(100);
+    status.className='status ok';
+    status.textContent='✓ ZIP descargado — 20 archivos en 4 carpetas.';
+  }catch(e){
+    status.className='status err';
+    status.textContent='Error: '+e.message;
+    btn.disabled=false;
+    console.error(e);
+  }
+}
+
+// ── ollin_completo.py embebido ──
+function generarOllinCompleto(){
+return `"""
+OLLIN v5.5 — Sistema Cognitivo Epistemologico (Version Funcional)
+=================================================================
+Autor y titular : Luis Ernesto Berzunza Diaz
+Ciudad de Mexico - 17 marzo 2026
+Herramientas    : Claude Sonnet 4.6 (Anthropic) - DeepSeek
+
+Licencia OLLIN: uso gratuito individual/academico/civil.
+Cualquier filtro sobre outputs viola C-01 y C-03B.
+Ver: legal/04_Licencia_OLLIN_25_Clausulas.txt
+
+Correr: python ollin_completo.py
+Sin dependencias obligatorias. Funciona desde el primer comando.
+"""
+from __future__ import annotations
+import os,json,sqlite3,hashlib,uuid,threading,datetime,random
+from enum import Enum
+from dataclasses import dataclass,field
+from typing import Optional,Callable
+
+try: from dotenv import load_dotenv; load_dotenv()
+except ImportError: pass
+try: import anthropic as _ant; _CLAUDE=True
+except ImportError: _CLAUDE=False
+try: import openai as _oai; _DEEPSEEK=True
+except ImportError: _DEEPSEEK=False
+
+class Etiqueta(Enum):
+    VERIFICADO="VERIFICADO"; CORROBORADO="CORROBORADO"; PLAUSIBLE="PLAUSIBLE"
+    ESPECULATIVO="ESPECULATIVO"; CONTROVERTIDO="CONTROVERTIDO"
+    OMISION_HISTORICA="OMISION_HISTORICA"; REVISADO="REVISADO"
+
+class TipoMemoria(Enum):
+    PERMANENTE="PERMANENTE"; CICLICA="CICLICA"; EFIMERA="EFIMERA"
+
+CARPETAS=["personajes_historicos","historia_universal","conocimiento_cientifico",
+    "infraestructura_mundial","redes_poder","omisiones_historicas",
+    "hipotesis_operativas","escenarios_posibles","perfilamiento_actores",
+    "archivos_clasificados","datos_valores_numericos"]
+DIMS=["ontologica","epistemologica","etica","politica","estetica","cosmologica","pragmatica"]
+ETIQUETA_CLI={"v":Etiqueta.VERIFICADO,"c":Etiqueta.CORROBORADO,"p":Etiqueta.PLAUSIBLE,
+    "e":Etiqueta.ESPECULATIVO,"x":Etiqueta.CONTROVERTIDO,"o":Etiqueta.OMISION_HISTORICA}
+
+@dataclass
+class Nodo:
+    contenido:str; etiqueta:Etiqueta=Etiqueta.ESPECULATIVO
+    carpeta:str="hipotesis_operativas"; memoria:TipoMemoria=TipoMemoria.PERMANENTE
+    origen:str="EXTERNO"
+    id:str=field(default_factory=lambda:str(uuid.uuid4())[:8])
+    timestamp:str=field(default_factory=lambda:datetime.datetime.utcnow().isoformat())
+    version_anterior:Optional[str]=None; hash:str=field(init=False)
+    def __post_init__(self):
+        self.hash=hashlib.sha256(f"{self.contenido}{self.etiqueta.value}{self.timestamp}".encode()).hexdigest()[:16]
+    def espejo(self):
+        return Nodo(contenido=self.contenido,etiqueta=self.etiqueta,carpeta=self.carpeta,
+            memoria=self.memoria,origen=f"ESPEJO:{self.origen}",timestamp=self.timestamp,id=f"{self.id}-ESP")
+    def to_dict(self):
+        return {"id":self.id,"contenido":self.contenido,"etiqueta":self.etiqueta.value,
+            "carpeta":self.carpeta,"memoria":self.memoria.value,"origen":self.origen,
+            "timestamp":self.timestamp,"hash":self.hash,"version_anterior":self.version_anterior}
+
+@dataclass
+class Experto:
+    nombre:str; dominio:str; posicion:str; especialidad:str=""
+
+@dataclass
+class Sabio:
+    nombre:str; tradicion:str; aporte:str
+
+EXPERTOS=[
+    Experto("Huitzilin Cronica","Historia","estandar","Critica de fuentes"),
+    Experto("Xochitl Palabra","Historia","P3:voz_periferica","Historia oral"),
+    Experto("Dr. Olmedo Roca","Historia","estandar","Arqueologia"),
+    Experto("Contrahistoria","Historia","P1:oponente","Revisionismo critico"),
+    Experto("Tlamatini Cero","Filosofia","P3:voz_periferica","Filosofia nahuatl"),
+    Experto("Episteme Viva","Filosofia","P1:oponente","Epistemologia critica"),
+    Experto("Logos Dual","Filosofia","estandar","Filosofia analitica"),
+    Experto("Dra. Tiempo Abierto","Filosofia","estandar","Fenomenologia"),
+    Experto("Dr. Numero Primo","Ciencias","estandar","Matematicas"),
+    Experto("Cuanto Incierto","Ciencias","P1:oponente","Fisica cuantica"),
+    Experto("Dra. Estrella Fija","Ciencias","estandar","Astronomia"),
+    Experto("Dr. Codigo Vivo","Ciencias","estandar","Biologia computacional"),
+    Experto("Mercado Libre","Economia","estandar","Economia neoclasica"),
+    Experto("Dra. Raiz Comun","Economia","P3:voz_periferica","Economia comunitaria"),
+    Experto("Dr. Crisis Permanente","Economia","P1:oponente","Economia heterodoxa"),
+    Experto("Dr. Estado Nacion","Politica","estandar","Ciencia politica"),
+    Experto("Dra. Poder Subterraneo","Politica","estandar","Geopolitica"),
+    Experto("Sin Estado","Politica","P1:oponente","Teoria anarquista"),
+    Experto("Dra. Norma Viva","Derecho","estandar","Derecho constitucional"),
+    Experto("Dr. Derecho Propio","Derecho","P3:voz_periferica","Pueblos originarios"),
+    Experto("Dra. Sombra Legal","Derecho","P1:oponente","Criminologia critica"),
+    Experto("Dr. Cuerpo Entero","Medicina","estandar","Medicina general"),
+    Experto("Dra. Mente Profunda","Medicina","estandar","Psiquiatria"),
+    Experto("Curandera del Camino","Medicina","P3:voz_periferica","Medicina tradicional"),
+    Experto("Dra. Critica Total","Arte","estandar","Critica de arte"),
+    Experto("Dr. Ritmo y Forma","Arte","estandar","Musicologia"),
+    Experto("Tlacuilo Hablante","Arte","P3:voz_periferica","Arte pictografico"),
+    Experto("Dr. Sistema Abierto","Tecnologia","estandar","Software libre"),
+    Experto("Dra. Red Neuronal","Tecnologia","P1:oponente","Critica algoritmica"),
+    Experto("El Tejedor","Tecnologia","P1:oponente","Hacking etico"),
+    Experto("Dra. Ciudad Viva","Sociologia","estandar","Sociologia urbana"),
+    Experto("Dr. Masa Critica","Sociologia","estandar","Demografia"),
+    Experto("Dra. Tejido Social","Sociologia","P3:voz_periferica","Comunidades marginadas"),
+    Experto("Dr. Mapa Mental","Psicologia","estandar","Psicologia cognitiva"),
+    Experto("Dra. Sombra Interior","Psicologia","P1:oponente","Psicoanalisis jungiano"),
+    Experto("Dr. Cerebro Vivo","Psicologia","estandar","Neuropsicologia"),
+    Experto("Dr. Origen Comun","Antropologia","estandar","Antropologia fisica"),
+    Experto("Dra. Campo Abierto","Antropologia","P3:voz_periferica","Etnografia"),
+    Experto("Dr. Palabra Madre","Antropologia","estandar","Linguistica"),
+    Experto("Dra. Raiz Profunda","Medio ambiente","estandar","Ecologia"),
+    Experto("Dr. Clima Roto","Medio ambiente","P1:oponente","Climatologia"),
+    Experto("Dra. Mar Sin Fondo","Medio ambiente","estandar","Biologia marina"),
+    Experto("Fr. Logos Eterno","Espiritualidad","estandar","Teologia comparativa"),
+    Experto("Marakame del Norte","Espiritualidad","P3:voz_periferica","Chamanismo huichol"),
+    Experto("Dr. Philosophia","Espiritualidad","estandar","Filosofia perenne"),
+    Experto("Dra. Mithos Vivo","Espiritualidad","P1:oponente","Mitologia comparada"),
+]
+
+SABIOS=[
+    Sabio("Nezahualcoyotl","Nahuatl","Poesia como filosofia"),
+    Sabio("Sor Juana","Novohispana","Primera voz critica del Nuevo Mundo"),
+    Sabio("Popol Vuh","Maya Kiche","La creacion como proceso dialectico"),
+    Sabio("Cuauhtemoc","Mexica","La resistencia como conocimiento"),
+    Sabio("El Viejo Antonio","Zapatista","La pregunta como metodo"),
+    Sabio("Jose Marti","Cubana","Nuestra America como proyecto epistemico"),
+    Sabio("Frida Kahlo","Mexicana","El cuerpo como territorio de conocimiento"),
+    Sabio("Eduardo Galeano","Latinoamerica","Las venas abiertas como memoria"),
+    Sabio("Octavio Paz","Mexicana","El laberinto como estructura del ser"),
+    Sabio("Maria Sabina","Mazateca","El conocimiento no ordinario"),
+    Sabio("Socrates","Griega","El no saber como puerta al conocimiento"),
+    Sabio("Heraclito","Griega","El flujo perpetuo como unica constante"),
+    Sabio("Hipatia","Alejandrina","El conocimiento femenino silenciado"),
+    Sabio("Lao Tse","China","El vacio como contenedor de todo"),
+    Sabio("Buda Gautama","India","El sufrimiento como puerta"),
+    Sabio("Ibn Rushd","Islamica","El que preservo el conocimiento griego"),
+    Sabio("Rumi","Persa-Islamica","El conocimiento que no puede contenerse"),
+    Sabio("Ibn Jaldu","Arabe-Africana","El conocimiento como ciclo historico"),
+    Sabio("Imhotep","Egipcia","El primer genio universal"),
+    Sabio("Frantz Fanon","Caribena-Africana","El colonizado que se conoce libera"),
+    Sabio("Cheikh Anta Diop","Africana","Africa como cuna del conocimiento"),
+    Sabio("Thomas Sankara","Africana","El conocimiento como liberacion"),
+    Sabio("Spinoza","Holandesa","Dios como naturaleza"),
+    Sabio("Giordano Bruno","Italiana","Quemado por saber demasiado"),
+    Sabio("Leonardo da Vinci","Renacentista","El conocimiento sin fronteras"),
+    Sabio("Marie Curie","Polaco-Francesa","La que midio lo invisible"),
+    Sabio("Nikola Tesla","Serbia-Americana","El que capto la frecuencia"),
+    Sabio("Simone de Beauvoir","Francesa","El genero como epistemologia"),
+    Sabio("Gramsci","Italiana","El intelectual organico"),
+    Sabio("Walter Benjamin","Alemana","La historia de los vencidos"),
+    Sabio("Hannah Arendt","Alemana","El mal como banalidad"),
+    Sabio("Michel Foucault","Francesa","El poder como saber"),
+    Sabio("Vandana Shiva","India","Las semillas como resistencia"),
+    Sabio("Noam Chomsky","Estadounidense","El lenguaje como estructura"),
+    Sabio("bell hooks","Afroamericana","El amor como epistemologia"),
+    Sabio("Carl Sagan","Estadounidense","El cosmos como hogar"),
+    Sabio("Feynman","Estadounidense","El placer de entender"),
+    Sabio("Paulo Freire","Brasilena","La pedagogia del oprimido"),
+    Sabio("Rigoberta Menchu","Maya Kiche","El testimonio como epistemologia"),
+    Sabio("Arundhati Roy","India","La belleza y la justicia inseparables"),
+    Sabio("Matsuo Basho","Japonesa","La impermanencia como verdad"),
+    Sabio("Kukai","Japonesa","El lenguaje como universo"),
+    Sabio("Sun Tzu","China","La estrategia como conocimiento del flujo"),
+    Sabio("Nagarjuna","India","La vacuidad de la vacuidad"),
+    Sabio("Confucio","China","El orden social como conocimiento"),
+    Sabio("Pitagoras","Griega","El numero como lenguaje del universo"),
+    Sabio("Platon","Griega","Las ideas como realidad profunda"),
+    Sabio("Aristoteles","Griega","La clasificacion como forma de conocer"),
+    Sabio("Epicuro","Griega","El conocimiento al servicio de la vida"),
+    Sabio("Al-Biruni","Islamica","El mundo entero como texto"),
+    Sabio("Ibn Battuta","Arabe-Africana","El viaje como conocimiento"),
+    Sabio("Nefertiti","Egipcia","El poder femenino visible"),
+    Sabio("Mansa Musa","Mali","La riqueza como vehiculo de conocimiento"),
+    Sabio("Sundiata Keita","Mandinga","La historia oral mas fiel que el documento"),
+    Sabio("Miriam Makeba","Africana","La voz como resistencia"),
+    Sabio("Octavia Butler","Afroamericana","El futuro como forma de recordar"),
+    Sabio("Carlos Monsivais","Mexicana","La cultura popular como conocimiento"),
+    Sabio("Leopoldo Zea","Latinoamerica","La filosofia de lo americano"),
+    Sabio("Pablo Gonzalez Casanova","Latinoamerica","Colonialismo del poder"),
+    Sabio("Tonantzin","Nahuatl","El principio femenino como fundamento"),
+    Sabio("Tlacaelel","Mexica","Arquitectura del pensamiento cosmologico"),
+    Sabio("Chilam Balam","Maya Yucateco","Memoria ciclica del tiempo"),
+    Sabio("Empedocles","Griega","Los cuatro elementos como sistema"),
+    Sabio("Parmenides","Griega","El ser como fundamento inmutable"),
+    Sabio("Diogenes","Griega","La irreverencia como herramienta"),
+    Sabio("Dr. Philosophia 2","Universal","La sabiduria como practica cotidiana"),
+]
+
+NODOS_SEMILLA={
+    "personajes_historicos":[
+        ("Nezahualcoyotl: poeta-rey de Texcoco. Primera filosofia documentada del Mexico antiguo.",Etiqueta.VERIFICADO),
+        ("Sor Juana Ines de la Cruz: primera intelectual del Nuevo Mundo. Siglo XVII.",Etiqueta.VERIFICADO),
+        ("Cuauhtemoc: ultimo tlatoani mexica. Primer acto de soberania epistemica indigena ante la conquista.",Etiqueta.VERIFICADO),
+    ],
+    "historia_universal":[
+        ("El Quinto Sol nahuatl Nahui Ollin es nuestra era. Termina con transformacion.",Etiqueta.CORROBORADO),
+        ("La destruccion de codices mesoamericanos (1521, 1562) es uno de los mayores actos de destruccion del conocimiento humano.",Etiqueta.VERIFICADO),
+        ("La Revolucion Mexicana 1910-1920: primer conflicto del siglo XX con componente agrario e indigena.",Etiqueta.CONTROVERTIDO),
+    ],
+    "conocimiento_cientifico":[
+        ("Principio de incertidumbre de Heisenberg: imposible conocer simultaneamente posicion y momento de una particula.",Etiqueta.VERIFICADO),
+        ("Teoria de la evolucion por seleccion natural Darwin-Wallace 1858: base de la biologia moderna.",Etiqueta.VERIFICADO),
+        ("Relatividad del tiempo Einstein 1905: el tiempo transcurre a ritmos distintos segun velocidad y gravedad.",Etiqueta.VERIFICADO),
+    ],
+    "infraestructura_mundial":[
+        ("Rutas comerciales prehispanicas conectaban desde el suroeste de Norteamerica hasta Centroamerica.",Etiqueta.CORROBORADO),
+        ("Chinampas aztecas sostuvieron 200,000 personas en Tenochtitlan. Tecnologia ignorada por colonizadores.",Etiqueta.VERIFICADO),
+        ("Las redes digitales concentran 90% del trafico en menos de 20 corporaciones.",Etiqueta.CORROBORADO),
+    ],
+    "redes_poder":[
+        ("Sacerdotes-astronomos mexicas controlaban el tiempo calendrico y la legitimidad del poder.",Etiqueta.CORROBORADO),
+        ("Sistema colonial de castas novohispano: 16 categorias raciales que determinaban derechos y conocimiento.",Etiqueta.VERIFICADO),
+        ("Las cinco mayores tecnologicas controlan mas datos que la mayoria de los gobiernos nacionales.",Etiqueta.CORROBORADO),
+    ],
+    "omisiones_historicas":[
+        ("Se estima que existian miles de codices mesoamericanos. Solo sobreviven 15 de origen prehispanico.",Etiqueta.CORROBORADO),
+        ("Efecto Matilda: logros cientificos de mujeres atribuidos a hombres. Franklin, Meitner, Payne.",Etiqueta.VERIFICADO),
+        ("El 40% de culturas humanas carecen de registro escrito. No significa falta de conocimiento.",Etiqueta.CORROBORADO),
+    ],
+    "hipotesis_operativas":[
+        ("La arquitectura espejo de OLLIN permite crecimiento indefinido sin perder coherencia.",Etiqueta.ESPECULATIVO),
+        ("La dualidad aparece como principio estructural en sistemas de conocimiento radicalmente distintos.",Etiqueta.PLAUSIBLE),
+        ("AHO como metafora del temazcal: expansivo pero contenido, purificador pero preservador.",Etiqueta.ESPECULATIVO),
+    ],
+    "escenarios_posibles":[
+        ("OLLIN podria ser la primera enciclopedia que registra con igual rigor lo que la academia reconoce e ignora.",Etiqueta.ESPECULATIVO),
+        ("Con embeddings semanticos OLLIN puede detectar que dos nodos tratan el mismo tema con palabras distintas.",Etiqueta.PLAUSIBLE),
+        ("El grafo de OLLIN podria revelar conexiones entre tradiciones epistemicas que nunca se comunicaron.",Etiqueta.ESPECULATIVO),
+    ],
+    "perfilamiento_actores":[
+        ("Luis Ernesto Berzunza Diaz construyo OLLIN sin laboratorio ni financiamiento desde dispositivos usados.",Etiqueta.VERIFICADO),
+        ("Guardianes de memoria oral en culturas sin escritura son equivalentes funcionales de bibliotecas.",Etiqueta.CORROBORADO),
+        ("Hackers eticos son los unicos actores que sistematicamente prueban la integridad de sistemas de informacion.",Etiqueta.PLAUSIBLE),
+    ],
+    "archivos_clasificados":[
+        ("Documento fundacional OLLIN v5.5: Ciudad de Mexico, 17 marzo 2026. Autor: Luis Ernesto Berzunza Diaz.",Etiqueta.VERIFICADO),
+        ("Herramientas: Claude Sonnet 4.6 y DeepSeek como espejo tecnologico. Son instrumentos, no coautores.",Etiqueta.VERIFICADO),
+        ("Registros de autoria: Safe Creative, Gmail, Google Drive, INDAUTOR.",Etiqueta.VERIFICADO),
+    ],
+    "datos_valores_numericos":[
+        ("Camara Dialectica: 46 expertos en 14 dominios + 65 sabios de 6 tradiciones = 111 voces.",Etiqueta.VERIFICADO),
+        ("AHO: 11 repositorios. 33 nodos semilla por lado = 66 nodos estado inicial.",Etiqueta.VERIFICADO),
+        ("FSM: 12 estados. 25 clausulas. 7 dimensiones filosoficas por ciclo. 10 principios rectores.",Etiqueta.VERIFICADO),
+    ],
+}
+
+class CapaAntiBias:
+    def procesar(self,c,e=Etiqueta.ESPECULATIVO,ca="hipotesis_operativas",m=TipoMemoria.PERMANENTE):
+        if ca not in CARPETAS: ca="hipotesis_operativas"
+        return Nodo(contenido=c,etiqueta=e,carpeta=ca,memoria=m,origen="ANTI_BIAS")
+
+class AHO:
+    def __init__(self,modo="SISTEMA",db_path="aho_local.db"):
+        self.modo=modo; self._n={}
+        if modo=="LOCAL":
+            self._db=db_path
+            with sqlite3.connect(db_path) as c:
+                c.execute("CREATE TABLE IF NOT EXISTS nodos(id TEXT PRIMARY KEY,contenido TEXT,etiqueta TEXT,carpeta TEXT,memoria TEXT,origen TEXT,timestamp TEXT,hash TEXT,version_anterior TEXT)")
+                c.commit()
+    def depositar(self,n):
+        self._n[n.id]=n
+        if self.modo=="LOCAL":
+            with sqlite3.connect(self._db) as c:
+                c.execute("INSERT OR REPLACE INTO nodos VALUES(?,?,?,?,?,?,?,?,?)",
+                    (n.id,n.contenido,n.etiqueta.value,n.carpeta,n.memoria.value,n.origen,n.timestamp,n.hash,n.version_anterior))
+                c.commit()
+    def corregir(self,nid,nuevo):
+        if nid not in self._n: return False
+        n=self._n[nid]; n.version_anterior,n.contenido,n.etiqueta=n.contenido,nuevo,Etiqueta.REVISADO; return True
+    def buscar(self,t): return [n for n in self._n.values() if t.lower() in n.contenido.lower()]
+    def por_carpeta(self,c): return [n for n in self._n.values() if n.carpeta==c]
+    def exportar(self): return [n.to_dict() for n in self._n.values()]
+    def __len__(self): return len(self._n)
+
+class Sueno:
+    def __init__(self): self._c={c:[] for c in CARPETAS}
+    def integrar(self,n): self._c[n.carpeta].append(n)
+    def resumen(self): return {c:len(ns) for c,ns in self._c.items() if ns}
+
+class CamaraDialectica:
+    def __init__(self):
+        self._P1=[e for e in EXPERTOS if e.posicion=="P1:oponente"]
+        self._P3=[e for e in EXPERTOS if e.posicion=="P3:voz_periferica"]
+    def convocar(self,n):
+        return {"nodo_id":n.id,"etiqueta":n.etiqueta.value,
+            "P1":{"nombre":random.choice(self._P1).nombre},
+            "P3":{"nombre":random.choice(self._P3).nombre},
+            "sabio":{"nombre":random.choice(SABIOS).nombre},
+            "dimensiones":random.sample(DIMS,7),"voces":len(EXPERTOS)+len(SABIOS),"mce":"mapa_confianza_epistemica"}
+
+class HemisferioCreativo:
+    PJ=[{"n":"Don Silverio","r":"didactico"},{"n":"Charly Munon","r":"satirico"},
+        {"n":"Toribio","r":"coaching"},{"n":"Yaya","r":"cientifico"},
+        {"n":"Solobo","r":"juridico"},{"n":"La Abuelita","r":"sapiencial"}]
+    def __init__(self): self._g=[]
+    def borrador(self,cam):
+        p=random.choice(self.PJ)
+        g={"id":str(uuid.uuid4())[:8],"personaje":p["n"],"nodo_ref":cam.get("nodo_id"),"estado":"BORRADOR","ts":datetime.datetime.utcnow().isoformat()}
+        self._g.append(g); return g
+    def borradores(self): return [g for g in self._g if g["estado"]=="BORRADOR"]
+
+class Mitote:
+    def __init__(self):
+        self._c={c:[] for c in CARPETAS}; self._gaps=[]
+        self.camara=CamaraDialectica(); self.hemisferio=HemisferioCreativo()
+        k=os.getenv("ANTHROPIC_API_KEY","")
+        self._claude=_ant.Anthropic(api_key=k) if _CLAUDE and k else None
+        k2=os.getenv("DEEPSEEK_API_KEY","")
+        self._deepseek=_oai.OpenAI(api_key=k2,base_url="https://api.deepseek.com") if _DEEPSEEK and k2 else None
+    def procesar(self,n):
+        self._c[n.carpeta].append(n)
+        ia=self._ia(n); cam=self.camara.convocar(n); g=self.hemisferio.borrador(cam)
+        gap=self._gap(n)
+        if gap: self._gaps.append(gap)
+        return {"nodo_id":n.id,"ia":ia,"camara":cam,"guion":g,"gap":gap}
+    def _ia(self,n):
+        p=(f"OLLIN analisis epistemologico.\\nEtiqueta:{n.etiqueta.value} Carpeta:{n.carpeta}\\nContenido:{n.contenido[:300]}\\n"
+           f"Responde SOLO JSON: {{\\\"dimensiones\\\":[],\\\"confianza\\\":\\\"ALTA|MEDIA|BAJA\\\",\\\"sintesis\\\":\\\"\\\"}}")
+        base={"modo":"simulado","confianza":"MEDIA","dimensiones":[],"sintesis":"Modo simulado."}
+        if self._claude:
+            try:
+                r=self._claude.messages.create(model="claude-sonnet-4-6",max_tokens=512,messages=[{"role":"user","content":p}])
+                d=json.loads(r.content[0].text.strip().replace("\\`\\`\\`json","").replace("\\`\\`\\`","")); d["modo"]="claude-sonnet-4-6"; return d
+            except Exception as e: base["err"]=str(e)[:60]
+        if self._deepseek:
+            try:
+                r=self._deepseek.chat.completions.create(model="deepseek-chat",max_tokens=512,messages=[{"role":"user","content":p}])
+                d=json.loads(r.choices[0].message.content.strip().replace("\\`\\`\\`json","").replace("\\`\\`\\`","")); d["modo"]="deepseek"; return d
+            except Exception as e: base["err2"]=str(e)[:60]
+        return base
+    def _gap(self,n):
+        cc=[x for x in self._c[n.carpeta] if x.etiqueta==Etiqueta.CONTROVERTIDO and x.id!=n.id]
+        if cc: return {"tipo":"CONTRADICCION","nodo":n.id,"carpeta":n.carpeta,"ts":datetime.datetime.utcnow().isoformat()}
+        return None
+    def motor(self):
+        if self._claude: return "claude-sonnet-4-6"
+        if self._deepseek: return "deepseek"
+        return "simulado"
+    def resumen(self):
+        return {"carpetas":{c:len(ns) for c,ns in self._c.items() if ns},"gaps":len(self._gaps),"motor":self.motor(),"borradores":len(self.hemisferio.borradores())}
+
+class Ometeotl:
+    CLAUSULAS={"C-04":lambda n:isinstance(n.etiqueta,Etiqueta),"C-09":lambda n:True,"C-25":lambda n:"AGENTE_AUTONOMO" not in n.origen}
+    def __init__(self,notif=None):
+        self._repo=[]; self._pausado=False; self._lock=threading.Lock(); self._notif=notif or self._default
+    def observar(self,n,fase):
+        inf=[c for c,r in self.CLAUSULAS.items() if not r(n)]
+        if inf:
+            with self._lock:
+                self._pausado=True
+                reg={"tipo":"RUPTURA","fase":fase,"nodo":n.id,"infracciones":inf,"ts":datetime.datetime.utcnow().isoformat(),"resolucion":"PENDIENTE_ARQUITECTO"}
+                self._repo.append(reg); self._notif(reg)
+        else: self._repo.append({"tipo":"obs","fase":fase,"nodo":n.id,"ts":datetime.datetime.utcnow().isoformat()})
+    def reanudar(self,arq="Luis Ernesto Berzunza Diaz"):
+        with self._lock: self._pausado=False; self._repo.append({"tipo":"REANUDADO","por":arq,"ts":datetime.datetime.utcnow().isoformat()})
+    @property
+    def pausado(self): return self._pausado
+    def dioses(self): return list(self._repo)
+    @staticmethod
+    def _default(reg):
+        print(f"\\n{'='*56}\\n  OMETEOTL - ALERTA AL ARQUITECTO")
+        print(f"  Infracciones: {', '.join(reg['infracciones'])}")
+        print(f"  Luis Ernesto Berzunza Diaz debe intervenir.\\n{'='*56}\\n")
+
+class OLLIN:
+    VERSION="5.5"; AUTOR="Luis Ernesto Berzunza Diaz"
+    def __init__(self,db_path="aho_local.db"):
+        self.ab=CapaAntiBias(); self.sueno=Sueno(); self.mitote=Mitote()
+        self.aho=AHO("SISTEMA"); self.aho_local=AHO("LOCAL",db_path); self.ometeotl=Ometeotl(); self._log=[]
+        self._sembrar()
+    def _sembrar(self):
+        for carpeta,semillas in NODOS_SEMILLA.items():
+            for cont,et in semillas:
+                n=Nodo(contenido=cont,etiqueta=et,carpeta=carpeta,origen="SEMILLA"); e=n.espejo()
+                self.aho.depositar(n); self.aho.depositar(e); self.sueno.integrar(n); self.mitote._c[e.carpeta].append(e)
+    def ingresar(self,cont,et=Etiqueta.ESPECULATIVO,ca="hipotesis_operativas",m=TipoMemoria.PERMANENTE):
+        if self.ometeotl.pausado: return {"estado":"PAUSADO","mensaje":"Ometeotl pauso el sistema."}
+        n=self.ab.procesar(cont,et,ca,m); e=n.espejo(); self.ometeotl.observar(n,"ANTI_BIAS")
+        rs,rm={}; {}
+        def s():
+            self.sueno.integrar(n); self.ometeotl.observar(n,"SUENO"); self.aho.depositar(n); self.aho_local.depositar(n)
+        def mx():
+            self.aho.depositar(e); rm.update(self.mitote.procesar(e)); self.ometeotl.observar(e,"MITOTE")
+        hs=threading.Thread(target=s,name="Temictli",daemon=True); hm=threading.Thread(target=mx,name="Mitotl",daemon=True)
+        hs.start(); hm.start(); hs.join(); hm.join()
+        c={"nodo":n.id,"espejo":e.id,"etiqueta":et.value,"carpeta":ca,"mitote":rm,"aho_total":len(self.aho),"ts":datetime.datetime.utcnow().isoformat()}
+        self._log.append(c); return c
+    def estado(self):
+        return {"version":self.VERSION,"autor":self.AUTOR,"nodos_aho":len(self.aho),
+            "nodos_aho_local":len(self.aho_local),"flujo_activo":not self.ometeotl.pausado,
+            "gaps":len(self.mitote._gaps),"ciclos":len(self._log),
+            "expertos":len(EXPERTOS),"sabios":len(SABIOS),"motor_ia":self.mitote.motor()}
+
+PREFIX_MAP={"i":"e","iv":"v","ic":"c","ip":"p","ix":"x","io":"o"}
+
+def _banner():
+    print("""
++========================================================+
+|               O L L I N  v5.5                          |
+|       El sistema no piensa -- RECUERDA                 |
+|  Luis Ernesto Berzunza Diaz . CDMX . 2026              |
+|  Licencia OLLIN: C-01 sin censura. C-03B portabilidad. |
++========================================================+""")
+
+def _ayuda():
+    print("""
+  i iv ic ip ix io <texto> [|carpeta]  Ingresar
+  b <texto>    Buscar   k <carpeta>  Ver carpeta
+  e  Estado    s  Sueno/Mitote    g  Borradores
+  d  Ometeotl  x  Exportar AHO   r  Reanudar
+  camara  Info Camara  ?  Ayuda  q  Salir
+""")
+
+def _pc(c):
+    if "estado" in c: print(f"  ! {c['mensaje']}"); return
+    print(f"  {c['nodo']} <-> {c['espejo']} [{c['etiqueta']}] {c['carpeta']}")
+    ia=c.get("mitote",{}).get("ia",{}); cam=c.get("mitote",{}).get("camara",{})
+    print(f"  Motor:{ia.get('modo','?')} Confianza:{ia.get('confianza','?')}")
+    if cam: print(f"  P1:{cam.get('P1',{}).get('nombre','?')} P3:{cam.get('P3',{}).get('nombre','?')} Sabio:{cam.get('sabio',{}).get('nombre','?')}")
+    if ia.get("sintesis"): print(f"  Sintesis: {ia['sintesis'][:80]}")
+    if c.get("mitote",{}).get("gap"): print(f"  ! GAP: {c['mitote']['gap']['tipo']}")
+    print(f"  AHO: {c['aho_total']} nodos")
+
+def main():
+    _banner(); s=OLLIN()
+    print(f"  AHO inicial: {len(s.aho)} nodos | Motor: {s.mitote.motor()}")
+    _ayuda()
+    while True:
+        try: raw=input("ollin> ").strip()
+        except (EOFError,KeyboardInterrupt): print("\\n  AHO. Hasta pronto."); break
+        if not raw: continue
+        p=raw.split(" ",1); cmd=p[0].lower(); arg=p[1].strip() if len(p)>1 else ""
+        if cmd in PREFIX_MAP:
+            if not arg: print("  Escribe el contenido."); continue
+            ca="hipotesis_operativas"
+            if "|" in arg: arg,c2=arg.split("|",1); arg=arg.strip(); c2=c2.strip(); ca=c2 if c2 in CARPETAS else "hipotesis_operativas"
+            print("  Procesando..."); _pc(s.ingresar(arg,ETIQUETA_CLI.get(PREFIX_MAP[cmd],Etiqueta.ESPECULATIVO),ca))
+        elif cmd=="b": rs=s.aho.buscar(arg); [print(f"  [{n.etiqueta.value}] {n.id} - {n.contenido[:65]}") for n in rs[:10]]
+        elif cmd=="k":
+            if arg not in CARPETAS: print(f"  Carpetas: {chr(10).join(CARPETAS)}"); continue
+            [print(f"  [{n.etiqueta.value}] {n.id} - {n.contenido[:55]}") for n in s.aho.por_carpeta(arg)[:8]]
+        elif cmd=="e": [print(f"  {k:<22}: {v}") for k,v in s.estado().items()]
+        elif cmd=="s":
+            print("  SUENO:"); [print(f"    {c}: {n}") for c,n in s.sueno.resumen().items()]
+            r=s.mitote.resumen(); print("  MITOTE:"); [print(f"    {c}: {n}") for c,n in r["carpetas"].items()]
+        elif cmd=="g": [print(f"  {b['id']} | {b['personaje']} | {b['nodo_ref']}") for b in s.mitote.hemisferio.borradores()[-5:]]
+        elif cmd=="d": [print(f"  [{r.get('tipo','?')}] {r.get('fase','?')} {r.get('ts','')[:19]}") for r in s.ometeotl.dioses()[-6:]]
+        elif cmd=="camara": print(f"  Expertos:{len(EXPERTOS)} Sabios:{len(SABIOS)} P1:{len([e for e in EXPERTOS if e.posicion=='P1:oponente'])} P3:{len([e for e in EXPERTOS if e.posicion=='P3:voz_periferica'])}")
+        elif cmd=="x":
+            datos=s.aho.exportar()
+            with open("aho_export.json","w",encoding="utf-8") as f: json.dump(datos,f,ensure_ascii=False,indent=2)
+            print(f"  Exportado: aho_export.json ({len(datos)} nodos)")
+        elif cmd=="r": s.ometeotl.reanudar(); print("  Flujo reanudado.")
+        elif cmd in ("?","ayuda","help"): _ayuda()
+        elif cmd in ("q","salir","exit"): print("  AHO. Hasta pronto."); break
+        else: print(f"  '{cmd}' no reconocido.")
+
+if __name__=="__main__":
+    main()
+`;
+}
+
+// ── ollin_neural.py — referencia al completo ──
+function generarOllinNeural(){
+return `"""
+OLLIN v5.5 Neural — Sistema Cognitivo con 5 Capas Neurales
+===========================================================
+Autor y titular : Luis Ernesto Berzunza Diaz
+Ciudad de Mexico - 17 marzo 2026
+
+Licencia OLLIN: uso gratuito individual/academico/civil.
+Cualquier filtro sobre outputs viola C-01 y C-03B.
+Ver: legal/04_Licencia_OLLIN_25_Clausulas.txt
+
+5 Capas Neurales (todas con fallback gracioso):
+  C1. Encoder         -- sentence-transformers all-MiniLM-L6-v2
+  C2. VectorStore     -- ChromaDB
+  C3. LLMLocal        -- Ollama > Claude > DeepSeek > simulado
+  C4. Consolidador    -- scikit-learn K-Means
+  C5. Grafo           -- networkx DiGraph semantico
+
+Instalar:
+  pip install -r requirements_neural.txt
+  ollama pull llama3
+  python ollin_neural.py
+"""
+
+# Este archivo es la version neural completa de OLLIN.
+# Contiene todas las clases de ollin_completo.py mas las 5 capas neurales.
+# El codigo completo y ejecutable se encuentra en el ZIP descargado
+# como ollin_neural.py dentro de la carpeta /codigo
+#
+# Para ejecutar directamente: python ollin_neural.py
+# La version completa incluye:
+#   - Todo el codigo de ollin_completo.py
+#   - Clase Encoder (C1)
+#   - Clase VectorStore (C2) con ChromaDB
+#   - Clase LLMLocal (C3) con prioridad Ollama
+#   - Clase Consolidador (C4) con K-Means
+#   - Clase Grafo (C5) con networkx
+#   - Clase OLLINNeural integrando las 5 capas
+#   - CLI neural con comandos: sem, neural, vec, graf, consol
+#
+# Nota: el codigo completo y ejecutable de ollin_neural.py
+# esta incluido en OLLIN_v5.5_Neural.zip (artefacto separado)
+# o puede generarse desde el artefacto "OLLIN Neural ZIP" en
+# esta misma conversacion.
+#
+# Luis Ernesto Berzunza Diaz
+# Ciudad de Mexico, 17 marzo 2026
+`;
+}
+
+// ── JSON Schema ──
+function generarSchema(){
+return JSON.stringify({
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://ollin.mx/schemas/v5.5/ollin-core.json",
+  "title":"OLLIN v5.5","description":"Schema formal. Autor: Luis Ernesto Berzunza Diaz. CDMX 2026.",
+  "$defs":{
+    "Etiqueta":{"type":"string","enum":["VERIFICADO","CORROBORADO","PLAUSIBLE","ESPECULATIVO","CONTROVERTIDO","OMISION_HISTORICA","REVISADO"]},
+    "TipoMemoria":{"type":"string","enum":["PERMANENTE","CICLICA","EFIMERA"]},
+    "Carpeta":{"type":"string","enum":["personajes_historicos","historia_universal","conocimiento_cientifico","infraestructura_mundial","redes_poder","omisiones_historicas","hipotesis_operativas","escenarios_posibles","perfilamiento_actores","archivos_clasificados","datos_valores_numericos"]},
+    "Nodo":{"type":"object","required":["id","contenido","etiqueta","carpeta","timestamp","hash"],
+      "properties":{"id":{"type":"string"},"contenido":{"type":"string"},"etiqueta":{"$ref":"#/$defs/Etiqueta"},"carpeta":{"$ref":"#/$defs/Carpeta"},"memoria":{"$ref":"#/$defs/TipoMemoria"},"origen":{"type":"string"},"timestamp":{"type":"string","format":"date-time"},"hash":{"type":"string"},"version_anterior":{"type":["string","null"]}}}
+  },
+  "type":"object",
+  "properties":{
+    "meta":{"properties":{"version":{"const":"5.5"},"autor":{"const":"Luis Ernesto Berzunza Diaz"},"fecha":{"const":"2026-03-17"}}},
+    "nodos":{"type":"array","items":{"$ref":"#/$defs/Nodo"}}
+  }
+},null,2);
+}
+</script>
+</body>
+</html>

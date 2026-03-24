@@ -1,0 +1,69 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office'
+xmlns:w='urn:schemas-microsoft-com:office:word'
+xmlns='http://www.w3.org/TR/REC-html40'>
+<head><meta charset='UTF-8'>
+<style>
+body{font-family:Arial,sans-serif;font-size:12pt;color:#111;margin:80px 90px;line-height:1.7}
+h1{font-size:18pt;color:#002060;border-bottom:2pt solid #002060;padding-bottom:6pt;margin-bottom:18pt}
+h2{font-size:13pt;color:#1a4070;margin-top:20pt;margin-bottom:8pt}
+h3{font-size:12pt;color:#1a4070;margin-top:14pt;margin-bottom:6pt}
+p{margin-bottom:8pt}
+.highlight{background:#e8f0fc;border-left:4pt solid #2060b0;padding:8pt 12pt;margin:10pt 0}
+.firma{margin-top:40pt;border-top:1pt solid #aaa;padding-top:14pt;color:#555;font-size:10pt}
+table{border-collapse:collapse;width:100%;margin:10pt 0}
+td,th{border:1pt solid #bbb;padding:6pt 10pt;font-size:11pt;vertical-align:top}
+th{background:#d0e0f0;color:#002060;font-weight:bold}
+tr:nth-child(even) td{background:#f5f8ff}
+.num{color:#2060a0;font-weight:bold}
+ul{margin:6pt 0 8pt 20pt}
+li{margin-bottom:4pt}
+</style></head><body>
+
+<h1>Arquitectura Cosmológica — OLLIN Dual Neural</h1>
+<div class="highlight"><strong>Principio fundamental:</strong> El sistema no piensa — RECUERDA.</div>
+<h2>AHO — La Piedra</h2>
+<p>AHO es una expresión sagrada del temazcal — afirmación, presencia, verdad. La Piedra sobre la cual se posta todo el conocimiento. El Archivo Histórico Ontológico no juzga: recibe, sostiene, preserva.</p>
+<p>Organizado en <strong>11 repositorios simétricos:</strong></p>
+<ul>
+<li>personajes_históricos · historia_universal · conocimiento_científico</li>
+<li>infraestructura_mundial · redes_poder · omisiones_históricas</li>
+<li>hipótesis_operativas · escenarios_posibles · perfilamiento_actores</li>
+<li>archivos_clasificados · datos_valores_numéricos</li>
+</ul>
+<p><strong>Dualidad:</strong> AHO Sistema (colectivo, en memoria) ↔ AHO Local (usuario, SQLite en dispositivo — C-20).</p>
+<h2>Sueño — Temictli (hacia adentro)</h2>
+<p>El Sueño recorre el camino <strong>EXTERNO → CARPETA → AHO</strong>. Recibe el nodo y lo consolida hacia adentro: asocia, indexa, vincula con lo que ya existe sin análisis consciente. Como el cerebro durante el sueño: ordena sin juzgar.</p>
+<h2>Mitote — Mitotl (hacia afuera)</h2>
+<p>El Mitote recorre el camino <strong>AHO → CARPETA → EXTERNO</strong>. Recibe el nodo espejo y lo procesa hacia afuera: analiza, confronta dialécticamente, busca gaps, genera síntesis. La danza ceremonial colectiva — ruidosa y viva por naturaleza.</p>
+<h2>El Principio del Espejo</h2>
+<p>Un nodo entra por la Capa Anti-Bias y se desdobla en dos copias simétricas que recorren simultáneamente el mismo camino en sentidos opuestos. Las carpetas del Sueño son idénticas a las del Mitote. Esa simetría es lo que permite que el sistema crezca indefinidamente sin perderse: cada nodo conoce su lugar porque tiene su reflejo exacto al otro lado.</p>
+<h2>Ometeotl — El Testigo Eterno</h2>
+<p>La dualidad suprema. El dos-en-uno. Ometeotl observa cada fase del flujo sin intervenir en él. Ve: Anti-Bias · Sueño · Mitote · AHO · Entrega. Registra todo en su repositorio separado — <strong>CONOCIMIENTO_DE_LOS_DIOSES</strong>.</p>
+<p>Cuando detecta una ruptura de cláusula ejecuta tres acciones en secuencia:</p>
+<ul>
+<li>Pausa el flujo completo</li>
+<li>Registra el análisis completo de por qué ocurrió la ruptura</li>
+<li>Notifica al Arquitecto: Luis Ernesto Berzunza Díaz</li>
+</ul>
+<p>Solo el Arquitecto puede reanudar el flujo. Ningún agente del sistema puede hacerlo.</p>
+<h2>La Cámara Dialéctica</h2>
+<p>46 expertos en 14 dominios + 65 sabios de 6 tradiciones culturales = <strong>111 voces</strong>.</p>
+<p><strong>P1:</strong> oponente dialéctico forzado — contradice la posición dominante en cada análisis.</p>
+<p><strong>P3:</strong> voz periférica forzada — perspectiva no dominante, del margen.</p>
+<p><strong>CapaDimensiones:</strong> 7 dimensiones filosóficas garantizadas por ciclo: ontológica, epistemológica, ética, política, estética, cosmológica, pragmática.</p>
+<h2>Las 5 Capas Neurales</h2>
+<table>
+<tr><th>Capa</th><th>Componente</th><th>Librería</th><th>Función</th></tr>
+<tr><td class="num">C1</td><td>Encoder semántico</td><td>sentence-transformers</td><td>Vectores de 384 dims por significado</td></tr>
+<tr><td class="num">C2</td><td>Vector store</td><td>ChromaDB</td><td>Búsqueda por similitud coseno</td></tr>
+<tr><td class="num">C3</td><td>LLM local</td><td>Ollama</td><td>Razonamiento local sin internet</td></tr>
+<tr><td class="num">C4</td><td>Consolidación neural</td><td>scikit-learn</td><td>K-Means en el Sueño activo</td></tr>
+<tr><td class="num">C5</td><td>Grafo de conocimiento</td><td>networkx</td><td>Red semántica de nodos</td></tr>
+</table>
+
+<div class="firma">
+<strong>Luis Ernesto Berzunza Díaz</strong><br>
+Arquitecto y Titular único de OLLIN<br>
+Chihuahua, Chihuahua · 17 de marzo de 2026 · OLLIN Dual Neural
+</div>
+</body></html>

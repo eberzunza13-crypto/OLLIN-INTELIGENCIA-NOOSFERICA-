@@ -1,0 +1,53 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office'
+xmlns:w='urn:schemas-microsoft-com:office:word'
+xmlns='http://www.w3.org/TR/REC-html40'>
+<head><meta charset='UTF-8'>
+<style>
+body{font-family:Arial,sans-serif;font-size:12pt;color:#111;margin:80px 90px;line-height:1.7}
+h1{font-size:18pt;color:#002060;border-bottom:2pt solid #002060;padding-bottom:6pt;margin-bottom:18pt}
+h2{font-size:13pt;color:#1a4070;margin-top:20pt;margin-bottom:8pt}
+h3{font-size:12pt;color:#1a4070;margin-top:14pt;margin-bottom:6pt}
+p{margin-bottom:8pt}
+.highlight{background:#e8f0fc;border-left:4pt solid #2060b0;padding:8pt 12pt;margin:10pt 0}
+.firma{margin-top:40pt;border-top:1pt solid #aaa;padding-top:14pt;color:#555;font-size:10pt}
+table{border-collapse:collapse;width:100%;margin:10pt 0}
+td,th{border:1pt solid #bbb;padding:6pt 10pt;font-size:11pt;vertical-align:top}
+th{background:#d0e0f0;color:#002060;font-weight:bold}
+tr:nth-child(even) td{background:#f5f8ff}
+.num{color:#2060a0;font-weight:bold}
+ul{margin:6pt 0 8pt 20pt}
+li{margin-bottom:4pt}
+</style></head><body>
+
+<h1>Descripción Técnica del Programa de Computación</h1>
+<p><strong>Obra:</strong> OLLIN Dual Neural — Sistema Cognitivo Epistemológico<br>
+<strong>Autor:</strong> Luis Ernesto Berzunza Díaz · <strong>Fecha:</strong> 17 de marzo de 2026</p>
+<h2>Naturaleza del Programa</h2>
+<p>OLLIN Dual Neural es un programa de computación escrito en Python 3.9+ que implementa un sistema de organización, procesamiento y divulgación del conocimiento humano con etiquetado epistemológico obligatorio. Consta de dos versiones: ollin_completo.py (~800 líneas) y ollin_neural.py (~1,100 líneas).</p>
+<h2>Componentes Principales</h2>
+<table>
+<tr><th>Componente</th><th>Descripción técnica</th></tr>
+<tr><td>Capa Anti-Bias (C-04)</td><td>Módulo de clasificación epistemológica. Asigna etiqueta a cada dato antes de cualquier procesamiento. 7 etiquetas posibles.</td></tr>
+<tr><td>AHO — La Piedra</td><td>Repositorio en SQLite (local) y ChromaDB (vectorial). 11 categorías temáticas. Dualidad Sistema/Local.</td></tr>
+<tr><td>Arquitectura Espejo Dual</td><td>Threading paralelo Python. Dos hilos simultáneos (Temictli/Mitotl) recorren el mismo camino en sentidos opuestos.</td></tr>
+<tr><td>Ometeotl</td><td>Observer pattern. Inspecciona cada transición. Pausa el flujo si detecta violación de las 25 Cláusulas.</td></tr>
+<tr><td>Cámara Dialéctica</td><td>46 objetos Experto + 65 objetos Sabio. P1 oponente y P3 periférico forzados. 7 dimensiones filosóficas por ciclo.</td></tr>
+<tr><td>C1 — Encoder</td><td>sentence-transformers all-MiniLM-L6-v2. Vectores 384 dimensiones.</td></tr>
+<tr><td>C2 — VectorStore</td><td>ChromaDB con búsqueda coseno. Fallback en memoria.</td></tr>
+<tr><td>C3 — LLM Local</td><td>Cliente Ollama. Prioridad: llama3/mistral/phi3 → Claude API → DeepSeek → simulado.</td></tr>
+<tr><td>C4 — Consolidador</td><td>K-Means scikit-learn en hilo daemon. Consolida cada 10 nodos nuevos.</td></tr>
+<tr><td>C5 — Grafo</td><td>DiGraph networkx. Aristas semánticas entre nodos con similitud > 0.72.</td></tr>
+</table>
+<h2>Datos de Compilación</h2>
+<table>
+<tr><td>Lenguaje</td><td>Python 3.9+</td><td>Paradigma</td><td>Orientado a objetos / concurrente</td></tr>
+<tr><td>Plataformas</td><td>Linux, macOS, Windows</td><td>Interfaz</td><td>CLI interactivo</td></tr>
+<tr><td>Líneas originales</td><td>~2,020</td><td>Almacenamiento</td><td>SQLite + ChromaDB</td></tr>
+</table>
+
+<div class="firma">
+<strong>Luis Ernesto Berzunza Díaz</strong><br>
+Arquitecto y Titular único de OLLIN<br>
+Chihuahua, Chihuahua · 17 de marzo de 2026 · OLLIN Dual Neural
+</div>
+</body></html>

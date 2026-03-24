@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OLLIN v5.5 — Diagrama de Flujo</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #03050a;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── CANVAS ── */
+.canvas {
+  width: 100%;
+  min-height: 100vh;
+  padding: 32px 16px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* ── HEADER ── */
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.header h1 {
+  font-size: 19px; color: #d0c8b0; letter-spacing: 3px;
+  font-weight: 300; margin-bottom: 4px;
+}
+.header .autor {
+  font-size: 9.5px; color: #1e2830; letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ── ENTRADA ── */
+.entrada-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 280px;
+  margin-bottom: 0;
+}
+.box-entrada {
+  background: #06101a;
+  border: 1px solid #0e2035;
+  border-radius: 6px;
+  padding: 10px 20px;
+  text-align: center;
+  width: 100%;
+}
+.box-entrada .bt { font-size: 10px; font-weight: 700; color: #3070a0; text-transform: uppercase; letter-spacing: 1px; }
+.box-entrada .bd { font-size: 9px; color: #1a3050; margin-top: 2px; }
+
+/* ── ANTIBIAS ── */
+.antibias-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0;
+}
+.box-antibias {
+  background: #08081a;
+  border: 1px solid #14143a;
+  border-radius: 6px;
+  padding: 10px 16px;
+  text-align: center;
+  width: 100%;
+}
+.box-antibias .bt { font-size: 10px; font-weight: 700; color: #5050c0; text-transform: uppercase; letter-spacing: 1px; }
+.box-antibias .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 3px; margin-top: 5px; }
+.etag {
+  font-size: 8.5px; font-weight: 700; padding: 1px 7px; border-radius: 3px;
+}
+.ev  { background: #081828; color: #3070b0; }
+.ec  { background: #081820; color: #30a070; }
+.ep  { background: #100818; color: #8040a0; }
+.ee  { background: #181000; color: #b07020; }
+.ex  { background: #180808; color: #b03030; }
+.eo  { background: #080818; color: #4040b0; }
+
+/* ── FLECHA GRANDE ── */
+.arrow-v {
+  width: 1px;
+  background: linear-gradient(to bottom, #0d1e2e, #0d1e2e);
+  margin: 0 auto;
+  position: relative;
+}
+.arrow-v::after {
+  content: '▼';
+  position: absolute;
+  bottom: -9px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px; color: #0d1e2e;
+}
+
+/* ── SPLIT LINE ── */
+.split-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  max-width: 1000px;
+  gap: 0;
+  margin-top: 0;
+  position: relative;
+}
+
+/* ── CONECTOR HORIZONTAL ── */
+.hline-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 22px;
+  margin: 0 auto;
+}
+.hline {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(to right, #0a1828, #1a3050, #0a1828);
+}
+.hline-dot-l, .hline-dot-r, .hline-dot-c {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #1a3050;
+}
+.hline-dot-l { left: 15%; }
+.hline-dot-c { left: 50%; transform: translate(-50%, -50%); }
+.hline-dot-r { right: 15%; }
+
+/* ── COLUMNAS ── */
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  padding: 0 6px;
+}
+.col-center {
+  flex: 0 0 auto;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── TÍTULOS DE COLUMNA ── */
+.col-title {
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  padding: 5px 14px; border-radius: 3px;
+  margin-bottom: 6px; text-align: center;
+}
+.ct-mitote { color: #8040b0; background: #0e0618; border: 1px solid #1e0e30; }
+.ct-aho    { color: #b09020; background: #0e0a00; border: 1px solid #2a2000; }
+.ct-sueno  { color: #3070b0; background: #06101a; border: 1px solid #0e2035; }
+
+/* ── NODO GENÉRICO ── */
+.node {
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  width: 100%;
+  border: 1px solid;
+  position: relative;
+}
+.node .nt { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 3px; }
+.node .nb { font-size: 9px; line-height: 1.5; }
+.node .nd { font-size: 8.5px; font-style: italic; margin-top: 3px; opacity: 0.6; }
+.node .nsub { font-size: 8px; margin-top: 3px; }
+.sub-tag {
+  display: inline-block; font-size: 7.5px; font-weight: 700;
+  padding: 1px 5px; border-radius: 2px; margin: 1px 1px 0 0;
+}
+
+/* ── MITOTE (izquierda) ── */
+.n-mit { background: #0a0615; border-color: #1a0e2a; }
+.n-mit .nt { color: #7030a0; }
+.n-mit .nb { color: #3a1a50; }
+.n-mit .nd { color: #2a1040; }
+.st-mit { background: #140820; color: #7030a0; }
+
+/* ── AHO (centro) ── */
+.n-aho-center {
+  background: linear-gradient(160deg, #0c0900, #100c00, #0c0900);
+  border: 1px solid #2a2000;
+  border-radius: 8px;
+  padding: 14px 12px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 20px #20150020;
+}
+.n-aho-center .nt { font-size: 14px; font-weight: 700; color: #c0a020; letter-spacing: 2px; margin-bottom: 6px; }
+.n-aho-center .glifo { font-size: 24px; margin: 4px 0; opacity: 0.5; }
+.n-aho-center .nd { font-size: 8.5px; color: #5a4a10; font-style: italic; margin-top: 4px; }
+.n-aho-repo {
+  background: #080700; border: 1px solid #1a1400;
+  border-radius: 4px; padding: 6px 8px; width: 100%; margin-bottom: 4px;
+}
+.n-aho-repo .rt { font-size: 8.5px; font-weight: 700; color: #806010; margin-bottom: 3px; }
+.repo-item {
+  font-size: 7.5px; color: #3a3000;
+  padding: 1px 0;
+  display: flex; align-items: center; gap: 4px;
+}
+.repo-item::before { content: '·'; color: #5a4010; }
+
+.n-aho-dual {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4px; width: 100%; margin-top: 4px;
+}
+.dual-box {
+  background: #080700; border: 1px solid #1a1400;
+  border-radius: 4px; padding: 5px 7px; text-align: center;
+}
+.dual-box .dt { font-size: 8px; font-weight: 700; color: #806010; }
+.dual-box .dd { font-size: 7.5px; color: #3a3000; margin-top: 2px; }
+
+/* ── SUEÑO (derecha) ── */
+.n-sue { background: #050d18; border-color: #0c1e30; }
+.n-sue .nt { color: #2060a0; }
+.n-sue .nb { color: #1a3a60; }
+.n-sue .nd { color: #0e2540; }
+.st-sue { background: #081420; color: #3070b0; }
+
+/* ── OMETEOTL ── */
+.ometeotl-wrap {
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 16px;
+  position: relative;
+}
+.n-ometeotl {
+  background: linear-gradient(135deg, #07040e, #05030b, #07040e);
+  border: 1px solid #1e1030;
+  border-radius: 8px;
+  padding: 14px 18px;
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr;
+  gap: 12px;
+  align-items: center;
+  box-shadow: 0 0 24px #20084040;
+}
+.ome-glifo { text-align: center; font-size: 30px; opacity: 0.6; }
+.ome-title { font-size: 11px; font-weight: 700; color: #b060e0; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.ome-body  { font-size: 9px; color: #50308a; line-height: 1.6; }
+.ome-repo  { background: #0a0616; border: 1px solid #1a0e28; border-radius: 4px; padding: 7px 10px; }
+.ome-repo .rt { font-size: 8.5px; font-weight: 700; color: #8040c0; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.8px; }
+.ome-action { display: flex; align-items: center; gap: 5px; margin-bottom: 3px; }
+.ome-dot { width: 5px; height: 5px; border-radius: 50%; background: #3010608; flex-shrink: 0; }
+.ome-dot.pausa  { background: #c04040; }
+.ome-dot.observa{ background: #4040c0; }
+.ome-dot.avisa  { background: #c08020; }
+.ome-dot.guarda { background: #40a060; }
+.ome-action span { font-size: 8.5px; color: #40206a; }
+
+/* ── ENTREGA ── */
+.entrega-wrap {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 14px;
+}
+.entrega-title {
+  font-size: 9px; font-weight: 700; color: #306050;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  text-align: center; margin-bottom: 6px;
+}
+.personajes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+@media(max-width:500px){ .personajes-grid { grid-template-columns: repeat(2,1fr); } }
+.pj {
+  background: #050e0a; border: 1px solid #0a1e14;
+  border-radius: 4px; padding: 7px 9px; text-align: center;
+}
+.pj .pn { font-size: 9.5px; font-weight: 700; color: #30a060; margin-bottom: 2px; }
+.pj .pr { font-size: 8px; color: #1a4030; }
+.borrador-badge {
+  display: block; font-size: 7.5px; font-weight: 700;
+  color: #b07020; background: #180e00; border: 1px solid #2a1a00;
+  padding: 1px 6px; border-radius: 2px; margin-top: 3px;
+}
+
+/* ── FLECHAS VERTICALES ENTRE SECCIONES ── */
+.av { width: 1px; height: 14px; background: #0d1e2e; margin: 0 auto; position: relative; }
+.av::after { content:'▼'; position:absolute; bottom:-8px; left:50%; transform:translateX(-50%); font-size:8px; color:#0d1e2e; }
+.av-gold { background: #2a1800; }
+.av-gold::after { color: #2a1800; }
+.av-pur { background: #1a0830; }
+.av-pur::after { color: #1a0830; }
+.av-grn { background: #0a1e14; }
+.av-grn::after { color: #0a1e14; }
+
+/* ── FOOTER ── */
+.footer {
+  margin-top: 28px; text-align: center;
+  font-size: 9px; color: #0d1520; letter-spacing: 1px;
+}
+
+/* ── FLECHA DIAGONAL (Sueño/Mitote → AHO) ── */
+.deposit-label {
+  font-size: 8px; color: #1a2a1a; font-style: italic;
+  text-align: center; margin: 3px 0;
+}
+
+/* ── CAMARA y subcomponentes del Mitote ── */
+.mit-sub {
+  background: #0a0515; border: 1px dashed #1a0a28;
+  border-radius: 4px; padding: 6px 8px; width: 100%; margin-bottom: 4px;
+}
+.mit-sub .st { font-size: 8.5px; font-weight: 700; color: #5020808; margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.8px; }
+.mit-sub .sb { font-size: 8px; color: #30105a; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <!-- ══ HEADER ══ -->
+  <div class="header">
+    <h1>O L L I N &nbsp; v 5 . 5</h1>
+    <div class="autor">Luis Ernesto Berzunza Díaz · Ciudad de México · 2026 · El sistema no piensa — RECUERDA</div>
+  </div>
+
+  <!-- ══ ENTRADA ══ -->
+  <div class="entrada-wrap">
+    <div class="box-entrada">
+      <div class="bt">📥 Entrada de Información</div>
+      <div class="bd">Texto · Dato · Documento · Evento externo</div>
+    </div>
+  </div>
+
+  <div class="av" style="height:12px; margin:0 auto;"></div>
+
+  <!-- ══ ANTI-BIAS ══ -->
+  <div class="antibias-wrap">
+    <div class="box-antibias">
+      <div class="bt">⚖️ Capa 00 — Anti-Bias · Etiquetado Epistemológico</div>
+      <div class="tags">
+        <span class="etag ev">VERIFICADO</span>
+        <span class="etag ec">CORROBORADO</span>
+        <span class="etag ep">PLAUSIBLE</span>
+        <span class="etag ee">ESPECULATIVO</span>
+        <span class="etag ex">CONTROVERTIDO</span>
+        <span class="etag eo">OMISIÓN HISTÓRICA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ LÍNEA HORIZONTAL DE SPLIT ══ -->
+  <div class="hline-wrap" style="max-width:900px;">
+    <div class="hline"></div>
+    <div class="hline-dot-l"></div>
+    <div class="hline-dot-c"></div>
+    <div class="hline-dot-r"></div>
+  </div>
+
+  <!-- ══ TRES COLUMNAS PRINCIPALES ══ -->
+  <div class="split-row">
+
+    <!-- ─── MITOTE — IZQUIERDA ─── -->
+    <div class="col">
+      <div class="col-title ct-mitote">🥁 Mitote — Mitotl</div>
+      <div style="font-size:7.5px; color:#250a38; text-align:center; margin-bottom:5px; font-style:italic;">hacia afuera · AHO → Carpeta → Externo</div>
+
+      <div class="node n-mit">
+        <div class="nt">Nodo Espejo</div>
+        <div class="nb">Recibe la copia simétrica del nodo original. Recorre el camino opuesto al Sueño.</div>
+      </div>
+
+      <div class="av av-pur" style="height:10px;"></div>
+
+      <div class="node n-mit">
+        <div class="nt">🎭 Cámara Dialéctica</div>
+        <div class="nb">46 expertos · 65 sabios · 111 voces</div>
+        <div class="nsub">
+          <span class="sub-tag st-mit">P1 Oponente forzado</span>
+          <span class="sub-tag st-mit">P3 Voz periférica</span>
+          <span class="sub-tag st-mit">7 dimensiones filosóficas</span>
+        </div>
+        <div class="mit-sub" style="margin-top:5px;">
+          <div class="st">Dominios (14)</div>
+          <div class="sb">Historia · Filosofía · Ciencias · Economía · Política · Derecho · Medicina · Arte · Tecnología · Sociología · Psicología · Antropología · Medio Ambiente · Espiritualidad</div>
+        </div>
+        <div class="mit-sub">
+          <div class="st">Tradiciones de Sabios (6)</div>
+          <div class="sb">Mesoamérica · Grecia · Asia · África · Europa · Contemporáneos</div>
+        </div>
+      </div>
+
+      <div class="av av-pur" style="height:10px;"></div>
+
+      <div class="node n-mit">
+        <div class="nt">📊 GAC — Análisis Cuantitativo</div>
+        <div class="nb">MATMCD · Conformal Prediction · MTP</div>
+        <div class="nd">Output: MCE cualitativo — nunca valores numéricos directos (C-07)</div>
+      </div>
+
+      <div class="av av-pur" style="height:10px;"></div>
+
+      <div class="node n-mit">
+        <div class="nt">🔎 GAP Hunting</div>
+        <div class="nb">Contradicciones · Silencios informativos · Anomalías · Dimensiones no cubiertas</div>
+        <div class="nd">Scientist Loop sugiere — nunca actúa solo (C-25)</div>
+      </div>
+
+      <div class="av av-pur" style="height:10px;"></div>
+
+      <div class="node n-mit">
+        <div class="nt">🎨 Hemisferio Creativo</div>
+        <div class="nb">Corre en paralelo. Arte · Filosofía · Música · Cultura</div>
+        <div class="nd">Genera guiones BORRADOR para los personajes divulgativos</div>
+      </div>
+
+      <div class="deposit-label">↘ deposita en AHO</div>
+    </div>
+
+    <!-- ─── AHO — CENTRO ─── -->
+    <div class="col-center">
+      <div class="col-title ct-aho">🪨 AHO — La Piedra</div>
+      <div style="font-size:7.5px; color:#3a2a00; text-align:center; margin-bottom:6px; font-style:italic;">expresión sagrada del temazcal</div>
+
+      <div class="n-aho-center">
+        <div class="glifo">⊕</div>
+        <div class="nt">ARCHIVO HISTÓRICO<br>ONTOLÓGICO</div>
+        <div class="nd">La Piedra sobre la cual se posta todo.<br>Sostiene. Recibe. Preserva. No juzga.</div>
+      </div>
+
+      <div class="av av-gold" style="height:8px;"></div>
+
+      <div class="n-aho-repo">
+        <div class="rt">11 Repositorios Simétricos</div>
+        <div class="repo-item">personajes_historicos</div>
+        <div class="repo-item">historia_universal</div>
+        <div class="repo-item">conocimiento_cientifico</div>
+        <div class="repo-item">infraestructura_mundial</div>
+        <div class="repo-item">redes_poder</div>
+        <div class="repo-item">omisiones_historicas</div>
+        <div class="repo-item">hipotesis_operativas</div>
+        <div class="repo-item">escenarios_posibles</div>
+        <div class="repo-item">perfilamiento_actores</div>
+        <div class="repo-item">archivos_clasificados</div>
+        <div class="repo-item">datos_valores_numericos</div>
+      </div>
+
+      <div class="av av-gold" style="height:8px;"></div>
+
+      <div class="n-aho-dual">
+        <div class="dual-box">
+          <div class="dt">AHO Sistema</div>
+          <div class="dd">Colectivo<br>En memoria</div>
+        </div>
+        <div class="dual-box">
+          <div class="dt">AHO Local</div>
+          <div class="dd">Usuario<br>SQLite · C-20</div>
+        </div>
+      </div>
+
+      <div class="av av-gold" style="height:8px;"></div>
+
+      <div class="n-aho-repo" style="text-align:center;">
+        <div class="rt">Tipos de Memoria</div>
+        <div style="display:flex; justify-content:center; gap:6px; margin-top:3px;">
+          <span class="sub-tag" style="background:#0e0900; color:#806010;">PERMANENTE</span>
+          <span class="sub-tag" style="background:#0e0900; color:#806010;">CÍCLICA</span>
+          <span class="sub-tag" style="background:#0e0900; color:#806010;">EFÍMERA</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ─── SUEÑO — DERECHA ─── -->
+    <div class="col">
+      <div class="col-title ct-sueno">🌙 Sueño — Temictli</div>
+      <div style="font-size:7.5px; color:#0e2540; text-align:center; margin-bottom:5px; font-style:italic;">hacia adentro · Externo → Carpeta → AHO</div>
+
+      <div class="node n-sue">
+        <div class="nt">Nodo Original</div>
+        <div class="nb">Recibe el nodo etiquetado. Recorre el camino hacia adentro, en sentido opuesto al Mitote.</div>
+      </div>
+
+      <div class="av" style="height:10px; background:#0c1e30;"></div>
+
+      <div class="node n-sue">
+        <div class="nt">🌑 Integración Profunda</div>
+        <div class="nb">El nodo se consolida sin análisis consciente. Como el cerebro durante el sueño: ordena sin juzgar.</div>
+        <div class="nd">Temictli — el sueño como estado de integración</div>
+      </div>
+
+      <div class="av" style="height:10px; background:#0c1e30;"></div>
+
+      <div class="node n-sue">
+        <div class="nt">📂 Carpetas Simétricas</div>
+        <div class="nb">11 carpetas idénticas a las del Mitote. Misma estructura — sentido contrario.</div>
+        <div class="nsub">
+          <span class="sub-tag st-sue">PERMANENTE</span>
+          <span class="sub-tag st-sue">CÍCLICA(n)</span>
+          <span class="sub-tag st-sue">EFÍMERA</span>
+        </div>
+      </div>
+
+      <div class="av" style="height:10px; background:#0c1e30;"></div>
+
+      <div class="node n-sue">
+        <div class="nt">🔗 Asociación y Vinculación</div>
+        <div class="nb">El nodo se vincula con nodos existentes en la misma carpeta. Sin interferencia del análisis.</div>
+        <div class="nd">La consolidación es silenciosa — el ruido es del Mitote</div>
+      </div>
+
+      <div class="av" style="height:10px; background:#0c1e30;"></div>
+
+      <div class="node n-sue">
+        <div class="nt">🔒 Hash Criptográfico</div>
+        <div class="nb">Cada nodo recibe verificación criptográfica SHA-256 antes de depositarse en la Piedra.</div>
+        <div class="nd">C-17 · Blindaje de integridad del nodo</div>
+      </div>
+
+      <div class="deposit-label">↙ deposita en AHO</div>
+    </div>
+
+  </div>
+
+  <!-- ══ OMETEOTL ══ -->
+  <div class="av av-pur" style="height:14px; width:1px; margin:0 auto;"></div>
+  <div class="ometeotl-wrap">
+    <div class="n-ometeotl">
+      <div class="ome-glifo">👁️</div>
+      <div>
+        <div class="ome-title">Ometeotl — La Dualidad Suprema</div>
+        <div class="ome-body">
+          Observa todo sin intervenir en el flujo.<br>
+          Ve: Anti-Bias · Sueño · Mitote · AHO · Entrega.<br>
+          Si detecta ruptura de cláusula:<br>
+          pausa el flujo → analiza por qué → avisa al Arquitecto.<br>
+          Solo <strong style="color:#8040b0;">Luis Ernesto Berzunza Díaz</strong> puede reanudar.
+        </div>
+      </div>
+      <div class="ome-repo">
+        <div class="rt">CONOCIMIENTO_DE_LOS_DIOSES</div>
+        <div class="ome-action"><div class="ome-dot observa"></div><span>Observación continua de cada fase</span></div>
+        <div class="ome-action"><div class="ome-dot pausa"></div><span>Pausa el flujo si hay ruptura</span></div>
+        <div class="ome-action"><div class="ome-dot avisa"></div><span>Notifica al Arquitecto</span></div>
+        <div class="ome-action"><div class="ome-dot guarda"></div><span>Guarda todo en repositorio separado</span></div>
+        <div class="ome-action"><div class="ome-dot observa"></div><span>Puede generar análisis propio</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ENTREGA ══ -->
+  <div class="av av-grn" style="height:14px; width:1px; margin:0 auto;"></div>
+  <div class="entrega-wrap">
+    <div class="entrega-title">📤 Entrega — Personajes Divulgativos</div>
+    <div class="personajes-grid">
+      <div class="pj">
+        <div class="pn">Don Silverio</div>
+        <div class="pr">Divulgación general · didáctico</div>
+        <span class="borrador-badge">BORRADOR → Aprobación Arquitecto</span>
+      </div>
+      <div class="pj">
+        <div class="pn">Charly Muñón</div>
+        <div class="pr">Sátira política · irónico</div>
+        <span class="borrador-badge">BORRADOR → Aprobación Arquitecto</span>
+      </div>
+      <div class="pj">
+        <div class="pn">Toribio</div>
+        <div class="pr">Coaching y acción · directo</div>
+        <span class="borrador-badge">BORRADOR → Aprobación Arquitecto</span>
+      </div>
+      <div class="pj">
+        <div class="pn">Yaya</div>
+        <div class="pr">Ciencia y datos · precisa</div>
+        <span class="borrador-badge">BORRADOR → Aprobación Arquitecto</span>
+      </div>
+      <div class="pj">
+        <div class="pn">Solobo</div>
+        <div class="pr">Derecho y justicia · riguroso</div>
+        <span class="borrador-badge">BORRADOR → Aprobación Arquitecto</span>
+      </div>
+      <div class="pj">
+        <div class="pn">La Abuelita</div>
+        <div class="pr">Sabiduría popular · cálida</div>
+        <span class="borrador-badge">BORRADOR → Aprobación Arquitecto</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <div class="footer">
+    OLLIN v5.5 · Luis Ernesto Berzunza Díaz · Ciudad de México · 17 marzo 2026<br>
+    Herramientas: Claude Sonnet 4.6 (Anthropic) · DeepSeek · AHO — el movimiento ya empezó.
+  </div>
+
+</div>
+</body>
+</html>

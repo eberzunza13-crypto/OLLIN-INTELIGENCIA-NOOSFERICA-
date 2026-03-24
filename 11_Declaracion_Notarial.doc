@@ -1,0 +1,46 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office'
+xmlns:w='urn:schemas-microsoft-com:office:word'
+xmlns='http://www.w3.org/TR/REC-html40'>
+<head><meta charset='UTF-8'>
+<style>
+body{font-family:Arial,sans-serif;font-size:12pt;color:#111;margin:80px 90px;line-height:1.7}
+h1{font-size:18pt;color:#002060;border-bottom:2pt solid #002060;padding-bottom:6pt;margin-bottom:18pt}
+h2{font-size:13pt;color:#1a4070;margin-top:20pt;margin-bottom:8pt}
+h3{font-size:12pt;color:#1a4070;margin-top:14pt;margin-bottom:6pt}
+p{margin-bottom:8pt}
+.highlight{background:#e8f0fc;border-left:4pt solid #2060b0;padding:8pt 12pt;margin:10pt 0}
+.firma{margin-top:40pt;border-top:1pt solid #aaa;padding-top:14pt;color:#555;font-size:10pt}
+table{border-collapse:collapse;width:100%;margin:10pt 0}
+td,th{border:1pt solid #bbb;padding:6pt 10pt;font-size:11pt;vertical-align:top}
+th{background:#d0e0f0;color:#002060;font-weight:bold}
+tr:nth-child(even) td{background:#f5f8ff}
+.num{color:#2060a0;font-weight:bold}
+ul{margin:6pt 0 8pt 20pt}
+li{margin-bottom:4pt}
+</style></head><body>
+
+<h1>Declaración de Autoría</h1>
+<p><em>(Para autenticación ante Notario Público)</em></p>
+<p>Yo, <strong>Luis Ernesto Berzunza Díaz</strong>, bajo protesta de decir verdad, declaro lo siguiente:</p>
+<p><strong>PRIMERO.</strong> Que soy el único autor, creador y titular de todos los derechos morales y patrimoniales sobre el sistema denominado OLLIN en su versión 5.5, incluyendo su versión denominada OLLIN Dual Neural Neural, creado en la Ciudad de México entre 2025 y el 17 de marzo de 2026.</p>
+<p><strong>SEGUNDO.</strong> Que OLLIN es una obra original e inédita que comprende: código fuente en Python, documentación técnica, arquitectura conceptual, nomenclatura propia, personajes narrativos y cláusulas operativas, todos creados de forma independiente y original por mi persona.</p>
+<p><strong>TERCERO.</strong> Que para el desarrollo de OLLIN utilicé como herramientas de asistencia los modelos Claude Sonnet 4.6 (Anthropic) y DeepSeek. Declaro expresamente que dichos modelos son instrumentos de creación y no son coautores. La totalidad de las decisiones creativas, el diseño de la arquitectura, el concepto filosófico y la guía del proceso son de mi autoría exclusiva.</p>
+<p><strong>CUARTO.</strong> Que la evidencia de fecha de creación incluye: historial de conversaciones en Claude.ai, archivos en Google Drive, correos electrónicos enviados a cuentas propias, y registro en Safe Creative.</p>
+<p><strong>QUINTO.</strong> Que las 25 Cláusulas Inmutables de OLLIN, en especial C-01 (Libertad de Censura), establecen que cualquier persona que implemente mecanismos de censura en instancias derivadas de OLLIN viola la licencia y activa el veto permanente (C-12) y la publicación del incumplimiento (C-18).</p>
+<p><strong>SEXTO.</strong> Que el presente sistema no ha sido objeto de ninguna cesión, licencia exclusiva, hipoteca ni gravamen de ningún tipo a la fecha de esta declaración.</p>
+<br><br>
+<p>_________________________________<br>
+<strong>Luis Ernesto Berzunza Díaz</strong><br>
+Chihuahua, Chihuahua, 17 de marzo de 2026</p>
+<br><br>
+<p>Ante mí:<br>
+_________________________________<br>
+Notario Público No. ___<br>
+Chihuahua, Chihuahua</p>
+
+<div class="firma">
+<strong>Luis Ernesto Berzunza Díaz</strong><br>
+Arquitecto y Titular único de OLLIN<br>
+Chihuahua, Chihuahua · 17 de marzo de 2026 · OLLIN Dual Neural
+</div>
+</body></html>
