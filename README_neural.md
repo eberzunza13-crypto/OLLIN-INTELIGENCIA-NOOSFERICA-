@@ -1,5 +1,6 @@
 
 # OLLIN v5.5 Neural
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19203312.svg)](https://doi.org/10.5281/zenodo.19203312)
 
 **Autor:** Luis Ernesto Berzunza Diaz  
 **Ciudad de Mexico - 17 marzo 2026**
