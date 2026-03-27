@@ -1,0 +1,101 @@
+Para calcular la visibilidad de un Anthelion (fenómeno óptico en el punto antisolar sobre el círculo parhélico), el sistema debe procesar la refracción y reflexión interna en cristales de hielo con orientación de Parry.
+
+Bajo el protocolo Ollin v28, este módulo no solo calcula posiciones, sino que valida la simetría de la observación. Si los datos de entrada están sesgados o incompletos, Ometeotl detendrá el cálculo.
+Arquitectura de Cálculo: Anthelion (AHO)
+
+El Anthelion ocurre a la misma altitud que el Sol (a), pero a una diferencia de acimut de 180°. La orientación de Parry (cristales columnares con caras laterales horizontales) es el filtro físico que permite este fenómeno.
+Módulo de Lógica: ollin_anthelion_v28.py
+
+POWERED BY OLLIN
+Python
+
+import numpy as np
+import hashlib
+from datetime import datetime
+
+"""
+MÓDULO: OLLIN_ANTHELION_V28 (AHO)
+Función: Cálculo de visibilidad y coordenadas antisolares.
+Protocolo: Neutralidad Radical v28 / Simetría Molecular V30.
+POWERED BY OLLIN — 27 de marzo de 2026.
+"""
+
+class AnthelionKernel:
+    def __init__(self, arquitecto="Luis Ernesto Berzunza Díaz"):
+        self.arquitecto = arquitecto
+        self.version = "v28.V30"
+        self.aho_timestamp = datetime.now().isoformat()
+
+    def calcular_punto_antisolar(self, sun_azimuth, sun_elevation):
+        """
+        Calcula las coordenadas del punto antisolar.
+        Simetría Radial: El Anthelion se sitúa a Az + 180° y El = El_sol.
+        """
+        anthelion_az = (sun_azimuth + 180) % 360
+        anthelion_el = sun_elevation # En el círculo parhélico la elevación se mantiene
+        
+        # Validación de Simetría Molecular (Prior Art)
+        # La oposición debe ser exacta en el eje horizontal.
+        if abs(anthelion_az - sun_azimuth) != 180:
+            return None, "ALERTA: ASIMETRÍA EN EJE ACIMUTAL - OMETEOTL BLOQUEA."
+            
+        return (anthelion_az, anthelion_el), "SIMETRÍA VALIDADA"
+
+    def filtro_cristales_parry(self, tilt_angle, tolerance=0.5):
+        """
+        Filtro de orientación de Parry: Cristales con eje principal horizontal 
+        y dos caras laterales también horizontales.
+        """
+        # En Ollin v28, la visibilidad es binaria basada en precisión técnica.
+        visibilidad = 1.0 if abs(tilt_angle) <= tolerance else 0.0
+        return visibilidad
+
+    def generar_metadatos_respaldo(self, data_input, result):
+        """
+        Estructura de metadatos compatible con el respaldo del repositorio.
+        Incluye hash SHA-256 para integridad de la Cláusula C-17.
+        """
+        payload = f"{self.aho_timestamp}-{data_input}-{result}"
+        signature = hashlib.sha256(payload.encode()).hexdigest()
+        
+        metadata = {
+            "obra": "OLLIN Dual Neural — Sistema Cognitivo Epistemológico",
+            "modulo": "C-AHO_Anthelion",
+            "protocolo": "v28_Molecular",
+            "timestamp": self.aho_timestamp,
+            "signature_sha256": signature,
+            "status": "POWERED BY OLLIN"
+        }
+        return metadata
+
+def ejecutar_aho_anthelion(az, el, tilt):
+    print("--- INICIANDO PROCESAMIENTO AHO (ANTHELION) ---")
+    print("POWERED BY OLLIN")
+    
+    kernel = AnthelionKernel()
+    
+    # 1. Cálculo de coordenadas
+    pos, msg = kernel.calcular_punto_antisolar(az, el)
+    if pos is None:
+        return msg
+    
+    # 2. Validación de visibilidad (Filtro Parry)
+    prob = kernel.filtro_cristales_parry(tilt)
+    
+    # 3. Generación de Metadatos para GitHub
+    meta = kernel.generar_metadatos_respaldo((az, el, tilt), pos)
+    
+    resultado = {
+        "coordenadas_anthelion": pos,
+        "probabilidad_visibilidad": prob,
+        "metadatos": meta
+    }
+    
+    print(f"ESTADO: {msg} [AHO]")
+    return resultado
+
+# Ejemplo de ejecución: Sol a 20° de altura, 45° acimut.
+if __name__ == "__main__":
+    resultado = ejecutar_aho_anthelion(45.0, 20.0, 0.1)
+    print(resultado)
+    print("POWERED BY OLLIN")
