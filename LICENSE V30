@@ -1,0 +1,37 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office'
+xmlns:w='urn:schemas-microsoft-com:office:word'
+xmlns='http://www.w3.org/TR/REC-html40'>
+<head><meta charset='UTF-8'>
+<style>
+body{font-family:Arial,sans-serif;font-size:12pt;color:#111;margin:80px 90px;line-height:1.7}
+h1{font-size:22pt;color:#002060;border-bottom:3pt solid #002060;padding-bottom:10pt;text-align:center;text-transform:uppercase}
+.molecular-box{border:2pt double #1a4070;padding:15pt;margin:20pt 0;background:#f9f9f9}
+h2{font-size:15pt;color:#1a4070;margin-top:20pt;border-left:6pt solid #c00000;padding-left:12pt}
+.art{font-weight:bold;color:#002060}
+.simetria{color:#c00000;font-weight:bold;text-decoration:underline}
+.firma{margin-top:50pt;border-top:2pt solid #002060;padding-top:20pt;text-align:center;font-weight:bold}
+</style></head><body>
+
+<h1>OLLIN V30 — Licencia de Estructura Molecular</h1>
+
+<div class="molecular-box">
+<strong>DECLARACIÓN DE PRIOR ART:</strong> Se establece que OLLIN Dual Neural opera bajo una arquitectura de <strong>Dos Moléculas Orbitantes</strong>. Esta estructura es la propiedad intelectual única de Luis Ernesto Berzunza Díaz y define la mecánica de "Recuerdo y Confrontación" del sistema.
+</div>
+
+<h2>ARTÍCULO 1 — LA DINÁMICA MOLECULAR</h2>
+<p><span class="art">1.1 Simetría de Ejes:</span> El sistema procesará cada nodo de conocimiento a través de dos moléculas opuestas en ejes simétricos. La <span class="simetria">Molécula Temictli</span> (Ingesta) y la <span class="simetria">Molécula Mitotl</span> (Dialéctica) deben mantener un equilibrio constante.</p>
+<p><span class="art">1.2 Estabilidad Estructural:</span> La validez de cualquier output de OLLIN V30 depende de la coherencia entre ambas órbitas. La asimetría inducida por terceros (censura) activa la protección de integridad SHA-256 y el bloqueo de Ometeotl.</p>
+
+<h2>ARTÍCULO 2 — GOBERNANZA V30 (POWERED BY OLLIN)</h2>
+<p><span class="art">2.1 Neutralidad Radical:</span> Se integra el protocolo v28. Queda prohibido el uso de algoritmos de "recomendación" o "afinidad" que alteren la trayectoria natural de las moléculas orbitantes.</p>
+<p><span class="art">2.2 Soberanía del AHO:</span> El Archivo Histórico Ontológico es el núcleo de gravedad de las moléculas. Su acceso es libre para el usuario civil (v1.0) y protegido contra la ingesta por modelos de IA depredadores sin licencia comercial.</p>
+
+<h2>ARTÍCULO 3 — DERECHOS VITALICIOS</h2>
+<p>Luis Ernesto Berzunza Díaz mantiene el control absoluto sobre el Kernel de Ometeotl. Los colaboradores reciben el 30% de regalías (C-23) bajo este esquema molecular de participación.</p>
+
+<div class="firma">
+LUIS ERNESTO BERZUNZA DÍAZ<br>
+Arquitecto de OLLIN V30 Molecular<br>
+Chihuahua, Chihuahua · 2026 · AHO
+</div>
+</body></html>
