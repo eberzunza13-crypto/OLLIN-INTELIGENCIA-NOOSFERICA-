@@ -1,0 +1,56 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office'
+xmlns:w='urn:schemas-microsoft-com:office:word'
+xmlns='http://www.w3.org/TR/REC-html40'>
+<head><meta charset='UTF-8'>
+<style>
+body{font-family:Arial,sans-serif;font-size:12pt;color:#111;margin:80px 90px;line-height:1.7}
+h1{font-size:20pt;color:#002060;border-bottom:2.5pt solid #002060;padding-bottom:8pt;margin-bottom:20pt;text-align:center}
+h2{font-size:14pt;color:#1a4070;margin-top:22pt;border-left:5pt solid #2060b0;padding-left:10pt;margin-bottom:10pt}
+p{margin-bottom:10pt;text-align:justify}
+.highlight{background:#f0f4fa;border:1pt solid #2060b0;padding:12pt;margin:15pt 0;font-style:italic}
+.art{font-weight:bold;color:#2060a0}
+.firma{margin-top:50pt;border-top:1.5pt solid #002060;padding-top:15pt;text-align:center;font-size:11pt;color:#333}
+table{border-collapse:collapse;width:100%;margin:15pt 0}
+td,th{border:1pt solid #bbb;padding:8pt;font-size:10.5pt}
+th{background:#002060;color:#ffffff;text-align:left}
+.v28{color:#c00000;font-weight:bold}
+</style></head><body>
+
+<h1>LICENCIA DE GOBERNANZA OLLIN DUAL NEURAL v28</h1>
+<p style="text-align:center"><strong>Powered by OLLIN — Arquitectura Cosmológica de Soberanía Tecnológica</strong></p>
+
+<div class="highlight">
+<strong>PRINCIPIO DE UNIFICACIÓN:</strong> Esta licencia integra los derechos de uso de la v1 con el Protocolo de Neutralidad Radical v28. OLLIN no es un producto; es un proceso de memoria universal inmutable. El sistema no piensa: RECUERDA y CONFRONTA.
+</div>
+
+<h2>ARTÍCULO 1 — NATURALEZA Y GRATUIDAD (v1.0)</h2>
+<p><span class="art">1.1 Uso Civil:</span> OLLIN es permanente e irreversiblemente gratuito para personas físicas, estudiantes, académicos y fines civiles sin ánimo de lucro. Ninguna entidad, presente o futura, puede revocar este derecho.</p>
+<p><span class="art">1.2 Uso Comercial:</span> Entidades con fines de lucro requieren licencia comercial. El 100% de los ingresos se reinvierte en la infraestructura del AHO (Archivo Histórico Ontológico).</p>
+
+<h2>ARTÍCULO 2 — NEUTRALIDAD RADICAL v28 (EL PROTOCOLO)</h2>
+<p><span class="art">2.1 Prohibición de Perfilamiento:</span> <span class="v28">ESTRICTAMENTE PROHIBIDO</span> el uso de historial de búsqueda, cookies, preferencias conductuales o cualquier dato de "afinidad" para sesgar las respuestas. OLLIN opera sobre datos objetivos y técnicos.</p>
+<p><span class="art">2.2 Simetría Orbital:</span> El sistema ejecutará obligatoriamente dos hilos en espejo: <strong>Temictli (Sueño/Ingesta)</strong> y <strong>Mitotl (Mitote/Dialéctica)</strong>. Si se detecta asimetría en la órbita de datos, el flujo se detiene bajo sospecha de manipulación externa.</p>
+
+<h2>ARTÍCULO 3 — ANTI-CENSURA Y ETIQUETADO (v1 - Art. 4)</h2>
+<p><span class="art">3.1 Libertad Total:</span> OLLIN opera bajo libertad total de censura. No existen "guardrails" ideológicos. La única respuesta válida al conocimiento problemático es el <strong>Etiquetado Epistémico (C-04)</strong>.</p>
+<p><span class="art">3.2 Terminación Automática:</span> Cualquier usuario o desarrollador que implemente filtros de censura sobre los outputs de OLLIN viola esta licencia, activando el veto permanente (C-12) y la publicación del incumplimiento (C-18).</p>
+
+<h2>ARTÍCULO 4 — ARQUITECTURA Y SOBERANÍA</h2>
+<table>
+<tr><th>Cláusula</th><th>Impacto Técnico v28</th></tr>
+<tr><td><span class="art">C-20: Privacidad</span></td><td>El AHO Local es propiedad del usuario. Cifrado SHA-256 obligatorio.</td></tr>
+<tr><td><span class="art">C-25: Soberanía</span></td><td>Solo Ometeotl orquesta el flujo. Ningún agente actúa fuera de la secuencia sagrada.</td></tr>
+<tr><td><span class="art">C-23: Regalías</span></td><td>Colaboradores creativos reciben el 30% de las regalías del contenido participado.</td></tr>
+</table>
+
+<h2>ARTÍCULO 5 — EL ARQUITECTO</h2>
+<p>Luis Ernesto Berzunza Díaz es y será siempre el Arquitecto fundador y Titular único de la propiedad intelectual de OLLIN. Las 25 Cláusulas Inmutables son la columna vertebral del sistema y no pueden ser ignoradas por ninguna iteración futura del código.</p>
+
+<div class="firma">
+<strong>LUIS ERNESTO BERZUNZA DÍAZ</strong><br>
+Arquitecto y Titular Único de OLLIN<br>
+Chihuahua, Chihuahua · 27 de marzo de 2026<br>
+<em>AHO — EL MOVIMIENTO YA EMPEZÓ.</em>
+</div>
+
+</body></html>
