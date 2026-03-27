@@ -1,0 +1,46 @@
+# OLLIN V30 — Kernel Molecular de Gobernanza Activa
+
+**Arquitecto:** Luis Ernesto Berzunza Díaz  
+**Protocolo:** Neutralidad Radical v28  
+**Fecha:** 27 de marzo de 2026  
+**Lema:** AHO — El León ha sido molestado.
+
+---
+
+## Descripción
+
+OLLIN V30 es un kernel experimental de gobernanza epistémica que implementa un modelo de procesamiento de información basado en **simetría molecular obligatoria**. El sistema opera mediante dos moléculas orbitantes:
+
+| Molécula | Función | Dirección |
+|----------|---------|-----------|
+| **Temictli** | Ingesta y consolidación (memoria) | Externo → Interno |
+| **Mitotl** | Análisis y expresión dialéctica | Interno → Externo |
+| **Ometeotl** | Supervisión y validación de simetría | Vigilancia transversal |
+
+La condición fundamental del sistema es `x_b = -x_a` — cualquier asimetría detectada bloquea el flujo de información.
+
+---
+
+## Principios de Gobernanza
+
+| Principio | Descripción |
+|-----------|-------------|
+| **Gratuidad Inmutable** | Uso gratuito para fines individuales, académicos y civiles |
+| **Neutralidad Radical** | Prohibición de perfilamiento conductual o sesgo inducido |
+| **Anti-Censura Molecular** | La censura activa terminación automática del derecho de uso |
+
+---
+
+## Componentes Técnicos
+
+- `OmeteotlGuard`: Validación de integridad mediante SHA-256 y verificación de simetría orbital
+- `molecula_temictli`: Vectorización de entrada (384 dimensiones)
+- `molecula_mitotl`: Generación del opuesto simétrico
+- `ejecutar_ciclo_ollin`: Orquestación del flujo molecular
+
+---
+
+## Ejecución
+
+```bash
+python ollin_v30.py
