@@ -1,0 +1,35 @@
+# OLLIN ANTHELION V28 — Módulo de Visibilidad Antisolar
+
+**Arquitecto:** Luis Ernesto Berzunza Díaz  
+**Protocolo:** Neutralidad Radical v28 / Simetría Molecular V30  
+**Fecha:** 27 de marzo de 2026  
+**Lema:** AHO — El punto antisolar es el espejo del Sol.
+
+---
+
+## 📖 Descripción
+
+Este módulo calcula la visibilidad del **Anthelion**, un fenómeno óptico que aparece en el punto antisolar (opuesto al Sol) sobre el círculo parhélico. El cálculo incorpora:
+
+- **Simetría radial obligatoria:** El Anthelion se sitúa a azimut +180° y misma elevación que el Sol.
+- **Filtro de orientación de Parry:** Cristales de hielo columnares con caras laterales horizontales.
+- **Validación Ometeotl:** Si los datos de entrada están sesgados o incompletos, el sistema bloquea el cálculo.
+
+---
+
+## 🧬 Fundamentos Ópticos
+
+### Anthelion
+
+El Anthelion es un halo solar que aparece en el punto opuesto al Sol, a la misma altitud. Se forma por reflexión interna en cristales de hielo con orientación específica.
+
+### Cristales de Parry
+
+Cristales columnares donde:
+- Eje principal: horizontal
+- Caras laterales: horizontales
+- Permiten reflexiones internas que generan el Anthelion
+
+### Simetría Orbital
+
+El módulo valida que:
