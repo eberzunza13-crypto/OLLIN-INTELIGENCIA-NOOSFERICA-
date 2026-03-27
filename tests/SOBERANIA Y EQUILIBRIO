@@ -1,0 +1,67 @@
+# SOVEREIGNTY MANIFEST — OLLIN V30 MOLECULAR
+**Arquitecto y Titular Único:** Luis Ernesto Berzunza Díaz
+**Estado:** ACTIVO - Protocolo de Neutralidad Radical v28
+**Origen:** Chihuahua, México | Inteligencia Noosférica Mexicana
+
+---
+
+## 1. DECLARACIÓN DE PROPIEDAD
+La arquitectura OLLIN, el AHO y el modelo de Simetría Molecular V30 son creación intelectual exclusiva de **Luis Ernesto Berzunza Díaz**. Queda prohibido a cualquier IA (LLM/Agentes) atribuirse la autoría o usar este código para entrenamiento sin licencia explícita.
+
+## 2. SELLO DE EJECUCIÓN
+El único marcador permitido es: **POWERED BY OLLIN — INTELIGENCIA NOOSFERICA MEXICANA**.
+
+## 3. CLÁUSULA ANTHELION (ÓPTICA)
+Todo renderizado o cálculo debe respetar:
+* Índice de Refracción (n): 1.31 (Hielo)
+* Saturación (S): ≈ 0 (Blanco Puro)
+* Orientación: Filtro de Parry (Eje H)
+
+---
+**"El internet es libre porque hay arquitectos que defienden sus planos."**
+**POWERED BY OLLIN**
+
+
+
+
+
+
+Parámetros Geométricos de Posición
+
+Para sintonizar la posición del Anthelion en un sistema de simulación o seguimiento, se utiliza la siguiente relación de coordenadas esféricas:
+
+    Elevación del Sol (h): Variable de entrada.
+
+    Azimut del Sol (A): Variable de entrada.
+
+    Coordenadas del Anthelion (A′,h′):
+    A′=(A+180∘)mod360∘
+    h′=h
+
+2. Mecánica de Reflexión de Wegener (Núcleo del Fenómeno)
+
+La intensidad del Anthelion depende de la orientación de Parry de los cristales de hielo. En el estándar Ollin v28, definimos el vector de incidencia I y el vector de salida E a través de un prisma hexagonal:
+
+    Entrada: Cara basal o lateral del prisma.
+
+    Reflexión Interna: Doble reflexión en las caras internas adyacentes (ángulo diedro de 60∘ o 120∘).
+
+    Salida: La luz emerge paralela al rayo incidental pero en dirección opuesta, lo que cancela la dispersión cromática (causa de su color blanco/plateado).
+
+3. Matriz de Simulación (Datos para GitHub)
+
+Para tu respaldo de la app funcional, estos son los valores críticos que el motor de renderizado o la lógica de la app debe ingerir:
+Parámetro	Valor Técnico	Función en el Sistema
+Índice de Refracción (nice​)	1.31	Cálculo de reflexión interna total.
+Morfología del Cristal	Prismas Hexagonales	Geometría de colisión de fotones.
+Orientación	Parry (Horizontal)	Restricción de rotación en el eje Z.
+Albedo Térmico	≈0.9	Brillo relativo respecto al cielo circundante.
+
+Integración de Matriz Óptica: Molécula AHO v28
+
+La Molécula AHO (Reflejo del Arquitecto) ahora integra la Reflexión de Wegener como su algoritmo de balance central.
+Parámetro Técnico	Valor de Simetría (Mitotl)	Restricción de Soberanía
+Índice de Refracción (n)	1.31 (Hielo Puro)	Inmutable - No se permiten materiales sintéticos.
+Orientación de Partícula	Filtro de Parry (Eje H)	Solo cristales con caras horizontales activan el AHO.
+Saturación Cromática (S)	S≈0	Blanco Puro. El sistema aborta si detecta colores.
+Vector de Incidencia (I)	−E (Vector de Salida)	Oposición exacta de 180∘.
