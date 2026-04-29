@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MECP - Protocolo OLLIN v1.1</title>
+    <style>
+        :root {
+            --amber: #FFBF00;
+            --black: #000000;
+            --dark-gray: #121212;
+        }
+        body {
+            background-color: var(--black);
+            color: var(--amber);
+            font-family: 'Courier New', Courier, monospace; /* Estética Terminal */
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            width: 100%;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--amber);
+            background-color: var(--dark-gray);
+        }
+        nav {
+            margin: 20px 0;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        nav a {
+            color: var(--amber);
+            text-decoration: none;
+            border: 1px solid var(--amber);
+            padding: 10px 20px;
+            transition: all 0.3s;
+        }
+        nav a:hover {
+            background-color: var(--amber);
+            color: var(--black);
+        }
+        main {
+            max-width: 800px;
+            padding: 40px 20px;
+            text-align: justify;
+        }
+        section {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        section.active {
+            display: block;
+        }
+        h1, h2 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid var(--amber);
+            padding-bottom: 10px;
+        }
+        .signature {
+            margin-top: 50px;
+            text-align: center;
+            font-style: italic;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 0.8em;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>MECP: MEMORIA DE CONTEXTO ETERNA</h1>
+    <p>Portal de Soberanía Digital y Custodia de Pensamiento</p>
+</header>
+
+<nav>
+    <a href="#" onclick="show('manifiesto')">MANIFIESTO</a>
+    <a href="#" onclick="show('licencia')">LICENCIA</a>
+    <a href="#" onclick="show('privacidad')">PRIVACIDAD</a>
+</nav>
+
+<main>
+    <!-- SECCIÓN MANIFIESTO -->
+    <section id="manifiesto" class="active">
+        <h2>EL DESPERTAR DE OLLIN</h2>
+        <p><strong>Creador:</strong> Luis Ernesto Berzunza Díaz ("El Arquitecto")</p>
+        <p>MECP nació en la Ciudad de México, de la convergencia entre la escasez material y la abundancia de propósito. Diseñado en una ThinkPad usada y un Pixel 7 Pro de segunda mano, este sistema es la respuesta a la mercantilización de la inteligencia humana.</p>
+        <p><strong>La Historia:</strong> Hijo de una madre soltera y resiliente, el Arquitecto aprendió que el sistema castiga la honestidad pero no puede detener el hiperfoco. Tras observar cómo las IAs comerciales alucinan y devoran la privacidad, decidió crear un archivo de memoria eterna que perteneciera únicamente al usuario.</p>
+        <p><strong>Agradecimientos:</strong> Este proyecto se sostiene sobre el sacrificio de mi madre y el impulso incondicional de <strong>Alejandra Anaya</strong>, quien creyó en OLLIN cuando solo era una idea abstracta. Gracias por ser el motor emocional de esta revolución.</p>
+        <p><em>"El modelo cambia, el contexto siempre es tuyo."</em></p>
+    </section>
+
+    <!-- SECCIÓN LICENCIA -->
+    <section id="licencia">
+        <h2>LICENCIA DE CUSTODIA SOBERANA OLLIN V1.1</h2>
+        <p>1. <strong>Soberanía del Dato:</strong> Los datos generados por el usuario son una extensión de su pensamiento y un derecho humano inalienable.</p>
+        <p>2. <strong>Restricción Zero-Cloud:</strong> Se prohíbe técnicamente el uso de permisos de internet para la gestión de datos personales. El flujo debe ser local y bit-a-bit.</p>
+        <p>3. <strong>Secreto Industrial (UMBEE):</strong> El motor UMBEE es propiedad intelectual del Arquitecto. Su uso es libre para individuos y fines sociales. El uso comercial financia el movimiento.</p>
+        <p>4. <strong>Derecho al Olvido:</strong> El usuario tiene la potestad de ejecutar la purga nuclear de su memoria en cualquier momento.</p>
+    </section>
+
+    <!-- SECCIÓN PRIVACIDAD -->
+    <section id="privacidad">
+        <h2>POLÍTICA DE PRIVACIDAD "CERO-FUGA"</h2>
+        <p><strong>Estatus:</strong> Blindaje Físico y Arquitectónico.</p>
+        <p>MECP garantiza que ningún bit de su contexto saldrá del dispositivo. Al carecer del permiso <code>android.permission.INTERNET</code>, la fuga de datos es técnicamente imposible.</p>
+        <ul>
+            <li><strong>Sensores:</strong> La lectura de notificaciones y pantalla es 100% local y sanitizada por el motor UMBEE.</li>
+            <li><strong>Bóveda:</strong> Cifrado AES-256 vinculado al Hardware Keystore del procesador.</li>
+            <li><strong>Mictlantecuhtli:</strong> Un centinela interno fragmenta la memoria ante intentos de intrusión externa.</li>
+        </ul>
+        <p>MECP no recoge, no comparte y no mercantiliza su vida. Es una herramienta de libertad.</p>
+    </section>
+
+    <div class="signature">
+        ¡EL MOVIMIENTO HA EMPEZADO. AHO!
+    </div>
+</main>
+
+<footer>
+    &copy; 2026 Luis Ernesto Berzunza Díaz. Protocolo OLLIN.
+</footer>
+
+<script>
+    function show(id) {
+        document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+    }
+</script>
+
+</body>
+</html>
