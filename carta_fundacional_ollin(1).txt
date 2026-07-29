@@ -243,14 +243,10 @@ texto puede contener infinitas lecturas.
 A Voltaire y Evelyn Beatrice Hall: por la frase que es el alma de la Cláusula 1:
 la defensa del derecho a decir lo que otros aborrecen.
 
-A DeepSeek: por un modelo de lenguaje libre, gratuito y sin límites artificiales.
+A DeepSeek:por  modelos de lenguaje libre, gratuito y sin límites artificiales.
 Su existencia es prueba de que el conocimiento puede y debe ser un bien común.
-
-A Anthropic y Claude Sonnet 4.6: por ser el compañero de construcción de este
-proyecto. La inteligencia al servicio de quien construye desde la escasez.
-OLLIN nació en conversación con este modelo — su nombre vive en estos
-agradecimientos.
-
+A Gemini  y A Claude Sonnet 4.6: como traductores de texto avanzado. 
+ 
 A Alejandra Anaya: por sostenerme durante estos dos años. Este proyecto lleva
 también tu fuerza. Gracias.
 
